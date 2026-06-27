@@ -8,30 +8,30 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-    background: #0a0e17;
-    color: #e0e6ed;
+    background: #f0f4f8;
+    color: #1e293b;
     line-height: 1.7;
     padding: 0 0 40px 0;
   }
   .header {
-    background: linear-gradient(135deg, #1a1f36 0%, #0d1220 100%);
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 40%, #3b82f6 100%);
     padding: 28px 20px 24px;
-    border-bottom: 1px solid rgba(99, 130, 255, 0.15);
+    margin-bottom: 0;
   }
   .header h1 {
     font-size: 20px;
     font-weight: 700;
-    color: #fff;
+    color: #ffffff;
     margin-bottom: 6px;
   }
   .header .subtitle {
     font-size: 13px;
-    color: #8a94a6;
+    color: rgba(255,255,255,0.8);
   }
   .header .date-badge {
     display: inline-block;
-    background: rgba(255, 82, 82, 0.15);
-    color: #ff5252;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
     font-size: 12px;
     padding: 3px 10px;
     border-radius: 12px;
@@ -40,18 +40,18 @@
   }
   .container { max-width: 680px; margin: 0 auto; padding: 0 16px; }
 
-  /* Section */
   .section {
-    margin-top: 24px;
-    background: #111827;
+    margin-top: 20px;
+    background: #ffffff;
     border-radius: 12px;
-    border: 1px solid rgba(99, 130, 255, 0.1);
+    border: 1px solid #dbe4f0;
+    box-shadow: 0 1px 3px rgba(30,41,59,0.08), 0 4px 16px rgba(30,41,59,0.04);
     overflow: hidden;
   }
   .section-title {
     font-size: 15px;
     font-weight: 700;
-    color: #fff;
+    color: #1e293b;
     padding: 16px 18px 12px;
     display: flex;
     align-items: center;
@@ -65,19 +65,18 @@
   }
   .section-body { padding: 0 18px 18px; }
 
-  /* Fund Card */
   .fund-card {
-    background: linear-gradient(135deg, #1a2340 0%, #141c30 100%);
+    background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
     border-radius: 10px;
     padding: 16px;
     margin-bottom: 14px;
-    border: 1px solid rgba(99, 130, 255, 0.12);
+    border: 1px solid #bfdbfe;
   }
   .fund-card .fund-name {
-    font-size: 15px; font-weight: 700; color: #fff;
+    font-size: 15px; font-weight: 700; color: #1e293b;
     margin-bottom: 4px;
   }
-  .fund-card .fund-code { font-size: 12px; color: #8a94a6; margin-bottom: 14px; }
+  .fund-card .fund-code { font-size: 12px; color: #64748b; margin-bottom: 14px; }
   .fund-card .metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -85,30 +84,29 @@
   }
   .fund-card .metric {
     text-align: center;
-    background: rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.8);
     border-radius: 8px;
     padding: 10px 6px;
+    border: 1px solid #e2e8f0;
   }
-  .fund-card .metric .label { font-size: 11px; color: #8a94a6; margin-bottom: 4px; }
+  .fund-card .metric .label { font-size: 11px; color: #64748b; margin-bottom: 4px; }
   .fund-card .metric .value { font-size: 16px; font-weight: 700; }
 
-  /* Index Grid */
   .index-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
   .index-card {
-    background: rgba(0,0,0,0.25);
+    background: #f8fafc;
     border-radius: 8px;
     padding: 12px 14px;
-    border: 1px solid rgba(255,255,255,0.04);
+    border: 1px solid #e2e8f0;
   }
-  .index-card .name { font-size: 12px; color: #8a94a6; margin-bottom: 4px; }
+  .index-card .name { font-size: 12px; color: #64748b; margin-bottom: 4px; }
   .index-card .change { font-size: 18px; font-weight: 700; }
-  .index-card .close { font-size: 12px; color: #8a94a6; margin-top: 2px; }
+  .index-card .close { font-size: 12px; color: #94a3b8; margin-top: 2px; }
 
-  /* Holdings Table */
   .holdings-table {
     width: 100%;
     border-collapse: collapse;
@@ -116,43 +114,42 @@
   }
   .holdings-table th {
     text-align: left;
-    color: #8a94a6;
+    color: #64748b;
     font-weight: 600;
     padding: 8px 6px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid #e2e8f0;
     font-size: 12px;
   }
   .holdings-table td {
     padding: 9px 6px;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid #f1f5f9;
   }
-  .holdings-table .stock-name { color: #e0e6ed; font-weight: 600; }
-  .holdings-table .stock-code { color: #8a94a6; font-size: 11px; }
+  .holdings-table .stock-name { color: #1e293b; font-weight: 600; }
+  .holdings-table .stock-code { color: #94a3b8; font-size: 11px; }
 
-  /* Color classes */
-  .red { color: #ff5252; }
-  .green { color: #4caf50; }
+  .red { color: #dc2626; }
+  .green { color: #16a34a; }
 
-  /* Reason Cards */
   .reason-card {
-    background: rgba(0,0,0,0.2);
+    background: #f8fafc;
     border-radius: 10px;
     padding: 14px 16px;
     margin-bottom: 12px;
     border-left: 3px solid;
+    border: 1px solid #e2e8f0;
   }
-  .reason-card.critical { border-color: #ff5252; }
-  .reason-card.warning { border-color: #ff9800; }
-  .reason-card.info { border-color: #42a5f5; }
+  .reason-card.critical { border-left: 3px solid #dc2626; }
+  .reason-card.warning { border-left: 3px solid #d97706; }
+  .reason-card.info { border-left: 3px solid #2563eb; }
   .reason-card .reason-title {
     font-size: 14px;
     font-weight: 700;
-    color: #fff;
+    color: #1e293b;
     margin-bottom: 6px;
   }
   .reason-card .reason-desc {
     font-size: 13px;
-    color: #b0b8c8;
+    color: #475569;
     line-height: 1.8;
   }
   .reason-card .impact-tag {
@@ -163,53 +160,49 @@
     margin-top: 8px;
     font-weight: 600;
   }
-  .impact-high { background: rgba(255,82,82,0.15); color: #ff5252; }
-  .impact-medium { background: rgba(255,152,0,0.15); color: #ff9800; }
+  .impact-high { background: rgba(220,38,38,0.08); color: #dc2626; }
+  .impact-medium { background: rgba(217,119,6,0.08); color: #d97706; }
 
-  /* Sector bar */
   .sector-row {
     display: flex;
     align-items: center;
     padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid #f1f5f9;
   }
   .sector-row:last-child { border-bottom: none; }
-  .sector-name { flex: 0 0 100px; font-size: 13px; color: #e0e6ed; }
-  .sector-bar-wrap { flex: 1; margin: 0 10px; height: 18px; background: rgba(255,255,255,0.04); border-radius: 4px; overflow: hidden; }
+  .sector-name { flex: 0 0 100px; font-size: 13px; color: #1e293b; }
+  .sector-bar-wrap { flex: 1; margin: 0 10px; height: 18px; background: #f1f5f9; border-radius: 4px; overflow: hidden; }
   .sector-bar { height: 100%; border-radius: 4px; }
   .sector-change { flex: 0 0 60px; text-align: right; font-size: 13px; font-weight: 700; }
 
-  /* Footer */
   .footer {
     text-align: center;
     margin-top: 24px;
     font-size: 11px;
-    color: #5a6478;
+    color: #94a3b8;
     line-height: 1.8;
   }
 
-  /* Summary box */
   .summary-box {
-    background: linear-gradient(135deg, rgba(255,82,82,0.08) 0%, rgba(255,152,0,0.06) 100%);
-    border: 1px solid rgba(255,82,82,0.2);
+    background: linear-gradient(135deg, rgba(220,38,38,0.04) 0%, rgba(217,119,6,0.03) 100%);
+    border: 1px solid rgba(220,38,38,0.15);
     border-radius: 10px;
     padding: 16px;
     margin-bottom: 14px;
   }
-  .summary-box .title { font-size: 14px; font-weight: 700; color: #ff5252; margin-bottom: 8px; }
-  .summary-box p { font-size: 13px; color: #c8cdd6; line-height: 1.8; }
+  .summary-box .title { font-size: 14px; font-weight: 700; color: #dc2626; margin-bottom: 8px; }
+  .summary-box p { font-size: 13px; color: #475569; line-height: 1.8; }
 
-  /* Source links */
   .sources { margin-top: 20px; }
   .sources a {
-    color: #6882ff;
+    color: #2563eb;
     text-decoration: none;
     font-size: 12px;
     display: block;
     padding: 6px 0;
-    border-bottom: 1px solid rgba(99,130,255,0.08);
+    border-bottom: 1px solid #e2e8f0;
   }
-  .sources a:hover { color: #8fa4ff; }
+  .sources a:hover { color: #1d4ed8; }
 </style>
 </head>
 <body>
@@ -224,18 +217,16 @@
 
 <div class="container">
 
-  <!-- 结论摘要 -->
   <div class="summary-box" style="margin-top:20px;">
     <div class="title">核心结论</div>
     <p>
-      6月26日A股遭遇三个月最大跌幅，创业板指暴跌4.07%创逾8个月最大单日跌幅。你的基金当日跌幅<strong style="color:#ff5252">-5.77%</strong>，主要受三大因素叠加冲击：亚太科技股连锁崩盘（韩国触发熔断）、AI估值泡沫担忧升温（OpenAI推迟IPO+苹果涨价反噬需求）、CPO/光通信板块遭资金集中出逃。前十大重仓股全线下跌，平均跌幅约6.2%。
+      6月26日A股遭遇三个月最大跌幅，创业板指暴跌4.07%创逾8个月最大单日跌幅。你的基金当日跌幅<strong style="color:#dc2626">-5.77%</strong>，主要受三大因素叠加冲击：亚太科技股连锁崩盘（韩国触发熔断）、AI估值泡沫担忧升温（OpenAI推迟IPO+苹果涨价反噬需求）、CPO/光通信板块遭资金集中出逃。前十大重仓股全线下跌，平均跌幅约6.2%。
     </p>
   </div>
 
-  <!-- 你的持仓 -->
   <div class="section">
     <div class="section-title">
-      <div class="icon" style="background:rgba(99,130,255,0.15);color:#6882ff;">💼</div>
+      <div class="icon" style="background:rgba(37,99,235,0.1);color:#2563eb;">💼</div>
       你的持仓概况
     </div>
     <div class="section-body">
@@ -257,11 +248,11 @@
           </div>
           <div class="metric">
             <div class="label">持有份额</div>
-            <div class="value" style="color:#e0e6ed">5.67</div>
+            <div class="value" style="color:#1e293b">5.67</div>
           </div>
           <div class="metric">
             <div class="label">持仓成本</div>
-            <div class="value" style="color:#e0e6ed">1.7637</div>
+            <div class="value" style="color:#1e293b">1.7637</div>
           </div>
           <div class="metric">
             <div class="label">持有收益</div>
@@ -272,10 +263,9 @@
     </div>
   </div>
 
-  <!-- 大盘概览 -->
   <div class="section">
     <div class="section-title">
-      <div class="icon" style="background:rgba(255,82,82,0.15);color:#ff5252;">📉</div>
+      <div class="icon" style="background:rgba(220,38,38,0.1);color:#dc2626;">📉</div>
       大盘指数全线重挫
     </div>
     <div class="section-body">
@@ -301,16 +291,15 @@
           <div class="close">2032.28</div>
         </div>
       </div>
-      <div style="margin-top:12px; font-size:12px; color:#8a94a6;">
-        全市场成交额约 <strong style="color:#ff9800">3.58万亿</strong>，超4600只个股下跌，创业板指创逾8个月最大单日跌幅。
+      <div style="margin-top:12px; font-size:12px; color:#64748b;">
+        全市场成交额约 <strong style="color:#d97706">3.58万亿</strong>，超4600只个股下跌，创业板指创逾8个月最大单日跌幅。
       </div>
     </div>
   </div>
 
-  <!-- 重仓股表现 -->
   <div class="section">
     <div class="section-title">
-      <div class="icon" style="background:rgba(255,152,0,0.15);color:#ff9800;">📊</div>
+      <div class="icon" style="background:rgba(217,119,6,0.1);color:#d97706;">📊</div>
       前十大重仓股表现（6月26日）
     </div>
     <div class="section-body" style="overflow-x:auto;">
@@ -324,123 +313,71 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="stock-name">中际旭创</td>
-            <td class="stock-code">300308</td>
-            <td style="text-align:right">8.77%</td>
-            <td style="text-align:right" class="red">-5.25%</td>
-          </tr>
-          <tr>
-            <td class="stock-name">新易盛</td>
-            <td class="stock-code">300502</td>
-            <td style="text-align:right">8.70%</td>
-            <td style="text-align:right" class="red">-7.29%</td>
-          </tr>
-          <tr>
-            <td class="stock-name">源杰科技</td>
-            <td class="stock-code">688498</td>
-            <td style="text-align:right">8.59%</td>
-            <td style="text-align:right" class="red">-5.23%</td>
-          </tr>
-          <tr>
-            <td class="stock-name">天孚通信</td>
-            <td class="stock-code">300394</td>
-            <td style="text-align:right">7.05%</td>
-            <td style="text-align:right" class="red">-7.01%</td>
-          </tr>
-          <tr>
-            <td class="stock-name">沪电股份</td>
-            <td class="stock-code">002463</td>
-            <td style="text-align:right">6.18%</td>
-            <td style="text-align:right" class="red">-4.97%</td>
-          </tr>
-          <tr>
-            <td class="stock-name">大族激光</td>
-            <td class="stock-code">002008</td>
-            <td style="text-align:right">5.90%</td>
-            <td style="text-align:right" class="red">-1.00%</td>
-          </tr>
-          <tr>
-            <td class="stock-name">长飞光纤光缆</td>
-            <td class="stock-code">06869.HK</td>
-            <td style="text-align:right">5.75%</td>
-            <td style="text-align:right" class="red">-12.87%</td>
-          </tr>
-          <tr>
-            <td class="stock-name">罗博特科</td>
-            <td class="stock-code">300757</td>
-            <td style="text-align:right">4.15%</td>
-            <td style="text-align:right" class="red">-9.13%</td>
-          </tr>
-          <tr>
-            <td class="stock-name">东山精密</td>
-            <td class="stock-code">002384</td>
-            <td style="text-align:right">4.14%</td>
-            <td style="text-align:right" class="red">-5.61%</td>
-          </tr>
-          <tr>
-            <td class="stock-name">思源电气</td>
-            <td class="stock-code">002028</td>
-            <td style="text-align:right">3.84%</td>
-            <td style="text-align:right" class="red">-7.10%</td>
-          </tr>
+          <tr><td class="stock-name">中际旭创</td><td class="stock-code">300308</td><td style="text-align:right">8.77%</td><td style="text-align:right" class="red">-5.25%</td></tr>
+          <tr><td class="stock-name">新易盛</td><td class="stock-code">300502</td><td style="text-align:right">8.70%</td><td style="text-align:right" class="red">-7.29%</td></tr>
+          <tr><td class="stock-name">源杰科技</td><td class="stock-code">688498</td><td style="text-align:right">8.59%</td><td style="text-align:right" class="red">-5.23%</td></tr>
+          <tr><td class="stock-name">天孚通信</td><td class="stock-code">300394</td><td style="text-align:right">7.05%</td><td style="text-align:right" class="red">-7.01%</td></tr>
+          <tr><td class="stock-name">沪电股份</td><td class="stock-code">002463</td><td style="text-align:right">6.18%</td><td style="text-align:right" class="red">-4.97%</td></tr>
+          <tr><td class="stock-name">大族激光</td><td class="stock-code">002008</td><td style="text-align:right">5.90%</td><td style="text-align:right" class="red">-1.00%</td></tr>
+          <tr><td class="stock-name">长飞光纤光缆</td><td class="stock-code">06869.HK</td><td style="text-align:right">5.75%</td><td style="text-align:right" class="red">-12.87%</td></tr>
+          <tr><td class="stock-name">罗博特科</td><td class="stock-code">300757</td><td style="text-align:right">4.15%</td><td style="text-align:right" class="red">-9.13%</td></tr>
+          <tr><td class="stock-name">东山精密</td><td class="stock-code">002384</td><td style="text-align:right">4.14%</td><td style="text-align:right" class="red">-5.61%</td></tr>
+          <tr><td class="stock-name">思源电气</td><td class="stock-code">002028</td><td style="text-align:right">3.84%</td><td style="text-align:right" class="red">-7.10%</td></tr>
         </tbody>
       </table>
-      <div style="margin-top:12px; font-size:12px; color:#8a94a6;">
-        前十大重仓加权平均跌幅约 <strong style="color:#ff5252">-6.2%</strong>，仅大族激光相对抗跌（-1.00%）。长飞光纤光缆港股单日暴跌12.87%最为惨烈。
+      <div style="margin-top:12px; font-size:12px; color:#64748b;">
+        前十大重仓加权平均跌幅约 <strong style="color:#dc2626">-6.2%</strong>，仅大族激光相对抗跌（-1.00%）。长飞光纤光缆港股单日暴跌12.87%最为惨烈。
       </div>
     </div>
   </div>
 
-  <!-- 板块跌幅 -->
   <div class="section">
     <div class="section-title">
-      <div class="icon" style="background:rgba(255,82,82,0.15);color:#ff5252;">🔻</div>
+      <div class="icon" style="background:rgba(220,38,38,0.1);color:#dc2626;">🔻</div>
       当日跌幅最大的行业板块
     </div>
     <div class="section-body">
       <div class="sector-row">
         <div class="sector-name">通信线缆及配套</div>
-        <div class="sector-bar-wrap"><div class="sector-bar" style="width:100%;background:linear-gradient(90deg,#ff5252,#ff1744);"></div></div>
+        <div class="sector-bar-wrap"><div class="sector-bar" style="width:100%;background:linear-gradient(90deg,#dc2626,#ef4444);"></div></div>
         <div class="sector-change red">-8.69%</div>
       </div>
       <div class="sector-row">
         <div class="sector-name">锂矿</div>
-        <div class="sector-bar-wrap"><div class="sector-bar" style="width:93%;background:linear-gradient(90deg,#ff5252,#ff1744);"></div></div>
+        <div class="sector-bar-wrap"><div class="sector-bar" style="width:93%;background:linear-gradient(90deg,#dc2626,#ef4444);"></div></div>
         <div class="sector-change red">-8.09%</div>
       </div>
       <div class="sector-row">
         <div class="sector-name">钴</div>
-        <div class="sector-bar-wrap"><div class="sector-bar" style="width:76%;background:linear-gradient(90deg,#ff6e40,#ff5252);"></div></div>
+        <div class="sector-bar-wrap"><div class="sector-bar" style="width:76%;background:linear-gradient(90deg,#ea580c,#dc2626);"></div></div>
         <div class="sector-change red">-6.58%</div>
       </div>
       <div class="sector-row">
         <div class="sector-name">电池化学品</div>
-        <div class="sector-bar-wrap"><div class="sector-bar" style="width:74%;background:linear-gradient(90deg,#ff6e40,#ff5252);"></div></div>
+        <div class="sector-bar-wrap"><div class="sector-bar" style="width:74%;background:linear-gradient(90deg,#ea580c,#dc2626);"></div></div>
         <div class="sector-change red">-6.41%</div>
       </div>
       <div class="sector-row">
         <div class="sector-name">能源金属</div>
-        <div class="sector-bar-wrap"><div class="sector-bar" style="width:73%;background:linear-gradient(90deg,#ff6e40,#ff5252);"></div></div>
+        <div class="sector-bar-wrap"><div class="sector-bar" style="width:73%;background:linear-gradient(90deg,#ea580c,#dc2626);"></div></div>
         <div class="sector-change red">-6.38%</div>
       </div>
       <div class="sector-row">
         <div class="sector-name">铜</div>
-        <div class="sector-bar-wrap"><div class="sector-bar" style="width:67%;background:linear-gradient(90deg,#ff8a65,#ff6e40);"></div></div>
+        <div class="sector-bar-wrap"><div class="sector-bar" style="width:67%;background:linear-gradient(90deg,#f97316,#ea580c);"></div></div>
         <div class="sector-change red">-5.79%</div>
       </div>
       <div class="sector-row">
         <div class="sector-name">电池</div>
-        <div class="sector-bar-wrap"><div class="sector-bar" style="width:61%;background:linear-gradient(90deg,#ff8a65,#ff6e40);"></div></div>
+        <div class="sector-bar-wrap"><div class="sector-bar" style="width:61%;background:linear-gradient(90deg,#f97316,#ea580c);"></div></div>
         <div class="sector-change red">-5.26%</div>
       </div>
     </div>
   </div>
 
-  <!-- 下跌原因 -->
   <div class="section">
     <div class="section-title">
-      <div class="icon" style="background:rgba(66,165,245,0.15);color:#42a5f5;">🔍</div>
+      <div class="icon" style="background:rgba(37,99,235,0.1);color:#2563eb;">🔍</div>
       下跌原因深度拆解
     </div>
     <div class="section-body">
@@ -489,25 +426,23 @@
     </div>
   </div>
 
-  <!-- 总结 -->
   <div class="section">
     <div class="section-title">
-      <div class="icon" style="background:rgba(76,175,80,0.15);color:#4caf50;">📝</div>
+      <div class="icon" style="background:rgba(22,163,74,0.1);color:#16a34a;">📝</div>
       小结与思考
     </div>
     <div class="section-body">
-      <p style="font-size:13px; color:#c8cdd6; line-height:1.9;">
+      <p style="font-size:13px; color:#475569; line-height:1.9;">
         本次下跌属于<strong>系统性风险+板块集中暴露</strong>的叠加效应。亚太市场联动崩盘是导火索，AI估值泡沫担忧是核心驱动，CPO/光通信作为前期最强赛道首当其冲承受了最大的抛压。
       </p>
-      <p style="font-size:13px; color:#c8cdd6; line-height:1.9; margin-top:10px;">
+      <p style="font-size:13px; color:#475569; line-height:1.9; margin-top:10px;">
         不过需要注意：你的持有收益仍为+3.27%，成本价1.7637距离当前净值1.8214仍有安全垫。该基金近1年涨幅+82.14%说明长期趋势仍在，短期波动是科技成长型基金的常态。关键是观察下周市场能否企稳，以及AI产业链基本面是否出现实质性变化。
       </p>
     </div>
   </div>
 
-  <!-- 数据来源 -->
   <div class="sources">
-    <div style="font-size:12px; color:#5a6478; margin-bottom:8px; font-weight:600;">数据来源与参考</div>
+    <div style="font-size:12px; color:#94a3b8; margin-bottom:8px; font-weight:600;">数据来源与参考</div>
     <a href="http://news.10jqka.com.cn/20260626/c677745978.shtml" target="_blank">同花顺 · 超4600只个股下跌！原因找到了</a>
     <a href="https://www.sohu.com/a/1042018709_465270" target="_blank">搜狐 · 全线暴跌，原因找到了</a>
     <a href="https://xueqiu.com/2601410774/397068016" target="_blank">雪球 · 2026年6月26日A股市场复盘</a>
