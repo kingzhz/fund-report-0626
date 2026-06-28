@@ -3,76 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>行情研判报告 - 2026-06-26</title>
+<title>行情研判报告 - 2026年6月28日</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
 :root {
-  --bg-primary:    #f0f4f8;
-  --bg-secondary:  #e8eef6;
-  --bg-card:       #ffffff;
-  --bg-card-hover: #f8fafd;
-  --border-color:  #dbe4f0;
-  --border-glow:   rgba(37, 99, 235, 0.2);
-  --text-primary:  #1e293b;
-  --text-secondary:#475569;
-  --text-muted:    #94a3b8;
-  --red-up:        #dc2626;
-  --red-up-bright: #ef4444;
-  --red-up-bg:     rgba(220, 38, 38, 0.08);
-  --green-down:    #16a34a;
-  --green-down-bright:#22c55e;
-  --green-down-bg: rgba(22, 163, 74, 0.08);
-  --accent-blue:   #2563eb;
-  --accent-blue-light: #3b82f6;
-  --accent-blue-dark: #1d4ed8;
-  --accent-blue-bg: rgba(37, 99, 235, 0.06);
-  --accent-gold:   #d97706;
-  --accent-purple: #7c3aed;
-  --neutral:       #94a3b8;
-  --warning-bg:    rgba(217, 119, 6, 0.08);
-  --warning-border:#d97706;
-  --radius-sm:     6px;
-  --radius-md:     12px;
-  --radius-lg:     16px;
-  --shadow-card:   0 1px 3px rgba(30,41,59,0.08), 0 4px 16px rgba(30,41,59,0.04);
-  --shadow-hover:  0 4px 12px rgba(37,99,235,0.1), 0 1px 3px rgba(30,41,59,0.06);
-  --transition:    all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --bg-primary: #f0f4f8; --bg-secondary: #e8eef6; --bg-card: #ffffff;
+  --bg-card-hover: #f8fafd; --border-color: #dbe4f0; --border-glow: rgba(37, 99, 235, 0.2);
+  --text-primary: #1e293b; --text-secondary: #475569; --text-muted: #94a3b8;
+  --red-up: #dc2626; --red-up-bright: #ef4444; --red-up-bg: rgba(220, 38, 38, 0.08);
+  --green-down: #16a34a; --green-down-bright: #22c55e; --green-down-bg: rgba(22, 163, 74, 0.08);
+  --accent-blue: #2563eb; --accent-blue-light: #3b82f6; --accent-blue-dark: #1d4ed8;
+  --accent-blue-bg: rgba(37, 99, 235, 0.06); --accent-gold: #d97706;
+  --accent-purple: #7c3aed; --neutral: #94a3b8;
+  --warning-bg: rgba(217, 119, 6, 0.08); --warning-border: #d97706;
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 16px;
+  --shadow-card: 0 1px 3px rgba(30,41,59,0.08), 0 4px 16px rgba(30,41,59,0.04);
+  --shadow-hover: 0 4px 12px rgba(37,99,235,0.1), 0 1px 3px rgba(30,41,59,0.06);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.7;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-}
-
+body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", "Helvetica Neue", Arial, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; min-height: 100vh; -webkit-font-smoothing: antialiased; }
 .container { max-width: 1200px; margin: 0 auto; padding: 24px 20px 60px; }
-
-.report-header {
-  text-align: center; padding: 48px 24px 36px;
-  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 40%, #3b82f6 100%);
-  margin-bottom: 32px; border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-  position: relative; overflow: hidden;
-}
-.report-header::before {
-  content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-  background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 60%),
-              radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.05) 0%, transparent 50%);
-  pointer-events: none;
-}
+.report-header { text-align: center; padding: 48px 24px 36px; background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 40%, #3b82f6 100%); margin-bottom: 32px; border-radius: 0 0 var(--radius-lg) var(--radius-lg); position: relative; overflow: hidden; }
+.report-header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.05) 0%, transparent 50%); pointer-events: none; }
 .report-header h1 { font-size: 2.2em; font-weight: 700; letter-spacing: 4px; margin-bottom: 12px; color: #ffffff; position: relative; }
 .report-header .subtitle { font-size: 1em; color: rgba(255,255,255,0.8); position: relative; }
 .report-header .market-status { display: inline-block; padding: 4px 16px; border-radius: 20px; font-size: 0.85em; margin-top: 12px; position: relative; font-weight: 500; }
 .market-status.closed { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.2); }
-
 .section { margin-bottom: 36px; }
 .section-title { font-size: 1.35em; font-weight: 600; margin-bottom: 20px; padding-left: 14px; border-left: 3px solid var(--accent-blue); color: var(--text-primary); letter-spacing: 1px; }
 .section-title .icon { margin-right: 8px; }
-
 .index-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px; }
 .index-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 20px 24px; transition: var(--transition); position: relative; overflow: hidden; box-shadow: var(--shadow-card); }
 .index-card:hover { background: var(--bg-card-hover); border-color: var(--border-glow); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
@@ -80,32 +40,28 @@ body {
 .index-card .value { font-size: 1.8em; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.5px; color: var(--text-primary); }
 .index-card .change { font-size: 1.1em; font-weight: 600; margin-left: 10px; font-variant-numeric: tabular-nums; }
 .index-card .volume { display: block; font-size: 0.82em; color: var(--text-muted); margin-top: 8px; }
-
-.up { color: var(--red-up); }
-.down { color: var(--green-down); }
-.flat { color: var(--neutral); }
-.change.up { color: var(--red-up); }
-.change.down { color: var(--green-down); }
-
+.up { color: var(--red-up); } .down { color: var(--green-down); } .flat { color: var(--neutral); }
+.change.up { color: var(--red-up); } .change.down { color: var(--green-down); }
 .sentiment-panel { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 24px 28px; margin-bottom: 24px; box-shadow: var(--shadow-card); }
 .sentiment-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
 .sentiment-label { font-size: 1.05em; font-weight: 600; color: var(--text-primary); }
 .sentiment-value { font-size: 0.95em; padding: 4px 14px; border-radius: 20px; font-weight: 500; }
-.sentiment-value.fear    { background: var(--green-down-bg); color: var(--green-down); }
+.sentiment-value.fear { background: var(--green-down-bg); color: var(--green-down); }
 .sentiment-value.neutral { background: var(--accent-blue-bg); color: var(--accent-blue); }
-.sentiment-value.greed   { background: var(--red-up-bg); color: var(--red-up); }
+.sentiment-value.greed { background: var(--red-up-bg); color: var(--red-up); }
 .gauge-track { width: 100%; height: 10px; background: linear-gradient(90deg, var(--green-down) 0%, var(--accent-blue) 50%, var(--red-up) 100%); border-radius: 5px; position: relative; overflow: visible; }
-.gauge-needle { position: absolute; top: -4px; width: 4px; height: 18px; background: var(--text-primary); border-radius: 2px; box-shadow: 0 0 4px rgba(30,41,59,0.3); }
-
+.gauge-needle { position: absolute; top: -4px; width: 4px; height: 18px; background: var(--text-primary); border-radius: 2px; box-shadow: 0 0 4px rgba(30,41,59,0.3); transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+.chart-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px; }
+.chart-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 20px; box-shadow: var(--shadow-card); }
+.chart-box h4 { font-size: 0.9em; color: var(--text-secondary); margin-bottom: 12px; }
+.chart-box canvas { max-height: 200px; }
 .sector-list { display: flex; flex-direction: column; gap: 8px; }
 .sector-row { display: grid; grid-template-columns: 1fr 90px 160px; align-items: center; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 14px 20px; transition: var(--transition); gap: 12px; box-shadow: var(--shadow-card); }
 .sector-row:hover { background: var(--bg-card-hover); border-color: var(--border-glow); box-shadow: var(--shadow-hover); }
 .sector-name { font-weight: 500; font-size: 0.95em; color: var(--text-primary); }
 .sector-change { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; font-size: 0.95em; }
 .sector-flow { text-align: right; font-size: 0.85em; font-weight: 500; }
-.flow-in  { color: var(--red-up); }
-.flow-out { color: var(--green-down); }
-
+.flow-in { color: var(--red-up); } .flow-out { color: var(--green-down); }
 .holdings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
 .holding-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 24px; transition: var(--transition); box-shadow: var(--shadow-card); }
 .holding-card:hover { border-color: var(--border-glow); box-shadow: var(--shadow-hover); }
@@ -113,77 +69,55 @@ body {
 .holding-card .fund-code { font-size: 0.85em; color: var(--text-muted); margin-bottom: 14px; }
 .holding-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; font-size: 0.9em; }
 .holding-meta .label { color: var(--text-secondary); }
-.pnl-up   { color: var(--red-up); font-weight: 600; }
-.pnl-down { color: var(--green-down); font-weight: 600; }
+.pnl-up { color: var(--red-up); font-weight: 600; } .pnl-down { color: var(--green-down); font-weight: 600; }
 .signals { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
 .signal-badge { padding: 5px 14px; border-radius: 20px; font-size: 0.82em; font-weight: 600; letter-spacing: 0.5px; }
-.signal-badge.buy    { background: var(--red-up-bg); color: var(--red-up); border: 1px solid rgba(220,38,38,0.2); }
-.signal-badge.hold   { background: var(--accent-blue-bg); color: var(--accent-blue); border: 1px solid rgba(37,99,235,0.2); }
+.signal-badge.buy { background: var(--red-up-bg); color: var(--red-up); border: 1px solid rgba(220,38,38,0.2); }
+.signal-badge.hold { background: var(--accent-blue-bg); color: var(--accent-blue); border: 1px solid rgba(37,99,235,0.2); }
 .signal-badge.reduce { background: var(--warning-bg); color: var(--accent-gold); border: 1px solid rgba(217,119,6,0.2); }
-.signal-badge.sell   { background: var(--green-down-bg); color: var(--green-down); border: 1px solid rgba(22,163,74,0.2); }
+.signal-badge.sell { background: var(--green-down-bg); color: var(--green-down); border: 1px solid rgba(22,163,74,0.2); }
 .confidence-bar { display: flex; align-items: center; gap: 8px; font-size: 0.82em; color: var(--text-secondary); }
 .confidence-track { width: 60px; height: 4px; background: var(--border-color); border-radius: 2px; overflow: hidden; }
-.confidence-fill { height: 100%; border-radius: 2px; background: var(--accent-blue); }
+.confidence-fill { height: 100%; border-radius: 2px; background: var(--accent-blue); transition: width 0.6s ease; }
 .holding-reasons, .holding-risks { font-size: 0.88em; line-height: 1.6; margin-top: 10px; }
-.holding-reasons { color: var(--text-secondary); }
-.holding-risks   { color: var(--accent-gold); }
-
+.holding-reasons { color: var(--text-secondary); } .holding-risks { color: var(--accent-gold); }
 .signal-group { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 20px 24px; margin-bottom: 12px; box-shadow: var(--shadow-card); }
 .signal-group h4 { font-size: 1em; font-weight: 600; margin-bottom: 14px; color: var(--text-primary); }
 .indicator-grid { display: flex; flex-wrap: wrap; gap: 10px; }
 .indicator { background: var(--accent-blue-bg); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 8px 16px; font-size: 0.88em; color: var(--text-secondary); min-width: 120px; text-align: center; }
 .indicator .label { color: var(--text-muted); margin-right: 6px; }
-.indicator .val-up   { color: var(--red-up); font-weight: 600; }
-.indicator .val-down { color: var(--green-down); font-weight: 600; }
-.indicator .val-neutral { color: var(--text-secondary); font-weight: 500; }
-
 .news-list { display: flex; flex-direction: column; gap: 6px; }
 .news-item { display: grid; grid-template-columns: 36px 1fr auto; align-items: center; padding: 12px 18px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); gap: 12px; transition: var(--transition); box-shadow: var(--shadow-card); }
 .news-item:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); }
 .news-sentiment { font-size: 1.2em; text-align: center; }
 .news-title { font-size: 0.92em; font-weight: 500; line-height: 1.5; color: var(--text-primary); }
 .news-source { font-size: 0.78em; color: var(--text-muted); white-space: nowrap; }
-
 .rec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
 .rec-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 24px; transition: var(--transition); position: relative; overflow: hidden; box-shadow: var(--shadow-card); }
 .rec-card:hover { border-color: var(--border-glow); box-shadow: var(--shadow-hover); }
 .rec-card h3 { font-size: 1.05em; font-weight: 600; margin-bottom: 12px; color: var(--text-primary); }
 .action-badge { display: inline-block; padding: 6px 20px; border-radius: var(--radius-sm); font-size: 1em; font-weight: 700; letter-spacing: 1px; margin-bottom: 16px; }
-.action-badge.buy    { background: var(--red-up-bg); color: var(--red-up); border: 1px solid rgba(220,38,38,0.25); }
-.action-badge.hold   { background: var(--accent-blue-bg); color: var(--accent-blue); border: 1px solid rgba(37,99,235,0.25); }
+.action-badge.buy { background: var(--red-up-bg); color: var(--red-up); border: 1px solid rgba(220,38,38,0.25); }
+.action-badge.hold { background: var(--accent-blue-bg); color: var(--accent-blue); border: 1px solid rgba(37,99,235,0.25); }
 .action-badge.reduce { background: var(--warning-bg); color: var(--accent-gold); border: 1px solid rgba(217,119,6,0.25); }
-.action-badge.sell   { background: var(--green-down-bg); color: var(--green-down); border: 1px solid rgba(22,163,74,0.25); }
 .rec-detail { font-size: 0.9em; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
 .rec-levels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 0.82em; padding-top: 14px; border-top: 1px solid var(--border-color); }
 .rec-levels .level-item { text-align: center; }
 .rec-levels .level-label { color: var(--text-muted); display: block; margin-bottom: 2px; }
 .rec-levels .level-value { font-weight: 600; font-variant-numeric: tabular-nums; }
-
 .risk-panel { background: linear-gradient(135deg, rgba(217,119,6,0.04) 0%, rgba(220,38,38,0.04) 100%); border: 1px solid rgba(217,119,6,0.2); border-radius: var(--radius-md); padding: 28px; margin-top: 8px; box-shadow: var(--shadow-card); }
 .risk-panel h2 { font-size: 1.2em; color: var(--accent-gold); margin-bottom: 16px; }
 .risk-item { font-size: 0.92em; color: var(--text-secondary); padding: 8px 0; padding-left: 18px; position: relative; line-height: 1.6; }
 .risk-item::before { content: ''; position: absolute; left: 0; top: 16px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-gold); }
-
 .report-footer { text-align: center; padding: 36px 24px; margin-top: 48px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.82em; line-height: 1.8; }
 .report-footer .disclaimer { max-width: 640px; margin: 0 auto 12px; color: var(--text-secondary); font-size: 0.9em; }
-
-.chart-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px; }
-.chart-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 20px; box-shadow: var(--shadow-card); }
-.chart-box h4 { font-size: 0.9em; color: var(--text-secondary); margin-bottom: 12px; }
-.chart-box canvas { max-height: 200px; }
-
-/* 持仓明细表 */
-.holdings-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.88em; }
-.holdings-table th { background: var(--accent-blue-bg); color: var(--text-secondary); font-weight: 600; padding: 10px 12px; text-align: left; border-bottom: 2px solid var(--border-color); }
-.holdings-table td { padding: 10px 12px; border-bottom: 1px solid var(--border-color); }
-.holdings-table tr:hover { background: var(--bg-card-hover); }
-
-/* 资金流向亮点 */
-.flow-highlight { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
-.flow-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 14px 18px; text-align: center; box-shadow: var(--shadow-card); }
-.flow-card .flow-label { font-size: 0.82em; color: var(--text-muted); margin-bottom: 4px; }
-.flow-card .flow-value { font-size: 1.3em; font-weight: 700; font-variant-numeric: tabular-nums; }
-
+.summary-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 24px 28px; margin-bottom: 24px; box-shadow: var(--shadow-card); }
+.summary-box .summary-title { font-size: 1.05em; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; }
+.summary-box .summary-text { font-size: 0.92em; color: var(--text-secondary); line-height: 1.8; }
+.summary-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 16px; }
+.summary-stat { text-align: center; padding: 12px; background: var(--accent-blue-bg); border-radius: var(--radius-sm); }
+.summary-stat .stat-label { font-size: 0.78em; color: var(--text-muted); display: block; }
+.summary-stat .stat-value { font-size: 1.3em; font-weight: 700; color: var(--text-primary); }
 @media (max-width: 768px) {
   .container { padding: 16px 12px 40px; }
   .report-header { padding: 32px 16px 24px; }
@@ -195,18 +129,13 @@ body {
   .sector-flow { display: none; }
   .holdings-grid { grid-template-columns: 1fr; }
   .rec-grid { grid-template-columns: 1fr; }
+  .rec-levels { grid-template-columns: repeat(3, 1fr); gap: 4px; }
   .indicator-grid { gap: 6px; }
   .indicator { min-width: 100px; padding: 6px 12px; font-size: 0.82em; }
   .news-item { grid-template-columns: 30px 1fr; gap: 8px; padding: 10px 14px; }
   .news-source { grid-column: 1 / -1; text-align: right; }
-  .holdings-table { font-size: 0.78em; }
-  .holdings-table th, .holdings-table td { padding: 8px 6px; }
 }
-@media (max-width: 480px) {
-  .index-grid { grid-template-columns: 1fr; }
-  .report-header h1 { font-size: 1.35em; }
-}
-
+@media (max-width: 480px) { .index-grid { grid-template-columns: 1fr; } .report-header h1 { font-size: 1.35em; } }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 .section { animation: fadeInUp 0.5s ease-out both; }
 .section:nth-child(2) { animation-delay: 0.05s; }
@@ -222,199 +151,395 @@ body {
 
 <header class="report-header">
   <h1>行情研判报告</h1>
-  <p class="subtitle">2026年6月26日 周五</p>
+  <p class="subtitle">2026年6月28日 周六 | 基于6月26日收盘数据</p>
   <span class="market-status closed">已收盘</span>
 </header>
 
 <div class="container">
 
-<!-- 一、持仓概览 -->
+<!-- 组合总览 -->
 <div class="section">
-  <h2 class="section-title"><span class="icon">💼</span>持仓概览</h2>
-  <div class="holdings-grid">
-    <div class="holding-card">
-      <h3>富国创新科技混合C</h3>
-      <p class="fund-code">011120 | 混合基金 | 持有12天</p>
-      <div class="holding-meta">
-        <span><span class="label">持仓市值 </span>¥49.71</span>
-        <span><span class="label">盈亏 </span><span class="pnl-down">-0.29 (-0.58%)</span></span>
-      </div>
-      <div style="display:flex; justify-content:space-between; font-size:0.88em; color:var(--text-secondary); margin-bottom:12px;">
-        <span>份额: 8.48</span>
-        <span>成本: 5.8962</span>
-        <span>当日: <span class="down">-5.92%</span></span>
-      </div>
-      <div class="signals">
-        <span class="signal-badge hold">持有观望</span>
-        <div class="confidence-bar">
-          <span>信心</span>
-          <div class="confidence-track"><div class="confidence-fill" style="width:65%;"></div></div>
-          <span>65%</span>
-        </div>
-      </div>
-      <p class="holding-reasons">理由: CPO板块短期超跌回调，但AI算力/光通信中长期逻辑未变，基金近1年+352%证明基本面强劲</p>
-      <p class="holding-risks">风险: 机构资金单日大幅出逃，短期可能继续下探；持仓集中度极高（前10大重仓均为CPO/光通信），板块波动风险大</p>
+  <h2 class="section-title"><span class="icon">📊</span>组合总览</h2>
+  <div class="summary-box">
+    <div class="summary-title">持仓组合概览</div>
+    <div class="summary-text">
+      组合共持有6只基金，总成本 ¥295.01，总市值 ¥301.70，总盈亏 <span class="pnl-up">+¥6.69 (+2.27%)</span>。
+      通信/光模块板块6月26日遭遇康宁Glass Bridge技术误读引发的恐慌性抛售，光纤光缆+光模块龙头集体跌停，
+      两只新录入基金（广发远见智选、富国创业板AI）受冲击较大。但组合整体仍保持正收益，
+      南方信息创新混合C(+30.3%)和嘉实科创板芯片ETF(+6.09%)提供安全垫。
+    </div>
+    <div class="summary-stats">
+      <div class="summary-stat"><span class="stat-label">总成本</span><span class="stat-value">¥295.01</span></div>
+      <div class="summary-stat"><span class="stat-label">总市值</span><span class="stat-value">¥301.70</span></div>
+      <div class="summary-stat"><span class="stat-label">总盈亏</span><span class="stat-value pnl-up">+¥6.69</span></div>
+      <div class="summary-stat"><span class="stat-label">收益率</span><span class="stat-value pnl-up">+2.27%</span></div>
+      <div class="summary-stat"><span class="stat-label">持仓数</span><span class="stat-value">6只</span></div>
+      <div class="summary-stat"><span class="stat-label">盈利/亏损</span><span class="stat-value">3盈/3亏</span></div>
     </div>
   </div>
 </div>
 
-<!-- 二、CPO板块资金面 -->
+<!-- 大盘环境 -->
 <div class="section">
-  <h2 class="section-title"><span class="icon">🔥</span>CPO板块资金面 — 当日主力出逃重灾区</h2>
-  <div class="flow-highlight">
-    <div class="flow-card">
-      <div class="flow-label">CPO概念板块跌幅</div>
-      <div class="flow-value down">-5.38%</div>
+  <h2 class="section-title"><span class="icon">📊</span>大盘环境</h2>
+  <div class="index-grid">
+    <div class="index-card">
+      <h3>上证指数</h3>
+      <span class="value">4027.26</span>
+      <span class="change down">-2.26%</span>
+      <span class="volume">成交 1.62万亿</span>
     </div>
-    <div class="flow-card">
-      <div class="flow-label">主力净流出</div>
-      <div class="flow-value down">535.42亿</div>
+    <div class="index-card">
+      <h3>深证成指</h3>
+      <span class="value">15782.22</span>
+      <span class="change down">-3.44%</span>
+      <span class="volume">成交 1.93万亿</span>
     </div>
-    <div class="flow-card">
-      <div class="flow-label">超大单净流出</div>
-      <div class="flow-value down">420.48亿</div>
+    <div class="index-card">
+      <h3>创业板指</h3>
+      <span class="value">4194.21</span>
+      <span class="change down">-4.07%</span>
+      <span class="volume">成交 0.94万亿</span>
     </div>
-    <div class="flow-card">
-      <div class="flow-label">概念板块排名</div>
-      <div class="flow-value" style="color:var(--accent-gold);">流出最大</div>
+    <div class="index-card">
+      <h3>科创50</h3>
+      <span class="value">2032.28</span>
+      <span class="change down">-1.65%</span>
+      <span class="volume">成交 0.20万亿</span>
     </div>
   </div>
+  <div class="sentiment-panel">
+    <div class="sentiment-header">
+      <span class="sentiment-label">市场情绪指标</span>
+      <span class="sentiment-value fear">恐慌</span>
+    </div>
+    <div class="gauge-track">
+      <div class="gauge-needle" style="left: 20%;"></div>
+    </div>
+    <div style="display:flex; justify-content:space-between; margin-top:6px; font-size:0.75em; color:var(--text-muted);">
+      <span>极度恐慌</span><span>中性</span><span>极度乐观</span>
+    </div>
+  </div>
+  <div class="summary-box">
+    <div class="summary-title">大盘环境评估</div>
+    <div class="summary-text">
+      <strong>评级：弱势环境（30/100）</strong><br><br>
+      6月26日A股遭遇全面回调。沪指跌2.26%失守4030点，深成指跌3.44%，创业板指暴跌4.07%，全市场超4600只个股下跌。
+      两市成交额3.58万亿，较前日缩量436亿。下跌原因多重共振：
+      ① 康宁Glass Bridge技术发布被市场误读为"颠覆光纤产业"，引发通信板块恐慌踩踏；
+      ② 苹果全球涨价20%引发产业链成本担忧，存储涨价吞噬云厂商利润；
+       OpenAI可能推迟IPO传闻打击科技情绪；
+      ④ 日韩市场暴跌传导至A股；
+      ⑤ 季末资金结算与风格纠偏压力。
+      通信设备板块主力净流出367.6亿元居全行业首位，光模块"易中天"三杰合计净流出超111亿。
+    </div>
+  </div>
+</div>
 
+<!-- 板块追踪 -->
+<div class="section">
+  <h2 class="section-title"><span class="icon"></span>板块追踪</h2>
+  <div class="chart-row">
+    <div class="chart-box"><h4>持仓相关板块涨跌幅</h4><canvas id="sectorChart"></canvas></div>
+    <div class="chart-box"><h4>板块资金流向（亿元）</h4><canvas id="flowChart"></canvas></div>
+  </div>
   <div class="sector-list">
     <div class="sector-row">
-      <span class="sector-name">通信线缆及配套</span>
-      <span class="sector-change down">-8.08%</span>
-      <span class="sector-flow flow-out">主力流出 157.22亿</span>
+      <span class="sector-name">通信设备</span>
+      <span class="sector-change down">-6.48%</span>
+      <span class="sector-flow flow-out">主力净流出 367.6亿</span>
     </div>
     <div class="sector-row">
-      <span class="sector-name">CPO概念</span>
-      <span class="sector-change down">-5.38%</span>
-      <span class="sector-flow flow-out">主力流出 535.42亿</span>
+      <span class="sector-name">半导体</span>
+      <span class="sector-change down">-0.88%</span>
+      <span class="sector-flow flow-out">主力净流出 255.2亿</span>
     </div>
     <div class="sector-row">
-      <span class="sector-name">F5G概念</span>
-      <span class="sector-change down">-4.74%</span>
-      <span class="sector-flow flow-out">主力流出 183.02亿</span>
+      <span class="sector-name">计算机</span>
+      <span class="sector-change down">-4.33%</span>
+      <span class="sector-flow flow-out">主力净流出</span>
     </div>
     <div class="sector-row">
-      <span class="sector-name">铜缆高速连接</span>
-      <span class="sector-change down">-4.70%</span>
-      <span class="sector-flow flow-out">主力流出 133.91亿</span>
+      <span class="sector-name">电子</span>
+      <span class="sector-change down">-3.34%</span>
+      <span class="sector-flow flow-out">主力净流出 112.3亿</span>
     </div>
     <div class="sector-row">
-      <span class="sector-name">光通信模块</span>
-      <span class="sector-change down">-4.54%</span>
-      <span class="sector-flow flow-out">主力流出 492.58亿</span>
+      <span class="sector-name">电力设备/电池</span>
+      <span class="sector-change down">-4.13%</span>
+      <span class="sector-flow flow-out">主力净流出 101.9亿</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-name">光刻机</span>
+      <span class="sector-change up">+逆势上涨</span>
+      <span class="sector-flow flow-in">资金流入</span>
     </div>
   </div>
 </div>
 
-<!-- 三、重仓股表现 -->
+<!-- 持仓分析 -->
 <div class="section">
-  <h2 class="section-title"><span class="icon">📉</span>重仓股表现 — 全线大跌</h2>
-  <div class="chart-row">
-    <div class="chart-box">
-      <h4>重仓股当日跌幅</h4>
-      <canvas id="holdingsChart"></canvas>
+  <h2 class="section-title"><span class="icon">💼</span>持仓分析</h2>
+  <div class="holdings-grid">
+
+    <div class="holding-card">
+      <h3>南方信息创新混合C</h3>
+      <p class="fund-code">007491 | 偏股混合型 | 郑晓曦</p>
+      <div class="holding-meta">
+        <span><span class="label">持仓市值 </span>¥65.17</span>
+        <span><span class="label">盈亏 </span><span class="pnl-up">+¥15.17 (+30.3%)</span></span>
+      </div>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
+        <div class="confidence-bar"><span>信心</span><div class="confidence-track"><div class="confidence-fill" style="width:70%;"></div></div><span>70%</span></div>
+      </div>
+      <p class="holding-reasons">理由: 组合压舱石，浮盈30%提供安全垫。6/26净值+2.80%逆势上涨，基金经理郑晓曦调仓能力出色。AI+信息创新主题长期逻辑不变。</p>
+      <p class="holding-risks">风险: 科技板块整体估值偏高，若大盘持续调整可能回吐部分利润。</p>
     </div>
-    <div class="chart-box">
-      <h4>主力净流出排名</h4>
-      <canvas id="flowChart"></canvas>
+
+    <div class="holding-card">
+      <h3>嘉实上证科创板芯片ETF联接C</h3>
+      <p class="fund-code">017470 | ETF | 科创芯片</p>
+      <div class="holding-meta">
+        <span><span class="label">持仓市值 </span>¥74.26</span>
+        <span><span class="label">盈亏 </span><span class="pnl-up">+¥4.26 (+6.09%)</span></span>
+      </div>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
+        <div class="confidence-bar"><span>信心</span><div class="confidence-track"><div class="confidence-fill" style="width:65%;"></div></div><span>65%</span></div>
+      </div>
+      <p class="holding-reasons">理由: 科创芯片指数6/26仅跌1.65%，显著跑赢创业板指(-4.07%)。半导体板块资金流出但股价抗跌，国产替代逻辑坚实。存储芯片涨价周期持续。</p>
+      <p class="holding-risks">风险: 半导体估值分化，部分个股PE偏高，关注Q2业绩兑现情况。</p>
     </div>
+
+    <div class="holding-card">
+      <h3>汇添富科技领先混合C</h3>
+      <p class="fund-code">025881 | 混合基金</p>
+      <div class="holding-meta">
+        <span><span class="label">持仓市值 </span>¥10.33</span>
+        <span><span class="label">盈亏 </span><span class="pnl-up">+¥0.33 (+3.27%)</span></span>
+      </div>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
+        <div class="confidence-bar"><span>信心</span><div class="confidence-track"><div class="confidence-fill" style="width:60%;"></div></div><span>60%</span></div>
+      </div>
+      <p class="holding-reasons">理由: 小幅盈利，科技领先主题覆盖AI、半导体等核心赛道。仓位较轻，风险可控。</p>
+      <p class="holding-risks">风险: 科技板块整体回调压力下，短期可能回吐利润。</p>
+    </div>
+
+    <div class="holding-card">
+      <h3>富国创新科技混合C</h3>
+      <p class="fund-code">011120 | 混合基金</p>
+      <div class="holding-meta">
+        <span><span class="label">持仓市值 </span>¥49.71</span>
+        <span><span class="label">盈亏 </span><span class="pnl-down">-¥0.29 (-0.58%)</span></span>
+      </div>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
+        <div class="confidence-bar"><span>信心</span><div class="confidence-track"><div class="confidence-fill" style="width:55%;"></div></div><span>55%</span></div>
+      </div>
+      <p class="holding-reasons">理由: 微亏，接近成本线。创新科技主题分散度较好，不集中于单一赛道。历史复盘建议持有观望。</p>
+      <p class="holding-risks">风险: 若科技板块继续调整，可能扩大亏损。关注CPO板块后续走势。</p>
+    </div>
+
+    <div class="holding-card">
+      <h3>广发远见智选混合C</h3>
+      <p class="fund-code">016874 | 偏股混合型 | 唐晓斌</p>
+      <div class="holding-meta">
+        <span><span class="label">持仓市值 </span>¥107.50</span>
+        <span><span class="label">盈亏 </span><span class="pnl-down">-¥2.51 (-2.28%)</span></span>
+      </div>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
+        <div class="confidence-bar"><span>信心</span><div class="confidence-track"><div class="confidence-fill" style="width:50%;"></div></div><span>50%</span></div>
+      </div>
+      <p class="holding-reasons">理由: 6/26跌幅-4.36%主因重仓光纤光缆（长飞光纤/中天科技/亨通光电集体跌停）。康宁Glass Bridge被官方澄清为"补充方案非替代"，天风证券称"调整是机会"。光纤涨价趋势未变，7-8月运营商集采将推高价格。</p>
+      <p class="holding-risks">风险: 持有仅12天，短期波动大。通信板块主力大幅流出，短期可能继续承压。估值偏高需警惕。</p>
+    </div>
+
+    <div class="holding-card">
+      <h3>富国创业板人工智能ETF联接C</h3>
+      <p class="fund-code">024663 | ETF联接 | 创业AI</p>
+      <div class="holding-meta">
+        <span><span class="label">持仓市值 </span>¥4.90</span>
+        <span><span class="label">盈亏 </span><span class="pnl-down">-¥0.10 (-2.00%)</span></span>
+      </div>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
+        <div class="confidence-bar"><span>信心</span><div class="confidence-track"><div class="confidence-fill" style="width:45%;"></div></div><span>45%</span></div>
+      </div>
+      <p class="holding-reasons">理由: 6/26跌幅-4.86%，重仓光模块三杰（新易盛15.26%+中际旭创13.92%+天孚通信9.70%）。Q2业绩预测强劲（旭创Q2净利76亿+215%），基本面未恶化。Glass Bridge对可插拔光模块无实质影响。</p>
+      <p class="holding-risks">风险: 光模块估值极高（旭创PE 95倍、新易盛PE 72倍），短期面临高估值+情绪错杀+获利了结三重压力。仓位极轻（0.78%），影响有限。</p>
+    </div>
+
   </div>
-  <table class="holdings-table">
-    <thead>
-      <tr><th>股票名称</th><th>当日涨跌</th><th>持仓占比</th><th>较上期</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>东山精密</td><td class="down">-5.61%</td><td>9.53%</td><td style="color:var(--red-up);">+1.82% ↑</td></tr>
-      <tr><td>中际旭创</td><td class="down">-5.25%</td><td>9.42%</td><td style="color:var(--green-down);">-0.46% ↓</td></tr>
-      <tr><td>新易盛</td><td class="down">-7.29%</td><td>9.30%</td><td style="color:var(--green-down);">-0.11% ↓</td></tr>
-      <tr><td>亨通光电</td><td class="down">-9.91%</td><td>8.04%</td><td>新增</td></tr>
-      <tr><td>沪电股份</td><td class="down">-4.97%</td><td>7.25%</td><td style="color:var(--red-up);">+0.60% ↑</td></tr>
-      <tr><td>长飞光纤</td><td class="down">-5.57%</td><td>6.69%</td><td>新增</td></tr>
-      <tr><td>长芯博创</td><td class="down">-6.83%</td><td>5.16%</td><td>新增</td></tr>
-      <tr><td>烽火通信</td><td class="down" style="font-weight:700;">-10.00%</td><td>3.85%</td><td>新增</td></tr>
-      <tr><td>中天科技</td><td class="down" style="font-weight:700;">-10.00%</td><td>3.83%</td><td>新增</td></tr>
-      <tr><td>世嘉科技</td><td class="down">-3.86%</td><td>3.20%</td><td>新增</td></tr>
-    </tbody>
-  </table>
 </div>
 
-<!-- 四、技术面信号 -->
+<!-- 技术面信号 -->
 <div class="section">
-  <h2 class="section-title"><span class="icon">📈</span>技术面信号（中际旭创 300308 为风向标）</h2>
+  <h2 class="section-title"><span class="icon"></span>技术面信号</h2>
   <div class="signal-group">
-    <h4>中际旭创 300308 — 板块龙头</h4>
+    <h4>大盘技术面（上证指数）</h4>
     <div class="indicator-grid">
-      <span class="indicator"><span class="label">KDJ</span><span class="val-down">超买回落 J:51</span></span>
-      <span class="indicator"><span class="label">MACD</span><span class="val-down">转负 -4.94</span></span>
-      <span class="indicator"><span class="label">RSI</span><span class="val-neutral">57.11 中性</span></span>
-      <span class="indicator"><span class="label">布林</span><span class="val-down">跌破中轨</span></span>
+      <span class="indicator"><span class="label">趋势</span><span class="val-down">跌破MA5/MA10</span></span>
+      <span class="indicator"><span class="label">MACD</span><span class="val-down">死叉向下</span></span>
+      <span class="indicator"><span class="label">量能</span><span class="val-down">缩量下跌</span></span>
+      <span class="indicator"><span class="label">RSI</span><span class="val-down">进入弱势区</span></span>
+      <span class="indicator"><span class="label">支撑位</span><span class="val-neutral">4000点整数关口</span></span>
     </div>
-    <p style="margin-top:14px; font-size:0.88em; color:var(--text-secondary);">
-      6月22日KDJ的J值冲高至108（严重超买区间），随后连续4个交易日回落。MACD在6月26日由正转负，形成死叉信号。RSI从88回落至57，回到中性区间。股价从1382高点回落至1254，跌幅约9.3%。
-    </p>
+  </div>
+  <div class="signal-group">
+    <h4>通信设备板块</h4>
+    <div class="indicator-grid">
+      <span class="indicator"><span class="label">趋势</span><span class="val-down">破位下跌</span></span>
+      <span class="indicator"><span class="label">资金</span><span class="val-down">主力净流出367亿</span></span>
+      <span class="indicator"><span class="label">情绪</span><span class="val-down">恐慌踩踏</span></span>
+      <span class="indicator"><span class="label">信号</span><span class="val-down">超卖区域</span></span>
+      <span class="indicator"><span class="label">判断</span><span class="val-neutral">情绪错杀，关注企稳</span></span>
+    </div>
+  </div>
+  <div class="signal-group">
+    <h4>光模块板块（易中天）</h4>
+    <div class="indicator-grid">
+      <span class="indicator"><span class="label">中际旭创</span><span class="val-down">-5.25% 放量下跌</span></span>
+      <span class="indicator"><span class="label">新易盛</span><span class="val-down">-7.29% 破位</span></span>
+      <span class="indicator"><span class="label">天孚通信</span><span class="val-down">-7.01% 破位</span></span>
+      <span class="indicator"><span class="label">估值</span><span class="val-down">PE 72-180倍 偏高</span></span>
+      <span class="indicator"><span class="label">业绩</span><span class="val-up">Q2高增长确定</span></span>
+    </div>
   </div>
 </div>
 
-<!-- 五、下跌原因分析 -->
+<!-- 消息面摘要 -->
 <div class="section">
-  <h2 class="section-title"><span class="icon">🔍</span>下跌原因分析</h2>
-  <div class="signal-group">
-    <h4>1. 前期涨幅巨大，获利盘集中兑现</h4>
-    <p style="font-size:0.9em; color:var(--text-secondary); line-height:1.7;">
-      CPO板块在过去一年是A股最强赛道之一。富国创新科技混合C近1年收益+352%，重仓股普遍翻倍以上。巨大涨幅积累了大量获利盘，任何风吹草动都可能触发集体兑现。KDJ的J值曾冲至108（远超80超买线），技术上早已需要修正。
-    </p>
-  </div>
-  <div class="signal-group">
-    <h4>2. 机构级别资金大规模出逃</h4>
-    <p style="font-size:0.9em; color:var(--text-secondary); line-height:1.7;">
-      当日CPO概念主力净流出535.42亿，超大单（机构级）净流出420.48亿，是当天所有概念板块中流出最大的。仅中际旭创一只就被主力抽走52.5亿，中天科技69.2亿直接跌停。这种级别的资金流出通常意味着大机构在主动减仓。
-    </p>
-  </div>
-  <div class="signal-group">
-    <h4>3. 高低切换：资金流向低估板块</h4>
-    <p style="font-size:0.9em; color:var(--text-secondary); line-height:1.7;">
-      同日资金流入方向：硅料硅片+13.53亿、航天装备+21.75亿、风电+8.32亿。这是典型的板块轮动——从高位科技板块流向低位周期/制造板块。说明市场风格在切换，而非系统性风险。
-    </p>
-  </div>
-  <div class="signal-group">
-    <h4>4. 基本面未恶化</h4>
-    <p style="font-size:0.9em; color:var(--text-secondary); line-height:1.7;">
-      新易盛2026Q1收入83.38亿、净利润27.80亿；亨通光电2026Q1收入177.91亿、净利润11.05亿，业绩表现依然强劲。此次下跌更多是交易层面的技术调整，而非行业景气度下行。
-    </p>
+  <h2 class="section-title"><span class="icon">📰</span>消息面摘要</h2>
+  <div class="news-list">
+    <div class="news-item">
+      <span class="news-sentiment">⚠️</span>
+      <span class="news-title">康宁发布Glass Bridge玻璃光互连技术，市场误读为"颠覆光纤产业"引发通信板块踩踏跌停。康宁官方随后澄清：仅为补充方案，非替代FAU光纤阵列</span>
+      <span class="news-source">雪球 · 6/27</span>
+    </div>
+    <div class="news-item">
+      <span class="news-sentiment">⚠️</span>
+      <span class="news-title">大族激光公告6000万芯公里光纤及预制棒扩产项目，市场担忧产能过剩。天风证券：扩产需2年，短期不构成威胁</span>
+      <span class="news-source">东方财富 · 6/27</span>
+    </div>
+    <div class="news-item">
+      <span class="news-sentiment">⚠️</span>
+      <span class="news-title">苹果全球涨价20%，存储芯片成本传导引发云厂商资本开支担忧。微软、亚马逊隔夜跌超3%，AI硬件情绪入冬</span>
+      <span class="news-source">格隆汇 · 6/26</span>
+    </div>
+    <div class="news-item">
+      <span class="news-sentiment"></span>
+      <span class="news-title">A股全面回调：沪指-2.26%、创业板指-4.07%，超4600只个股下跌。通信板块主力净流出367.6亿居全行业首位</span>
+      <span class="news-source">第一财经 · 6/26</span>
+    </div>
+    <div class="news-item">
+      <span class="news-sentiment">✅</span>
+      <span class="news-title">光模块Q2业绩预测强劲：中际旭创Q2净利76亿(+215%)，新易盛Q2净利35亿(+47.7%)，天孚通信Q2净利5.2亿</span>
+      <span class="news-source">韭研公社 · 6/26</span>
+    </div>
+    <div class="news-item">
+      <span class="news-sentiment">✅</span>
+      <span class="news-title">光纤涨价趋势确立：CRU数据显示光纤价格2026年初历史性激增，AI驱动下涨价有望成为长期趋势。7-8月运营商集采将推高价格</span>
+      <span class="news-source">国金证券 · 6/27</span>
+    </div>
+    <div class="news-item">
+      <span class="news-sentiment">✅</span>
+      <span class="news-title">全球存储芯片爆发：长鑫科技Q1营收508亿(+719%)，HBM需求指数级增长。半导体存储板块迎来全球共振上涨</span>
+      <span class="news-source">证券市场周刊 · 6/27</span>
+    </div>
+    <div class="news-item">
+      <span class="news-sentiment">✅</span>
+      <span class="news-title">电子行业Q1净利润同比+108%，增长高度集中于AI算力与高端制造龙头，"赢家通吃"格局明确</span>
+      <span class="news-source">证券市场周刊 · 6/27</span>
+    </div>
   </div>
 </div>
 
-<!-- 六、操作建议 -->
+<!-- 操作建议 -->
 <div class="section">
   <h2 class="section-title"><span class="icon">🎯</span>操作建议</h2>
   <div class="rec-grid">
+
+    <div class="rec-card">
+      <h3>南方信息创新混合C (007491)</h3>
+      <div class="action-badge hold">持有</div>
+      <div class="rec-detail"><p>浮盈30%为组合提供安全垫。6/26逆势+2.80%展现基金经理调仓能力。AI+信息创新长期逻辑不变，继续持有享受趋势红利。</p></div>
+      <div class="rec-levels">
+        <div class="level-item"><span class="level-label">当前净值</span><span class="level-value up">5.7268</span></div>
+        <div class="level-item"><span class="level-label">成本价</span><span class="level-value">4.3937</span></div>
+        <div class="level-item"><span class="level-label">止盈参考</span><span class="level-value" style="color:var(--accent-gold);">6.50</span></div>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <h3>嘉实科创板芯片ETF联接C (017470)</h3>
+      <div class="action-badge hold">持有</div>
+      <div class="rec-detail"><p>科创芯片跑赢大盘，半导体国产替代逻辑坚实。存储涨价周期持续，Q2业绩有望超预期。浮盈6%可继续持有。</p></div>
+      <div class="rec-levels">
+        <div class="level-item"><span class="level-label">当前净值</span><span class="level-value up">3.5481</span></div>
+        <div class="level-item"><span class="level-label">成本价</span><span class="level-value">3.3445</span></div>
+        <div class="level-item"><span class="level-label">止损参考</span><span class="level-value" style="color:var(--accent-gold);">3.20</span></div>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <h3>汇添富科技领先混合C (025881)</h3>
+      <div class="action-badge hold">持有</div>
+      <div class="rec-detail"><p>小幅盈利，仓位较轻。科技主题分散度好，风险可控。短期跟随大盘波动，中期逻辑不变。</p></div>
+      <div class="rec-levels">
+        <div class="level-item"><span class="level-label">当前净值</span><span class="level-value up">1.8214</span></div>
+        <div class="level-item"><span class="level-label">成本价</span><span class="level-value">1.7637</span></div>
+        <div class="level-item"><span class="level-label">止损参考</span><span class="level-value" style="color:var(--accent-gold);">1.68</span></div>
+      </div>
+    </div>
+
     <div class="rec-card">
       <h3>富国创新科技混合C (011120)</h3>
       <div class="action-badge hold">持有观望</div>
-      <div class="rec-detail">
-        <p>当前持仓仅49.71元（占比7.86%），仓位不重。CPO板块短期超跌回调但中长期逻辑（AI算力、数据中心光互联需求）依然成立。建议持有不动，等待板块企稳后再考虑是否加仓。若继续下跌3-5%可分批补仓摊薄成本。</p>
-        <p style="margin-top:8px;"><strong>关注信号：</strong>CPO板块主力净流出收窄、龙头中际旭创企稳放量。</p>
-      </div>
+      <div class="rec-detail"><p>微亏-0.58%，接近成本线。历史复盘建议持有。若大盘企稳可考虑小幅加仓摊低成本，若继续下跌则严守止损。</p></div>
       <div class="rec-levels">
-        <div class="level-item"><span class="level-label">板块支撑</span><span class="level-value up">中际旭创 1200</span></div>
-        <div class="level-item"><span class="level-label">板块压力</span><span class="level-value down">中际旭创 1340</span></div>
-        <div class="level-item"><span class="level-label">止损位</span><span class="level-value" style="color:var(--accent-gold);">跌破1100</span></div>
+        <div class="level-item"><span class="level-label">当前净值</span><span class="level-value down">5.8619</span></div>
+        <div class="level-item"><span class="level-label">成本价</span><span class="level-value">5.8962</span></div>
+        <div class="level-item"><span class="level-label">止损参考</span><span class="level-value" style="color:var(--accent-gold);">5.60</span></div>
       </div>
     </div>
+
+    <div class="rec-card">
+      <h3>广发远见智选混合C (016874)</h3>
+      <div class="action-badge hold">持有</div>
+      <div class="rec-detail"><p>6/26因光纤光缆跌停拖累-4.36%。但Glass Bridge已被官方澄清为误读，光纤涨价趋势未变，Q2业绩亮眼。持有仅12天，短期波动正常。建议持有等待情绪修复。</p></div>
+      <div class="rec-levels">
+        <div class="level-item"><span class="level-label">当前净值</span><span class="level-value down">2.4729</span></div>
+        <div class="level-item"><span class="level-label">成本价</span><span class="level-value">2.5307</span></div>
+        <div class="level-item"><span class="level-label">止损参考</span><span class="level-value" style="color:var(--accent-gold);">2.28</span></div>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <h3>富国创业板AI ETF联接C (024663)</h3>
+      <div class="action-badge hold">持有</div>
+      <div class="rec-detail"><p>6/26因光模块三杰暴跌-4.86%。Q2业绩确定性强（旭创+215%），Glass Bridge对可插拔光模块无影响。仓位极轻(0.78%)，影响有限。可考虑逢低小额定投。</p></div>
+      <div class="rec-levels">
+        <div class="level-item"><span class="level-label">当前净值</span><span class="level-value down">2.3333</span></div>
+        <div class="level-item"><span class="level-label">成本价</span><span class="level-value">2.3810</span></div>
+        <div class="level-item"><span class="level-label">止损参考</span><span class="level-value" style="color:var(--accent-gold);">2.15</span></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- 七、风险提示 -->
+<!-- 风险提示 -->
 <div class="section">
   <div class="risk-panel">
     <h2>⚠️ 风险提示</h2>
-    <p class="risk-item">板块集中度极高：前10大重仓全部是CPO/光通信，板块继续调整则基金净值同步承压，无分散效应</p>
-    <p class="risk-item">机构持续减仓信号：当日超大单净流出420亿，若后续交易日延续净流出，反弹可能仅是技术修复</p>
-    <p class="risk-item">估值消化需要时间：CPO板块经过一年3-5倍上涨，即使基本面不变，估值回归也可能持续数周</p>
-    <p class="risk-item">新增持仓占比高：前10大重仓中6只为"新增"，基金经理近期大幅换仓，新标的表现有待验证</p>
+    <p class="risk-item"><strong>集中度风险（高）：</strong>组合6只基金中有4只重仓通信/光模块/半导体赛道，板块敞口超过60%。若科技板块持续调整，组合将承受较大回撤压力。</p>
+    <p class="risk-item"><strong>估值风险（高）：</strong>光模块龙头估值处于历史高位（中际旭创PE 95倍、新易盛PE 72倍、天孚通信PE 180倍），一旦业绩不及预期或行业逻辑变化，可能面临大幅杀估值。</p>
+    <p class="risk-item"><strong>情绪错杀后的修复不确定性（中）：</strong>康宁Glass Bridge虽已澄清，但市场情绪修复需要时间。通信板块主力大幅流出367亿，短期可能继续承压。</p>
+    <p class="risk-item"><strong>海外传导风险（中）：</strong>苹果涨价、OpenAI推迟IPO传闻、日韩市场暴跌等海外因素持续影响A股科技板块情绪。云厂商资本开支方向变化可能影响光模块中长期需求预期。</p>
+    <p class="risk-item"><strong>季末资金面压力（中）：</strong>6月末为季末结算节点，机构资金调仓压力大，可能加剧市场波动。</p>
   </div>
 </div>
 
@@ -422,71 +547,41 @@ body {
 
 <footer class="report-footer">
   <p class="disclaimer">本报告由AI行情研判助手自动生成，基于公开市场数据与技术分析模型。所有内容仅供学习研究参考，不构成任何投资建议或投资承诺。市场有风险，投资需谨慎。过往业绩不代表未来表现，请根据自身风险承受能力做出独立判断。</p>
-  <p>生成时间: 2026-06-28 | 数据日期: 2026-06-26</p>
-  <p>Powered by 行情研判助手 — AKShare + 同花顺问财 + AI 多维分析</p>
+  <p>生成时间: 2026-06-28 14:00 | 数据截止: 2026-06-26 收盘</p>
+  <p>Powered by 行情研判助手 v3.2.0 — iwencai-mcp + AKShare + AI 多维分析</p>
 </footer>
 
 <script>
 (function() {
   'use strict';
-  var CHART_COLORS = {
-    red:'#dc2626', redBright:'#ef4444', green:'#16a34a', greenBright:'#22c55e',
-    blue:'#2563eb', blueLight:'#3b82f6', gold:'#d97706', purple:'#7c3aed',
-    text:'#475569', textMuted:'#94a3b8', grid:'rgba(148,163,184,0.15)',
-    bg:'#ffffff', tooltipBg:'#1e293b'
-  };
-  Chart.defaults.color = CHART_COLORS.text;
-  Chart.defaults.borderColor = CHART_COLORS.grid;
+  const C = { red:'#dc2626', redBright:'#ef4444', green:'#16a34a', greenBright:'#22c55e', blue:'#2563eb', gold:'#d97706', text:'#475569', grid:'rgba(148,163,184,0.15)', tooltipBg:'#1e293b' };
+  Chart.defaults.color = C.text; Chart.defaults.borderColor = C.grid;
   Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif';
   Chart.defaults.font.size = 11;
 
-  // 重仓股跌幅图
-  var hc = document.getElementById('holdingsChart');
-  if (hc) {
-    new Chart(hc.getContext('2d'), {
+  // Sector chart
+  var sCanvas = document.getElementById('sectorChart');
+  if (sCanvas) {
+    new Chart(sCanvas.getContext('2d'), {
       type: 'bar',
       data: {
-        labels: ['烽火通信','中天科技','亨通光电','新易盛','长芯博创','东山精密','长飞光纤','中际旭创','沪电股份','世嘉科技'],
-        datasets: [{
-          data: [-10.00,-10.00,-9.91,-7.29,-6.83,-5.61,-5.57,-5.25,-4.97,-3.86],
-          backgroundColor: 'rgba(22,163,74,0.15)',
-          borderColor: CHART_COLORS.green,
-          borderWidth: 1,
-          borderRadius: 4,
-          barPercentage: 0.7
-        }]
+        labels: ['通信设备', '计算机', '电力设备', '电子', '半导体', '光刻机'],
+        datasets: [{ data: [-6.48, -4.33, -4.13, -3.34, -0.88, 2.5], backgroundColor: ['#dc262620','#dc262620','#dc262620','#dc262620','#dc262620','#16a34a20'], borderColor: ['#dc2626','#dc2626','#dc2626','#dc2626','#dc2626','#16a34a'], borderWidth: 1, borderRadius: 4, barPercentage: 0.7 }]
       },
-      options: {
-        responsive: true, maintainAspectRatio: true, indexAxis: 'y',
-        plugins: { legend: { display: false }, tooltip: { backgroundColor: CHART_COLORS.tooltipBg, titleColor: '#fff', bodyColor: '#fff', callbacks: { label: function(c) { return c.parsed.x.toFixed(2) + '%'; } } } },
-        scales: { x: { grid: { color: CHART_COLORS.grid }, ticks: { callback: function(v) { return v + '%'; } } }, y: { grid: { display: false } } },
-        animation: { duration: 1000, easing: 'easeOutQuart' }
-      }
+      options: { responsive: true, maintainAspectRatio: true, indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { backgroundColor: C.tooltipBg, titleColor: '#fff', bodyColor: '#fff', borderWidth: 0, cornerRadius: 6, callbacks: { label: function(ctx) { return ctx.parsed.x.toFixed(2) + '%'; } } } }, scales: { x: { grid: { color: C.grid }, ticks: { callback: function(v) { return v + '%'; } } }, y: { grid: { display: false } } }, animation: { duration: 1000 } }
     });
   }
 
-  // 主力流出排名图
-  var fc = document.getElementById('flowChart');
-  if (fc) {
-    new Chart(fc.getContext('2d'), {
+  // Flow chart
+  var fCanvas = document.getElementById('flowChart');
+  if (fCanvas) {
+    new Chart(fCanvas.getContext('2d'), {
       type: 'bar',
       data: {
-        labels: ['中天科技','中际旭创','新易盛','亨通光电'],
-        datasets: [{
-          data: [-69.22, -52.50, -37.36, -35.45],
-          backgroundColor: 'rgba(22,163,74,0.15)',
-          borderColor: CHART_COLORS.green,
-          borderWidth: 1,
-          borderRadius: 4,
-          barPercentage: 0.7
-        }]
+        labels: ['通信设备', '半导体', '电子', '电池', '计算机'],
+        datasets: [{ data: [-367.6, -255.2, -112.3, -101.9, -80], backgroundColor: ['#dc262620','#dc262620','#dc262620','#dc262620','#dc262620'], borderColor: ['#dc2626','#dc2626','#dc2626','#dc2626','#dc2626'], borderWidth: 1, borderRadius: 4, barPercentage: 0.7 }]
       },
-      options: {
-        responsive: true, maintainAspectRatio: true, indexAxis: 'y',
-        plugins: { legend: { display: false }, tooltip: { backgroundColor: CHART_COLORS.tooltipBg, titleColor: '#fff', bodyColor: '#fff', callbacks: { label: function(c) { return c.parsed.x.toFixed(2) + '亿'; } } } },
-        scales: { x: { grid: { color: CHART_COLORS.grid }, ticks: { callback: function(v) { return v + '亿'; } } }, y: { grid: { display: false } } },
-        animation: { duration: 1000, easing: 'easeOutQuart' }
-      }
+      options: { responsive: true, maintainAspectRatio: true, indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { backgroundColor: C.tooltipBg, titleColor: '#fff', bodyColor: '#fff', borderWidth: 0, cornerRadius: 6, callbacks: { label: function(ctx) { return ctx.parsed.x.toFixed(1) + '亿'; } } } }, scales: { x: { grid: { color: C.grid }, ticks: { callback: function(v) { return v + '亿'; } } }, y: { grid: { display: false } } }, animation: { duration: 1000 } }
     });
   }
 })();
