@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>基金持仓周一走势研判 | 2026-06-29</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.6; }
+.container { max-width: 600px; margin: 0 auto; padding: 12px; }
+.header { background: linear-gradient(135deg, #1d4ed8, #3b82f6); color: white; border-radius: 16px; padding: 24px 20px; margin-bottom: 16px; text-align: center; }
+.header h1 { font-size: 22px; margin-bottom: 6px; }
+.header .date { font-size: 13px; opacity: 0.85; }
+.score-circle { width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.2); border: 3px solid white; display: flex; align-items: center; justify-content: center; margin: 14px auto 8px; }
+.score-circle .num { font-size: 28px; font-weight: 700; }
+.score-label { font-size: 13px; opacity: 0.9; }
+.card { background: #fff; border-radius: 14px; padding: 18px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.card-title { font-size: 16px; font-weight: 700; color: #1d4ed8; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.card-title .icon { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.verdict { text-align: center; padding: 14px; background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 12px; margin-bottom: 14px; }
+.verdict .label { font-size: 13px; color: #92400e; }
+.verdict .value { font-size: 24px; font-weight: 700; color: #92400e; margin-top: 4px; }
+.verdict .sub { font-size: 12px; color: #a16207; margin-top: 4px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { background: #f1f5f9; padding: 8px 6px; text-align: left; font-weight: 600; color: #475569; border-bottom: 2px solid #e2e8f0; }
+td { padding: 7px 6px; border-bottom: 1px solid #f1f5f9; }
+.up { color: #dc2626; font-weight: 600; }
+.down { color: #16a34a; font-weight: 600; }
+.neutral { color: #64748b; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+.tag-hold { background: #dbeafe; color: #1e40af; }
+.tag-add { background: #dcfce7; color: #166534; }
+.tag-reduce { background: #fee2e2; color: #991b1b; }
+.tag-warn { background: #fef3c7; color: #92400e; }
+.dim-bar { height: 8px; border-radius: 4px; background: #e2e8f0; margin-top: 4px; overflow: hidden; }
+.dim-bar .fill { height: 100%; border-radius: 4px; }
+.radar-item { margin-bottom: 10px; }
+.radar-item .label-row { display: flex; justify-content: space-between; font-size: 13px; }
+.radar-item .score { font-weight: 700; }
+.news-item { padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
+.news-item:last-child { border: none; }
+.news-item .title { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+.news-item .meta { font-size: 11px; color: #94a3b8; }
+.fund-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
+.fund-row:last-child { border: none; }
+.fund-name { font-size: 13px; font-weight: 600; flex: 1; }
+.fund-pnl { font-size: 13px; font-weight: 700; margin-right: 8px; }
+.fund-action { font-size: 11px; }
+.risk-box { background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; padding: 14px; margin-top: 8px; }
+.risk-box .risk-title { color: #dc2626; font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+.risk-box .risk-item { font-size: 12px; color: #7f1d1d; margin-bottom: 4px; padding-left: 14px; position: relative; }
+.risk-box .risk-item::before { content: '!'; position: absolute; left: 0; color: #dc2626; font-weight: 700; }
+.summary-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 14px; }
+.summary-box p { font-size: 13px; color: #1e40af; margin-bottom: 6px; }
+.footer { text-align: center; font-size: 11px; color: #94a3b8; padding: 16px 0; }
+.section-divider { height: 1px; background: #e2e8f0; margin: 4px 0; }
+.kv-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 13px; }
+.kv-row .k { color: #64748b; }
+.kv-row .v { font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- 头部 -->
+<div class="header">
+  <h1>基金持仓周一走势研判</h1>
+  <div class="date">2026-06-28 周六 | 研判目标: 6/29 周一</div>
+  <div class="score-circle">
+    <span class="num">42</span>
+  </div>
+  <div class="score-label">综合评分（0-100）偏空</div>
+</div>
+
+<!-- 核心判断 -->
+<div class="verdict">
+  <div class="label">下周一核心判断</div>
+  <div class="value">震荡偏空 低开概率大</div>
+  <div class="sub">美股费城半导体暴跌5.29%传导 + A股周五已大跌 + 主力资金持续出逃<br>科技板块预计低开1-3%，半导体设备/材料相对抗跌</div>
+</div>
+
+<!-- 持仓概览 -->
+<div class="card">
+  <div class="card-title"><span class="icon" style="background:#dbeafe;">P</span> 持仓概览</div>
+  <div class="kv-row"><span class="k">总成本</span><span class="v">432.29元</span></div>
+  <div class="kv-row"><span class="k">总市值</span><span class="v">473.05元</span></div>
+  <div class="kv-row"><span class="k">总盈亏</span><span class="v up">+40.77 (+9.43%)</span></div>
+  <div class="kv-row"><span class="k">持仓数量</span><span class="v">9只</span></div>
+  <div class="kv-row"><span class="k">板块集中度</span><span class="v" style="color:#dc2626;">科技+半导体 约79%（高风险）</span></div>
+  <div style="margin-top: 10px;">
+    <table>
+      <tr><th>基金名称</th><th>市值</th><th>盈亏%</th><th>建议</th></tr>
+      <tr><td>南方信息创新C</td><td>65.17</td><td class="up">+30.34%</td><td><span class="tag tag-warn">减仓锁利</span></td></tr>
+      <tr><td>华夏半导体芯片C</td><td>105.15</td><td class="up">+27.80%</td><td><span class="tag tag-warn">减仓锁利</span></td></tr>
+      <tr><td>嘉实科创芯片C</td><td>74.26</td><td class="up">+6.09%</td><td><span class="tag tag-hold">持有</span></td></tr>
+      <tr><td>银华中小盘</td><td>31.15</td><td class="up">+3.83%</td><td><span class="tag tag-hold">持有</span></td></tr>
+      <tr><td>汇添富科技领先C</td><td>10.33</td><td class="up">+3.27%</td><td><span class="tag tag-hold">持有</span></td></tr>
+      <tr><td>易方达储能电池C</td><td>24.89</td><td class="down">-0.44%</td><td><span class="tag tag-hold">持有</span></td></tr>
+      <tr><td>富国创新科技C</td><td>49.71</td><td class="down">-0.58%</td><td><span class="tag tag-hold">持有</span></td></tr>
+      <tr><td>富国AI联接C</td><td>4.90</td><td class="down">-2.00%</td><td><span class="tag tag-add">逢低加仓</span></td></tr>
+      <tr><td>广发远见智选C</td><td>107.50</td><td class="down">-2.28%</td><td><span class="tag tag-hold">持有观察</span></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- 六维度雷达 -->
+<div class="card">
+  <div class="card-title"><span class="icon" style="background:#fef3c7;">R</span> 六维度评分</div>
+
+  <div class="radar-item">
+    <div class="label-row"><span>技术面 (25%)</span><span class="score down">3/10 偏空</span></div>
+    <div class="dim-bar"><div class="fill" style="width:30%;background:#dc2626;"></div></div>
+    <div style="font-size:11px;color:#64748b;margin-top:2px;">半导体超买严重+周五大阴线破位，但AI超卖有反弹需求</div>
+  </div>
+
+  <div class="radar-item">
+    <div class="label-row"><span>资金面 (20%)</span><span class="score down">2/10 弱势</span></div>
+    <div class="dim-bar"><div class="fill" style="width:20%;background:#dc2626;"></div></div>
+    <div style="font-size:11px;color:#64748b;margin-top:2px;">半导体5日涨6.77%但主力净流出281亿，价涨量缩；通信/CPO出逃超1000亿</div>
+  </div>
+
+  <div class="radar-item">
+    <div class="label-row"><span>消息面 (20%)</span><span class="score neutral">5/10 中性</span></div>
+    <div class="dim-bar"><div class="fill" style="width:50%;background:#f59e0b;"></div></div>
+    <div style="font-size:11px;color:#64748b;margin-top:2px;">费城半导体暴跌利空 vs WSTS看好+政策偏暖+行业基本面强劲</div>
+  </div>
+
+  <div class="radar-item">
+    <div class="label-row"><span>宏观面 (15%)</span><span class="score neutral">4/10 偏弱</span></div>
+    <div class="dim-bar"><div class="fill" style="width:40%;background:#f59e0b;"></div></div>
+    <div style="font-size:11px;color:#64748b;margin-top:2px;">中美贸易降税框架利好 vs 美联储加息预期升温+全球科技股承压</div>
+  </div>
+
+  <div class="radar-item">
+    <div class="label-row"><span>情绪面 (10%)</span><span class="score down">2/10 恐慌</span></div>
+    <div class="dim-bar"><div class="fill" style="width:20%;background:#dc2626;"></div></div>
+    <div style="font-size:11px;color:#64748b;margin-top:2px;">涨跌比1:5.94极度弱势，下跌放量3.55万亿，恐慌情绪升温</div>
+  </div>
+
+  <div class="radar-item">
+    <div class="label-row"><span>持仓诊断 (10%)</span><span class="score neutral">5/10 中等</span></div>
+    <div class="dim-bar"><div class="fill" style="width:50%;background:#f59e0b;"></div></div>
+    <div style="font-size:11px;color:#64748b;margin-top:2px;">总盈亏+9.43%安全垫尚可，但79%集中科技赛道，波动风险大</div>
+  </div>
+</div>
+
+<!-- 技术面详解 -->
+<div class="card">
+  <div class="card-title"><span class="icon" style="background:#dcfce7;">T</span> 技术面详解</div>
+  <table>
+    <tr><th>板块</th><th>趋势</th><th>信号</th><th>周一预判</th></tr>
+    <tr>
+      <td><b>半导体</b></td>
+      <td class="up">强势多头</td>
+      <td>超买+顶背离</td>
+      <td class="down">回调风险高</td>
+    </tr>
+    <tr>
+      <td><b>人工智能</b></td>
+      <td class="down">弱势震荡</td>
+      <td>超卖+底背离</td>
+      <td class="up">短线反弹概率大</td>
+    </tr>
+    <tr>
+      <td><b>芯片概念</b></td>
+      <td class="up">多头排列</td>
+      <td>均衡健康</td>
+      <td class="neutral">小幅低开后企稳</td>
+    </tr>
+  </table>
+  <div style="margin-top: 10px; font-size: 12px; color: #475569; background: #f8fafc; padding: 10px; border-radius: 8px;">
+    <b>关键信号：</b><br>
+    - 半导体板块MA5/10/20多头排列但RSI进入超买区(>70)，KDJ高位死叉<br>
+    - AI板块RSI<30超卖，KDJ低位金叉，MACD底背离，技术修复需求强<br>
+    - 芯片概念布林带中轨上方运行，MACD红柱缩短但未死叉，仍有上行空间<br>
+    - 科创50周线+6.32%逆势走强，资金高度聚焦硬科技
+  </div>
+</div>
+
+<!-- 资金面详解 -->
+<div class="card">
+  <div class="card-title"><span class="icon" style="background:#fee2e2;">$</span> 资金面详解</div>
+  <div style="font-size: 13px;">
+    <div style="margin-bottom: 10px;">
+      <b style="color:#dc2626;">主力资金大幅出逃的板块：</b>
+      <div class="kv-row"><span class="k">通信设备 (5日)</span><span class="v down">-672亿</span></div>
+      <div class="kv-row"><span class="k">CPO概念 (单日)</span><span class="v down">-535亿</span></div>
+      <div class="kv-row"><span class="k">光通信模块 (单日)</span><span class="v down">-493亿</span></div>
+      <div class="kv-row"><span class="k">半导体 (5日)</span><span class="v down">-281亿 (价涨量缩)</span></div>
+    </div>
+    <div style="margin-bottom: 10px;">
+      <b style="color:#16a34a;">主力资金流入的板块：</b>
+      <div class="kv-row"><span class="k">航天装备 (单日)</span><span class="v up">+21.75亿</span></div>
+      <div class="kv-row"><span class="k">硅料硅片 (单日)</span><span class="v up">+13.53亿</span></div>
+      <div class="kv-row"><span class="k">半导体设备 (单日)</span><span class="v up">+2.84亿</span></div>
+    </div>
+    <div style="font-size: 11px; color: #64748b; background: #f8fafc; padding: 8px; border-radius: 6px;">
+      <b>解读：</b>半导体板块虽然涨幅领先但主力资金持续净流出，"价涨量缩"是典型的顶部信号之一。设备/材料子板块逆势获资金流入，显示结构性分化加剧。通信/CPO遭遇资金踩踏式出逃，短期不宜抄底。
+    </div>
+  </div>
+</div>
+
+<!-- 消息面 -->
+<div class="card">
+  <div class="card-title"><span class="icon" style="background:#e0e7ff;">N</span> 消息面汇总</div>
+
+  <div class="news-item">
+    <div class="title down">利空 | 费城半导体指数暴跌5.29%</div>
+    <div style="font-size:12px;">安森美-23.66%创2020年以来最大单日跌幅，苹果涨价传导担忧+OpenAI推迟IPO+美联储加息预期升温</div>
+    <div class="meta">影响: 下周一A股半导体低开1-3%概率大 | 评分: -0.7</div>
+  </div>
+
+  <div class="news-item">
+    <div class="title up">利好 | WSTS预测2026全球半导体1.5万亿美元</div>
+    <div style="font-size:12px;">同比增长+90%，存储芯片+250%；美光财报超预期毛利率84.9%；电子行业1-5月利润增103.9%</div>
+    <div class="meta">影响: 行业基本面极强，中长期支撑 | 评分: +0.8</div>
+  </div>
+
+  <div class="news-item">
+    <div class="title up">利好 | 政策面偏暖</div>
+    <div style="font-size:12px;">中美贸易理事会降税框架(各300亿美元)、陆家嘴论坛科创板扩容AI赛道、六部委长线资金入市、四川AI新政最高2000万支持</div>
+    <div class="meta">影响: 中长期利好科技板块估值 | 评分: +0.5</div>
+  </div>
+
+  <div class="news-item">
+    <div class="title up">利好 | 四大封测龙头合计扩产近200亿</div>
+    <div style="font-size:12px;">国内半导体产业链持续扩产，国产替代逻辑不变</div>
+    <div class="meta">影响: 中长期利好设备/材料子板块 | 评分: +0.4</div>
+  </div>
+
+  <div class="news-item">
+    <div class="title neutral">中性 | A股已部分消化风险</div>
+    <div style="font-size:12px;">6/26中证AI指数已跌5.12%，周五大跌已提前反映部分美股利空</div>
+    <div class="meta">影响: 周一低开幅度可能有限 | 评分: +0.2</div>
+  </div>
+</div>
+
+<!-- 操作建议 -->
+<div class="card">
+  <div class="card-title"><span class="icon" style="background:#dbeafe;">A</span> 周一操作建议</div>
+
+  <div class="fund-row">
+    <span class="fund-name">南方信息创新C<br><span style="font-size:11px;color:#64748b;">+30.34% | 科技/信息</span></span>
+    <span class="fund-pnl up">+15.17</span>
+    <span class="fund-action"><span class="tag tag-warn">减仓1/3</span></span>
+  </div>
+  <div style="font-size:11px;color:#64748b;margin:-6px 0 8px 0;">盈利丰厚+板块超买+主力资金外流，锁定部分利润</div>
+
+  <div class="fund-row">
+    <span class="fund-name">华夏半导体芯片C<br><span style="font-size:11px;color:#64748b;">+27.80% | 半导体</span></span>
+    <span class="fund-pnl up">+22.87</span>
+    <span class="fund-action"><span class="tag tag-warn">减仓1/4</span></span>
+  </div>
+  <div style="font-size:11px;color:#64748b;margin:-6px 0 8px 0;">费城半导体暴跌直接冲击，价涨量缩，高位兑现</div>
+
+  <div class="fund-row">
+    <span class="fund-name">嘉实科创芯片C<br><span style="font-size:11px;color:#64748b;">+6.09% | 芯片</span></span>
+    <span class="fund-pnl up">+4.26</span>
+    <span class="fund-action"><span class="tag tag-hold">持有</span></span>
+  </div>
+  <div style="font-size:11px;color:#64748b;margin:-6px 0 8px 0;">芯片概念技术面最均衡，科创50逆势走强，持有</div>
+
+  <div class="fund-row">
+    <span class="fund-name">广发远见智选C<br><span style="font-size:11px;color:#64748b;">-2.28% | 科技</span></span>
+    <span class="fund-pnl down">-2.51</span>
+    <span class="fund-action"><span class="tag tag-hold">持有</span></span>
+  </div>
+  <div style="font-size:11px;color:#64748b;margin:-6px 0 8px 0;">最大持仓(110元)，亏损有限，等反弹修复</div>
+
+  <div class="fund-row">
+    <span class="fund-name">富国创新科技C<br><span style="font-size:11px;color:#64748b;">-0.58% | 科技</span></span>
+    <span class="fund-pnl down">-0.29</span>
+    <span class="fund-action"><span class="tag tag-hold">持有</span></span>
+  </div>
+  <div style="font-size:11px;color:#64748b;margin:-6px 0 8px 0;">接近平仓线，基本面未变，继续持有</div>
+
+  <div class="fund-row">
+    <span class="fund-name">富国AI联接C<br><span style="font-size:11px;color:#64748b;">-2.00% | AI</span></span>
+    <span class="fund-pnl down">-0.10</span>
+    <span class="fund-action"><span class="tag tag-add">逢低加仓</span></span>
+  </div>
+  <div style="font-size:11px;color:#64748b;margin:-6px 0 8px 0;">AI板块超卖+底背离，技术修复反弹概率大，仓位小可加</div>
+
+  <div class="fund-row">
+    <span class="fund-name">易方达储能电池C<br><span style="font-size:11px;color:#64748b;">-0.44% | 储能</span></span>
+    <span class="fund-pnl down">-0.11</span>
+    <span class="fund-action"><span class="tag tag-hold">持有</span></span>
+  </div>
+  <div style="font-size:11px;color:#64748b;margin:-6px 0 8px 0;">非核心持仓，电池板块短期承压但估值不高</div>
+
+  <div class="fund-row">
+    <span class="fund-name">汇添富科技领先C<br><span style="font-size:11px;color:#64748b;">+3.27% | 科技</span></span>
+    <span class="fund-pnl up">+0.33</span>
+    <span class="fund-action"><span class="tag tag-hold">持有</span></span>
+  </div>
+  <div style="font-size:11px;color:#64748b;margin:-6px 0 8px 0;">仓位小(10元)，波动影响有限</div>
+
+  <div class="fund-row">
+    <span class="fund-name">银华中小盘<br><span style="font-size:11px;color:#64748b;">+3.83% | 中小盘</span></span>
+    <span class="fund-pnl up">+1.15</span>
+    <span class="fund-action"><span class="tag tag-hold">持有</span></span>
+  </div>
+  <div style="font-size:11px;color:#64748b;margin:-6px 0 8px 0;">分散科技集中度的品种，继续持有</div>
+</div>
+
+<!-- 风险提示 -->
+<div class="card">
+  <div class="card-title"><span class="icon" style="background:#fee2e2;">!</span> 风险提示</div>
+  <div class="risk-box">
+    <div class="risk-title">核心风险</div>
+    <div class="risk-item">板块集中度过高(79%科技+半导体)，单日回撤可能超过3%</div>
+    <div class="risk-item">半导体"价涨量缩"+费城半导体暴跌，周一低开概率极高</div>
+    <div class="risk-item">通信/CPO板块资金踩踏(-1000亿+外逃)，科技风格整体承压</div>
+    <div class="risk-item">美联储加息预期升温，全球科技股估值受压</div>
+    <div class="risk-item">周五两市3.55万亿下跌放量，短线抛压沉重</div>
+  </div>
+</div>
+
+<!-- 核心结论 -->
+<div class="card">
+  <div class="card-title"><span class="icon" style="background:#dbeafe;">S</span> 核心结论</div>
+  <div class="summary-box">
+    <p><b>下周一预判：震荡偏空，低开概率大。</b></p>
+    <p>美股费城半导体暴跌5.29%是最大短期利空，叠加A股周五已大跌（创业板-4.07%），周一科技板块预计低开1-3%。但行业基本面强劲（WSTS预测+90%增长）、政策面偏暖、AI板块已超卖有反弹需求，不建议恐慌割肉。</p>
+    <p><b>操作策略：</b>盈利超过20%的两只基金（南方信息+30%、华夏半导体+28%）建议各减仓1/4~1/3锁定利润，其余持有不动。AI板块仓位小且超卖，可逢低小幅加仓。整体仓位维持7成以上，等周中企稳后再做调整。</p>
+    <p><b>关键观察点：</b>周一开盘后30分钟量能、北向资金流向、半导体板块是否放量杀跌。</p>
+  </div>
+</div>
+
+<!-- 尾部 -->
+<div class="footer">
+  数据来源: iwencai-mcp (同花顺问财) + mcp-aktools + WebSearch<br>
+  生成时间: 2026-06-28 23:00 | 行情研判助手 v4.0<br>
+  本报告仅供参考，不构成投资建议
+</div>
+
+</div>
+</body>
+</html>
