@@ -3,406 +3,411 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A股智能研判报告 | 2026-06-29 收盘复盘与明日展望</title>
+<title>行情研判报告 | 2026-06-29</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:#f0f4f8;color:#1e293b;line-height:1.6}
-.container{max-width:960px;margin:0 auto;padding:16px}
-.header{background:linear-gradient(135deg,#1d4ed8,#3b82f6);color:#fff;border-radius:16px;padding:32px 28px;margin-bottom:20px}
-.header h1{font-size:24px;margin-bottom:8px}
-.header .subtitle{opacity:0.9;font-size:14px}
-.header .summary{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.header .summary .item{text-align:center}
-.header .summary .item .val{font-size:22px;font-weight:700}
-.header .summary .item .lbl{font-size:11px;opacity:0.8}
-.card{background:#fff;border-radius:12px;padding:20px 24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:#f0f4f8;color:#1e293b;line-height:1.6;padding:0 0 40px}
+.header{background:linear-gradient(135deg,#1d4ed8,#3b82f6);color:#fff;padding:32px 24px;text-align:center}
+.header h1{font-size:24px;font-weight:700;margin-bottom:4px}
+.header .date{font-size:14px;opacity:.85}
+.header .summary{margin-top:12px;font-size:15px;background:rgba(255,255,255,.15);border-radius:8px;padding:10px 16px;display:inline-block}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+.card{background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);margin:20px 0;padding:20px 24px}
 .card h2{font-size:17px;color:#1d4ed8;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #e2e8f0}
-.card h3{font-size:14px;color:#475569;margin:12px 0 8px}
-.up{color:#dc2626}.dn{color:#16a34a}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-.idx-card{background:#f8fafc;border-radius:8px;padding:12px;text-align:center}
-.idx-card .name{font-size:12px;color:#64748b}
-.idx-card .price{font-size:20px;font-weight:700;margin:4px 0}
-.idx-card .chg{font-size:14px;font-weight:600}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th{background:#f1f5f9;padding:8px 10px;text-align:left;font-weight:600;color:#475569;border-bottom:2px solid #e2e8f0}
-td{padding:8px 10px;border-bottom:1px solid #f1f5f9}
+.card h3{font-size:15px;color:#475569;margin:14px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+th{background:#f1f5f9;color:#475569;padding:8px 10px;text-align:left;font-weight:600;border-bottom:2px solid #e2e8f0}
+td{padding:7px 10px;border-bottom:1px solid #f1f5f9}
 tr:hover{background:#f8fafc}
-.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin-right:4px}
-.tag-red{background:#fef2f2;color:#dc2626}
-.tag-green{background:#f0fdf4;color:#16a34a}
-.tag-blue{background:#eff6ff;color:#1d4ed8}
-.tag-yellow{background:#fefce8;color:#ca8a04}
-.signal-box{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;margin-bottom:8px}
-.signal-buy{background:#f0fdf4;border-left:4px solid #16a34a}
-.signal-hold{background:#eff6ff;border-left:4px solid #3b82f6}
-.signal-sell{background:#fef2f2;border-left:4px solid #dc2626}
-.signal-warn{background:#fefce8;border-left:4px solid #ca8a04}
-.score-bar{height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin-top:4px}
-.score-fill{height:100%;border-radius:4px;transition:width 0.3s}
-.footer{text-align:center;padding:20px;font-size:11px;color:#94a3b8}
-.badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:600}
-.badge-bull{background:#dcfce7;color:#15803d}
-.badge-bear{background:#fee2e2;color:#b91c1c}
-.badge-neutral{background:#dbeafe;color:#1d4ed8}
+.up{color:#dc2626;font-weight:600}
+.down{color:#16a34a;font-weight:600}
+.flat{color:#94a3b8}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:12px;margin:2px}
+.tag-bull{background:#fef2f2;color:#dc2626}
+.tag-bear{background:#f0fdf4;color:#16a34a}
+.tag-neutral{background:#f8fafc;color:#64748b}
+.signal{display:inline-block;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:600;margin:2px}
+.signal-buy{background:#fef2f2;color:#dc2626;border:1px solid #fca5a5}
+.signal-hold{background:#fffbeb;color:#d97706;border:1px solid #fcd34d}
+.signal-sell{background:#f0fdf4;color:#16a34a;border:1px solid #86efac}
+.signal-warn{background:#fef3c7;color:#b45309;border:1px solid #fbbf24}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:10px 0}
+.kpi{background:#f8fafc;border-radius:8px;padding:12px;text-align:center}
+.kpi .val{font-size:20px;font-weight:700}
+.kpi .label{font-size:12px;color:#64748b;margin-top:2px}
 .news-item{padding:8px 0;border-bottom:1px solid #f1f5f9;font-size:13px}
-.news-item:last-child{border:none}
-.news-item .src{color:#94a3b8;font-size:11px}
-.risk-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:14px;margin-bottom:8px}
-.risk-card .title{font-weight:600;color:#c2410c;margin-bottom:4px}
-@media(max-width:600px){.header .summary{grid-template-columns:repeat(2,1fr)}.grid2,.grid3{grid-template-columns:1fr}}
+.news-item:last-child{border-bottom:none}
+.section-badge{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.dot-red{background:#dc2626}
+.dot-green{background:#16a34a}
+.dot-gray{background:#94a3b8}
+details{margin:10px 0}
+summary{cursor:pointer;font-weight:600;color:#1d4ed8;padding:8px 0;font-size:14px}
+.fund-card{background:#f8fafc;border-radius:8px;padding:14px;margin:8px 0;border-left:4px solid #3b82f6}
+.fund-card.profit{border-left-color:#dc2626}
+.fund-card.loss{border-left-color:#16a34a}
+.fund-name{font-weight:600;font-size:14px}
+.fund-detail{font-size:12px;color:#64748b;margin-top:4px}
+.fund-pnl{font-size:16px;font-weight:700;margin-top:4px}
+.reason{font-size:13px;color:#475569;margin-top:6px;padding:6px 10px;background:#fff;border-radius:6px;border:1px solid #e2e8f0}
+.verdict{background:linear-gradient(135deg,#eff6ff,#f0f4f8);border:1px solid #bfdbfe;border-radius:10px;padding:16px;margin:14px 0}
+.verdict h3{color:#1d4ed8;margin-bottom:8px}
+.risk-box{background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;padding:12px;margin:10px 0;font-size:13px}
+.risk-box strong{color:#dc2626}
+.footer{text-align:center;padding:20px;font-size:12px;color:#94a3b8}
 </style>
 </head>
 <body>
-<div class="container">
 
 <div class="header">
-  <h1>A股智能研判报告</h1>
-  <div class="subtitle">2026年6月29日（周一）收盘复盘 | 数据截至 15:00</div>
-  <div class="summary">
-    <div class="item"><div class="val up">+1.16%</div><div class="lbl">上证指数</div></div>
-    <div class="item"><div class="val up">+4.61%</div><div class="lbl">科创50</div></div>
-    <div class="item"><div class="val">3.52万亿</div><div class="lbl">两市成交</div></div>
-    <div class="item"><div class="val">+9.94%</div><div class="lbl">组合总盈亏</div></div>
-  </div>
+<h1>📊 行情研判报告</h1>
+<div class="date">2026年6月29日 周一 | 全维度综合分析</div>
+<div class="summary">科创50暴涨4.61%领涨 · 半导体全面爆发 · 但二八分化严重 · 技术面超买警告</div>
 </div>
 
-<!-- 一、核心结论 -->
+<div class="container">
+
+<!-- ========== 一、大盘概览 ========== -->
 <div class="card">
-  <h2>一、核心结论</h2>
-  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px">
-    <span class="badge badge-bull">大盘评级：震荡偏强 (58/100)</span>
-    <span class="badge badge-neutral">操作建议：持有 + 分批止盈</span>
-    <span class="badge badge-bear">集中度风险：半导体敞口 &gt; 70%</span>
-  </div>
-  <p style="font-size:14px;color:#334155">
-    今日A股低开高走全线收红，科创50暴涨4.61%再创历史新高，半导体产业链全面爆发。组合持仓直接受益，总盈亏升至+9.94%（较上周五+7.95%提升约2个百分点）。但缩量上涨（3.52万亿，较前日缩量347亿）且全市场超2900股下跌，结构性行情特征明显。
-  </p>
-  <p style="font-size:14px;color:#334155;margin-top:8px">
-    <strong>明日策略：</strong>半导体基金（008888/017470）涨幅已大，建议高开时分批止盈5-10%锁定利润；南方信息创新（007491）持有为主；光通信/PCB相关基金（011120/025881）今日逆势下跌，观察6/30是否跟随反弹，暂不操作。
-  </p>
+<h2>一、大盘行情概览</h2>
+<div class="kpi-grid">
+<div class="kpi"><div class="val up">+1.16%</div><div class="label">上证指数 4073.90</div></div>
+<div class="kpi"><div class="val up">+0.19%</div><div class="label">深证成指 15812.87</div></div>
+<div class="kpi"><div class="val up">+0.54%</div><div class="label">创业板指 4216.70</div></div>
+<div class="kpi"><div class="val up" style="font-size:18px">+4.61%</div><div class="label">科创50 2126.01</div></div>
+<div class="kpi"><div class="val up">+1.21%</div><div class="label">沪深300 4926.92</div></div>
+<div class="kpi"><div class="val" style="color:#d97706">3.52万亿</div><div class="label">两市成交额</div></div>
 </div>
 
-<!-- 二、大盘环境 -->
-<div class="card">
-  <h2>二、大盘环境</h2>
-  <div class="grid2" style="margin-bottom:16px">
-    <div class="idx-card">
-      <div class="name">上证指数</div>
-      <div class="price">4073.90</div>
-      <div class="chg up">+1.16%</div>
-    </div>
-    <div class="idx-card">
-      <div class="name">深证成指</div>
-      <div class="price">15812.87</div>
-      <div class="chg up">+0.19%</div>
-    </div>
-    <div class="idx-card">
-      <div class="name">创业板指</div>
-      <div class="price">4216.70</div>
-      <div class="chg up">+0.54%</div>
-    </div>
-    <div class="idx-card">
-      <div class="name">科创50</div>
-      <div class="price">2126.01</div>
-      <div class="chg up">+4.61% &#9733;</div>
-    </div>
-  </div>
-  <table>
-    <tr><th>指标</th><th>数值</th><th>信号</th></tr>
-    <tr><td>两市成交额</td><td>3.52万亿（缩量347亿）</td><td><span class="tag tag-yellow">量能不足</span></td></tr>
-    <tr><td>涨跌家数</td><td>~2100涨 / 2900+跌</td><td><span class="tag tag-red">跌多涨少</span></td></tr>
-    <tr><td>涨停/跌停</td><td>107涨停 / 37跌停</td><td><span class="tag tag-blue">结构性活跃</span></td></tr>
-    <tr><td>连板股晋级率</td><td>12.5%（仅1只3板以上）</td><td><span class="tag tag-yellow">高度压缩</span></td></tr>
-    <tr><td>AI芯片资金流</td><td>净流入28.18亿</td><td><span class="tag tag-green">主力看多</span></td></tr>
-    <tr><td>半导体ETF周净流入</td><td>259亿</td><td><span class="tag tag-green">持续吸金</span></td></tr>
-  </table>
-  <h3>大盘技术面概要</h3>
-  <p style="font-size:13px;color:#475569">
-    上证低开高走收阳线，但量能萎缩，属于反弹而非反转性质。科创50跳空放量创历史新高，MACD多头排列，趋势最强。深证和创业板涨幅有限，整体呈现"科创强、主板弱"的K型分化格局。上证支撑位4000点，阻力位4100点。
-  </p>
+<h3>涨跌家数与市场宽度</h3>
+<table>
+<tr><th>指标</th><th>数值</th><th>评价</th></tr>
+<tr><td>上涨家数</td><td>2,465</td><td class="down">少于下跌</td></tr>
+<tr><td>下跌家数</td><td>2,932</td><td class="down">多数下跌</td></tr>
+<tr><td>涨停家数</td><td class="up">107</td><td>情绪偏热</td></tr>
+<tr><td>跌停家数</td><td class="down">68</td><td>分歧较大</td></tr>
+</table>
+<div class="reason">⚠️ 典型的"赚指数不赚钱"行情——指数普涨但全市场下跌家数(2932) &gt; 上涨家数(2465)，二八分化严重。资金高度集中在半导体/科创板龙头，多数个股承压。</div>
+
+<h3>涨停板行业热点</h3>
+<table>
+<tr><th>行业方向</th><th>代表个股</th><th>涨幅</th><th>特征</th></tr>
+<tr><td>半导体设备</td><td>华海清科/神工股份/有研硅</td><td class="up">+20%</td><td>多只20cm涨停</td></tr>
+<tr><td>半导体材料</td><td>雅克科技/南大光电</td><td class="up">+10~15%</td><td>涨价预期驱动</td></tr>
+<tr><td>消费电子</td><td>深科技</td><td class="up">+10%</td><td>存储扩产</td></tr>
+<tr><td>生物制品</td><td>三生国健/舒泰神</td><td class="up">+20%</td><td>医药板块走强</td></tr>
+<tr><td>化学制药</td><td>多只涨停</td><td class="up">+10%</td><td>板块整体+5.9%</td></tr>
+</table>
 </div>
 
-<!-- 三、板块热点 -->
+<!-- ========== 二、板块资金流向 ========== -->
 <div class="card">
-  <h2>三、板块热点与资金流向</h2>
-  <div class="grid2">
-    <div>
-      <h3 style="color:#dc2626">领涨板块</h3>
-      <div class="signal-box signal-buy"><span class="tag tag-red">半导体设备</span> 金海通/华亚智能/柏诚/华海清科涨停</div>
-      <div class="signal-box signal-buy"><span class="tag tag-red">半导体材料</span> 有研硅20cm/雅克科技6天3板</div>
-      <div class="signal-box signal-buy"><span class="tag tag-red">存储芯片</span> 澜起科技+13%/时空科技创新高</div>
-      <div class="signal-box signal-buy"><span class="tag tag-red">先进封装</span> 银河微电20cm/金海通/甬矽电子</div>
-      <div class="signal-box signal-buy"><span class="tag tag-red">医药板块</span> 60+涨停，创新药CXO爆发</div>
-      <div class="signal-box signal-buy"><span class="tag tag-red">可控核聚变</span> 国光电气/雪人集团涨停</div>
-    </div>
-    <div>
-      <h3 style="color:#16a34a">领跌板块</h3>
-      <div class="signal-box signal-sell"><span class="tag tag-green">光纤光缆</span> 长盈通触20cm跌停</div>
-      <div class="signal-box signal-sell"><span class="tag tag-green">光模块</span> 前期热门集体走弱</div>
-      <div class="signal-box signal-sell"><span class="tag tag-green">PCB/铜箔</span> 持续走弱，宏和科技跌停</div>
-      <div class="signal-box signal-sell"><span class="tag tag-green">消费电子</span> 苹果概念震荡下行</div>
-      <div class="signal-box signal-sell"><span class="tag tag-green">算力硬件</span> 延续调整，算力租赁走弱</div>
-      <div class="signal-box signal-sell"><span class="tag tag-green">玻纤概念</span> 山东玻纤跌停</div>
-    </div>
-  </div>
-  <h3>龙虎榜重点（近5日半导体相关）</h3>
-  <table>
-    <tr><th>个股</th><th>净买入(万)</th><th>备注</th></tr>
-    <tr><td>长电科技</td><td class="up">+411,175</td><td>封测龙头，机构扫货</td></tr>
-    <tr><td>兆易创新</td><td class="up">+283,320</td><td>存储芯片龙头</td></tr>
-    <tr><td>德明利</td><td class="up">+239,615</td><td>存储模组</td></tr>
-    <tr><td>深科技</td><td class="up">+164,270</td><td>存储封测</td></tr>
-    <tr><td>北京君正</td><td class="up">+51,756</td><td>存储+AI芯片</td></tr>
-  </table>
+<h2>二、板块资金流向</h2>
+
+<h3>行业板块涨跌幅排名</h3>
+<table>
+<tr><th>板块</th><th>涨跌幅</th><th>方向</th></tr>
+<tr><td>🔥 生物制品</td><td class="up">+7.43%</td><td><span class="tag tag-bull">主力流入</span></td></tr>
+<tr><td>🔥 医疗服务</td><td class="up">+6.11%</td><td><span class="tag tag-bull">主力流入</span></td></tr>
+<tr><td>🔥 化学制药</td><td class="up">+5.87%</td><td><span class="tag tag-bull">主力流入</span></td></tr>
+<tr><td>电子化学品</td><td class="up">+1.29%</td><td><span class="tag tag-neutral">均衡</span></td></tr>
+<tr><td>数字芯片设计</td><td class="up">+0.91%</td><td><span class="tag tag-neutral">均衡</span></td></tr>
+<tr><td>集成电路封测</td><td class="flat">+0.07%</td><td><span class="tag tag-neutral">均衡</span></td></tr>
+<tr><td>锂电池</td><td class="down">-1.95%</td><td><span class="tag tag-bear">主力流出</span></td></tr>
+<tr><td>通信设备</td><td class="down">-3.03%</td><td><span class="tag tag-bear">主力流出</span></td></tr>
+<tr><td>消费电子</td><td class="down">-3.12%</td><td><span class="tag tag-bear">主力流出</span></td></tr>
+<tr><td>印制电路板</td><td class="down">-4.34%</td><td><span class="tag tag-bear">主力流出</span></td></tr>
+</table>
+
+<h3>持仓相关板块表现</h3>
+<table>
+<tr><th>板块</th><th>涨跌幅</th><th>成交额</th><th>评价</th></tr>
+<tr><td>🔥 半导体(同花顺)</td><td class="up">+2.74%</td><td>6,617亿</td><td><span class="signal signal-buy">连涨10日 最强主线</span></td></tr>
+<tr><td>🔥 半导体(中证)</td><td class="up">+5.08%</td><td>5,451亿</td><td><span class="signal signal-buy">设备/材料爆发</span></td></tr>
+<tr><td>芯片概念</td><td class="flat">-0.10%</td><td>18,050亿</td><td><span class="signal signal-hold">分化严重</span></td></tr>
+<tr><td>人工智能(同花顺)</td><td class="flat">-0.15%</td><td>6,581亿</td><td><span class="signal signal-hold">横盘整理</span></td></tr>
+<tr><td>人工智能(中证)</td><td class="up">+0.92%</td><td>2,433亿</td><td><span class="signal signal-hold">龙头偏强</span></td></tr>
+<tr><td>储能</td><td class="down">-0.91%</td><td>7,270亿</td><td><span class="signal signal-sell">资金流出约81亿</span></td></tr>
+</table>
+
+<h3>概念板块资金流向</h3>
+<table>
+<tr><th>方向</th><th>板块</th><th>涨跌幅</th></tr>
+<tr><td><span class="section-badge dot-red"></span>流入</td><td>存储芯片</td><td class="up">+1.75%</td></tr>
+<tr><td><span class="section-badge dot-red"></span>流入</td><td>数字芯片设计</td><td class="up">+0.91%</td></tr>
+<tr><td><span class="section-badge dot-red"></span>流入</td><td>证金持股(蓝筹)</td><td class="up">+0.96%</td></tr>
+<tr><td><span class="section-badge dot-green"></span>流出</td><td>数据安全</td><td class="down">-0.95%</td></tr>
+<tr><td><span class="section-badge dot-green"></span>流出</td><td>华为概念</td><td class="down">-1.11%</td></tr>
+<tr><td><span class="section-badge dot-green"></span>流出</td><td>虚拟现实</td><td class="down">-1.67%</td></tr>
+<tr><td><span class="section-badge dot-green"></span>流出</td><td>5G</td><td class="down">-1.98%</td></tr>
+<tr><td><span class="section-badge dot-green"></span>流出</td><td>CPO(共封装光学)</td><td class="down">-2.80%</td></tr>
+</table>
 </div>
 
-<!-- 四、持仓分析 -->
+<!-- ========== 三、持仓分析 ========== -->
 <div class="card">
-  <h2>四、持仓分析（更新后净值）</h2>
-  <p style="font-size:12px;color:#94a3b8;margin-bottom:10px">组合总成本 ~512.29元 | 总市值 ~563.25元 | 总盈亏 <strong class="up">+50.96 (+9.94%)</strong></p>
-  <table>
-    <tr>
-      <th>基金名称</th><th>代码</th><th>今日涨跌</th><th>累计盈亏</th><th>操作建议</th>
-    </tr>
-    <tr>
-      <td><strong>南方信息创新混合C</strong><br><span style="font-size:11px;color:#94a3b8">科技龙头/半导体</span></td>
-      <td>007491</td>
-      <td class="up">+2.80%</td>
-      <td class="up">+30.34%<br><span style="font-size:11px">+15.17元</span></td>
-      <td><span class="tag tag-blue">持有</span> 安全垫厚，可止盈10%</td>
-    </tr>
-    <tr>
-      <td><strong>华夏半导体芯片ETF联接C</strong><br><span style="font-size:11px;color:#94a3b8">国证芯片指数</span></td>
-      <td>008888</td>
-      <td class="up">+4.86%</td>
-      <td class="up">+34.11%<br><span style="font-size:11px">+28.02元</span></td>
-      <td><span class="tag tag-yellow">分批止盈</span> 高开减5-10%</td>
-    </tr>
-    <tr>
-      <td><strong>嘉实科创板芯片ETF联接C</strong><br><span style="font-size:11px;color:#94a3b8">科创芯片指数</span></td>
-      <td>017470</td>
-      <td class="up">+4.59%</td>
-      <td class="up">+11.74%<br><span style="font-size:11px">+7.78元</span></td>
-      <td><span class="tag tag-yellow">分批止盈</span> 高开减5-10%</td>
-    </tr>
-    <tr>
-      <td><strong>汇添富科技领先混合C</strong><br><span style="font-size:11px;color:#94a3b8">科技综合</span></td>
-      <td>025881</td>
-      <td class="dn">-3.14%</td>
-      <td class="up">+0.12%<br><span style="font-size:11px">+0.01元</span></td>
-      <td><span class="tag tag-blue">持有</span> 含光通信拖累，观察</td>
-    </tr>
-    <tr>
-      <td><strong>富国创新科技混合C</strong><br><span style="font-size:11px;color:#94a3b8">CPO/光模块</span></td>
-      <td>011120</td>
-      <td class="dn">-2.35%</td>
-      <td class="dn">-2.85%<br><span style="font-size:11px">-1.42元</span></td>
-      <td><span class="tag tag-blue">持有</span> CPO超跌，等反弹</td>
-    </tr>
-    <tr>
-      <td><strong>广发远见智选混合C</strong><br><span style="font-size:11px;color:#94a3b8">通信/光模块</span></td>
-      <td>016874</td>
-      <td>--</td>
-      <td class="dn">-1.49%<br><span style="font-size:11px">-2.54元</span></td>
-      <td><span class="tag tag-blue">持有</span> 光通信弱，耐心等</td>
-    </tr>
-    <tr>
-      <td><strong>富国创业板AI ETF联接C</strong><br><span style="font-size:11px;color:#94a3b8">AI板块</span></td>
-      <td>024663</td>
-      <td>--</td>
-      <td class="dn">-0.86%<br><span style="font-size:11px">-0.13元</span></td>
-      <td><span class="tag tag-blue">持有</span> AI算力调整中</td>
-    </tr>
-    <tr>
-      <td><strong>易方达储能电池ETF联接C</strong><br><span style="font-size:11px;color:#94a3b8">新能源电池</span></td>
-      <td>021034</td>
-      <td class="up">+1.00%</td>
-      <td class="dn">-0.44%<br><span style="font-size:11px">-0.11元</span></td>
-      <td><span class="tag tag-blue">持有</span> 非主线，小仓位</td>
-    </tr>
-    <tr>
-      <td><strong>银华中小盘精选混合</strong><br><span style="font-size:11px;color:#94a3b8">中小盘综合</span></td>
-      <td>180031</td>
-      <td>--</td>
-      <td class="up">+2.89%<br><span style="font-size:11px">+1.16元</span></td>
-      <td><span class="tag tag-blue">持有</span> 分散配置</td>
-    </tr>
-  </table>
+<h2>三、持仓盈亏分析与涨跌原因</h2>
+<div class="kpi-grid">
+<div class="kpi"><div class="val">9只</div><div class="label">持仓数量</div></div>
+<div class="kpi"><div class="val">559.80</div><div class="label">总市值(元)</div></div>
+<div class="kpi"><div class="val up">+47.51</div><div class="label">总盈亏(+9.27%)</div></div>
+<div class="kpi"><div class="val" style="color:#d97706">6盈3亏</div><div class="label">盈亏分布</div></div>
 </div>
 
-<!-- 五、消息面 -->
-<div class="card">
-  <h2>五、消息面聚合</h2>
-  <h3>利好因素</h3>
-  <div class="news-item">
-    <strong>三星/SK海力士800万亿韩元扩产计划</strong>：各自建设2座芯片工厂，利好半导体设备链
-    <span class="src">智通财经</span>
-  </div>
-  <div class="news-item">
-    <strong>半导体设备国产化加速</strong>：北方华创12寸刻蚀设备突破，中微公司付运超300台，华海清科CMP市占率超90%
-    <span class="src">界面新闻</span>
-  </div>
-  <div class="news-item">
-    <strong>澜起科技DDR5第六代RCD送样</strong>：最高支持9200MT/s，AI算力需求爆发
-    <span class="src">和讯网</span>
-  </div>
-  <div class="news-item">
-    <strong>国产AI芯片份额首超五成</strong>：半导体ETF周吸259亿，海光寒武纪业绩大增
-    <span class="src">今日头条</span>
-  </div>
-  <div class="news-item">
-    <strong>半导体设备迎来增长大年</strong>：年内扩产投资近450亿元，晶圆制造+先进封装产能供不应求
-    <span class="src">21世纪经济报道</span>
-  </div>
-  <h3>风险因素</h3>
-  <div class="news-item">
-    <strong>美股AI产业链担忧上升</strong>：费城半导体指数单日暴跌5.18%，加息及流动性收紧预期上升
-    <span class="src">东方财富</span>
-  </div>
-  <div class="news-item">
-    <strong>高位科技股向半导体缩圈</strong>：光通信/PCB持续走弱，连板晋级率仅12.5%
-    <span class="src">财联社</span>
-  </div>
-  <div class="news-item">
-    <strong>银河证券提示</strong>：6月全球半导体板块进入高位震荡阶段，注意追高风险
-    <span class="src">同花顺</span>
-  </div>
+<h3>📈 盈利持仓（6只）</h3>
+
+<div class="fund-card profit">
+<div class="fund-name">南方信息创新混合C (007491) <span class="tag tag-bull">最大盈利</span></div>
+<div class="fund-detail">份额11.38 | 成本4.39 | 现价6.19 | 总盈亏 +20.38元</div>
+<div class="fund-pnl up">+40.77%</div>
+<div class="reason">
+<b>上涨原因：</b>重仓信息技术/科技龙头，受益于今日半导体全面爆发+科创50暴涨4.61%。电子行业Q1利润同比暴增103.9%，基本面强劲。韩国6490亿美元国家级半导体投资+近20家企业7月1日启动涨价，产业链景气度持续向上。该基金持仓集中于科技核心标的，充分享受了本轮科技行情的beta收益。
+</div>
 </div>
 
-<!-- 六、明日走势研判 -->
-<div class="card">
-  <h2>六、6月30日走势研判</h2>
-  <div class="grid2" style="margin-bottom:16px">
-    <div>
-      <h3 style="color:#dc2626">多头因素 (权重60%)</h3>
-      <div style="font-size:13px">
-        <p>1. 科创50创历史新高，趋势强劲，惯性上冲概率大</p>
-        <p>2. 半导体基本面催化密集：扩产+国产化+AI算力</p>
-        <p>3. 半导体ETF持续大额净流入，机构资金看多</p>
-        <p>4. 龙虎榜半导体股净买入居前，游资+机构共振</p>
-        <p>5. A股相对外盘有韧性，三季度上行空间 &gt; 下行风险</p>
-      </div>
-    </div>
-    <div>
-      <h3 style="color:#16a34a">空头因素 (权重40%)</h3>
-      <div style="font-size:13px">
-        <p>1. 缩量上涨（3.52万亿→缩347亿），持续性存疑</p>
-        <p>2. 2900+股下跌，结构性行情非普涨</p>
-        <p>3. 连板晋级率极低12.5%，短线情绪降温</p>
-        <p>4. 美股费城半导体暴跌5.18%的滞后传导</p>
-        <p>5. 半导体连涨后获利盘积累，短线回调压力</p>
-      </div>
-    </div>
-  </div>
-  
-  <h3>明日情景推演</h3>
-  <table>
-    <tr><th>情景</th><th>概率</th><th>描述</th></tr>
-    <tr>
-      <td><span class="tag tag-red">情景A：延续强势</span></td>
-      <td>35%</td>
-      <td>半导体继续冲高，科创50再上台阶。适合分批止盈锁定利润。</td>
-    </tr>
-    <tr>
-      <td><span class="tag tag-blue">情景B：冲高回落</span></td>
-      <td>40%</td>
-      <td>高开后获利回吐，尾盘企稳。持仓不动，观察量能。</td>
-    </tr>
-    <tr>
-      <td><span class="tag tag-green">情景C：回调消化</span></td>
-      <td>25%</td>
-      <td>低开或平开后走弱，半导体补跌。不加仓，等支撑位。</td>
-    </tr>
-  </table>
-
-  <h3>各基金明日操作指引</h3>
-  <table>
-    <tr><th>基金</th><th>情景A（冲高）</th><th>情景B（冲高回落）</th><th>情景C（回调）</th></tr>
-    <tr><td>华夏半导体(008888)</td><td class="up">止盈5-10%</td><td>持有不动</td><td>持有不动</td></tr>
-    <tr><td>嘉实芯片(017470)</td><td class="up">止盈5-10%</td><td>持有不动</td><td>持有不动</td></tr>
-    <tr><td>南方信息(007491)</td><td class="up">止盈10%</td><td>持有不动</td><td>持有不动</td></tr>
-    <tr><td>汇添富科技(025881)</td><td>持有</td><td>持有</td><td>持有</td></tr>
-    <tr><td>富国创新(011120)</td><td>持有</td><td>持有</td><td>持有</td></tr>
-    <tr><td>其余基金</td><td>持有</td><td>持有</td><td>持有</td></tr>
-  </table>
+<div class="fund-card profit">
+<div class="fund-name">华夏国证半导体芯片ETF联接C (008888) <span class="tag tag-bull">高盈利</span></div>
+<div class="fund-detail">份额40.13 | 成本2.05 | 现价2.75 | 总盈亏 +27.99元</div>
+<div class="fund-pnl up">+34.01%</div>
+<div class="reason">
+<b>上涨原因：</b>跟踪国证半导体芯片指数，半导体板块今日+2.74%（中证口径+5.08%），设备/材料端多只20cm涨停。三星HBM4通过英伟达认证拉动存储需求，芯片涨价潮即将启动。连涨10日为全市场最强主线，资金持续涌入。
+</div>
 </div>
 
-<!-- 七、风险控制 -->
-<div class="card">
-  <h2>七、风险控制检查</h2>
-  <div class="risk-card">
-    <div class="title">集中度风险 &#9888; 高</div>
-    <p style="font-size:13px">半导体+芯片+科技板块敞口超过70%，高度集中于单一赛道。虽然当前半导体强势，但板块轮动快，一旦半导体回调将显著影响组合净值。建议半导体止盈后适度分散至医药/消费等低位板块。</p>
-  </div>
-  <div class="risk-card">
-    <div class="title">缩量上涨 &#9888; 中</div>
-    <p style="font-size:13px">成交额缩量347亿至3.52万亿，价格上行但量能萎缩，反弹持续性存疑。若明日继续缩量，大概率冲高回落。</p>
-  </div>
-  <div class="risk-card">
-    <div class="title">外围传导风险 &#9888; 中</div>
-    <p style="font-size:13px">费城半导体指数暴跌5.18%，美股AI产业链担忧上升。A股虽有韧性但短期也会受扰动，关注今晚美股表现。</p>
-  </div>
-  <div class="risk-card">
-    <div class="title">追高风险 &#9888; 中</div>
-    <p style="font-size:13px">半导体已连涨多日，科创50创新高后短线获利盘抛压增大。银河证券提示"6月全球半导体进入高位震荡阶段"。不宜追高，已持仓者分批止盈。</p>
-  </div>
+<div class="fund-card profit">
+<div class="fund-name">嘉实上证科创板芯片ETF联接C (017470)</div>
+<div class="fund-detail">份额20.93 | 成本3.34 | 现价3.74 | 总盈亏 +8.24元</div>
+<div class="fund-pnl up">+11.77%</div>
+<div class="reason">
+<b>上涨原因：</b>跟踪科创板芯片标的，科创50今日暴涨4.61%领跑全市场。科创板半导体龙头（华海清科+20%、有研硅+20%连板）大幅拉升带动ETF净值。科创板第五套标准扩容利好AI/芯片企业上市融资。
+</div>
 </div>
 
-<!-- 八、投资纪律检查 -->
-<div class="card">
-  <h2>八、投资纪律框架检查</h2>
-  <table>
-    <tr><th>检查项</th><th>状态</th><th>说明</th></tr>
-    <tr><td>趋势确认</td><td><span class="tag tag-green">&#10004;</span></td><td>科创50+半导体趋势向上，但深证/创业板偏弱，大趋势为震荡分化</td></tr>
-    <tr><td>量价配合</td><td><span class="tag tag-yellow">&#9888;</span></td><td>缩量上涨，量能不足以支撑持续上攻</td></tr>
-    <tr><td>风险收益比</td><td><span class="tag tag-yellow">&#9888;</span></td><td>半导体已涨较多，追高风险收益比不佳；已持仓者风险收益比尚可</td></tr>
-    <tr><td>仓位控制</td><td><span class="tag tag-red">&#10008;</span></td><td>半导体敞口 &gt;70%，严重超配单一板块</td></tr>
-    <tr><td>止损设定</td><td><span class="tag tag-green">&#10004;</span></td><td>各基金浮亏均在可控范围，无触发止损线</td></tr>
-    <tr><td>市场环境</td><td><span class="tag tag-yellow">&#9888;</span></td><td>结构性行情，非普涨环境，操作难度大</td></tr>
-  </table>
-  <p style="font-size:13px;color:#475569;margin-top:12px">
-    <strong>郑希体系参考</strong>（景气成长风格）：半导体ROE拐点确认，景气度向上周期，基本面支撑持有。但短期涨幅过大需注意回撤控制。
-    <strong>谢治宇体系参考</strong>（GARP风格）：半导体板块PE已在历史较高分位，PEG偏贵，不宜加仓追高。
-  </p>
+<div class="fund-card profit">
+<div class="fund-name">易方达储能电池ETF联接C (021034)</div>
+<div class="fund-detail">份额14.48 | 成本1.73 | 现价1.74 | 总盈亏 +0.14元</div>
+<div class="fund-pnl up">+0.57%</div>
+<div class="reason">
+<b>微涨原因：</b>储能板块今日-0.91%，资金净流出约81亿，板块整体承压。但该基金成本价较低，历史收益提供了一定安全垫。"十五五"储能规划明确3亿千瓦装机目标+锂电排产连续五个月创新高，中长期逻辑未变，短期资金转向半导体导致储能失血。
+</div>
 </div>
 
-<!-- 九、历史复盘 -->
+<div class="fund-card profit">
+<div class="fund-name">银华中小盘精选混合 (180031)</div>
+<div class="fund-detail">份额5.94 | 成本6.73 | 现价6.76 | 总盈亏 +0.18元</div>
+<div class="fund-pnl up">+0.44%</div>
+<div class="reason">
+<b>微涨原因：</b>中小盘混合型基金，持仓分散。今日二八分化严重（下跌2932 &gt; 上涨2465），中小盘股整体表现不佳，拖累基金净值。但部分持仓涉及科技/医药方向有所对冲。
+</div>
+</div>
+
+<div class="fund-card profit">
+<div class="fund-name">汇添富科技领先混合C (025881)</div>
+<div class="fund-detail">份额5.67 | 成本1.76 | 现价1.76 | 总盈亏 +0.00元</div>
+<div class="fund-pnl up">+0.03%</div>
+<div class="reason">
+<b>持平原因：</b>科技主题混合基金，但持仓较为分散，涵盖消费电子(-3.12%)、通信设备(-3.03%)等今日下跌板块，对冲了半导体/AI方向的涨幅，净值几乎持平。
+</div>
+</div>
+
+<h3>📉 亏损持仓（3只）</h3>
+
+<div class="fund-card loss">
+<div class="fund-name">广发远见智选混合C (016874) <span class="tag tag-bear">最大亏损</span></div>
+<div class="fund-detail">份额67.73 | 成本2.51 | 现价2.40 | 总盈亏 -7.65元</div>
+<div class="fund-pnl down">-4.50%</div>
+<div class="reason">
+<b>亏损原因：</b>混合型选股基金，持仓分散且可能偏向中小盘/非热门赛道。今日市场二八分化极端，资金高度集中在半导体设备/科创板龙头，多数个股被抽血。通信设备(-3.03%)、消费电子(-3.12%)、PCB(-4.34%)等板块大跌，该基金可能在这些方向有较大暴露。
+</div>
+</div>
+
+<div class="fund-card loss">
+<div class="fund-name">富国创新科技混合C (011120)</div>
+<div class="fund-detail">份额8.48 | 成本5.90 | 现价5.72 | 总盈亏 -1.46元</div>
+<div class="fund-pnl down">-2.92%</div>
+<div class="reason">
+<b>亏损原因：</b>创新科技主题但持仓偏软件/互联网方向，与今日硬件半导体主线错位。同花顺人工智能概念-0.15%、数据安全-0.95%、华为概念-1.11%均走弱，说明软件/应用端并未跟随硬件上涨，风格分化明显。
+</div>
+</div>
+
+<div class="fund-card loss">
+<div class="fund-name">富国创业板人工智能ETF联接C (024663)</div>
+<div class="fund-detail">份额6.38 | 成本2.35 | 现价2.30 | 总盈亏 -0.32元</div>
+<div class="fund-pnl down">-2.12%</div>
+<div class="reason">
+<b>亏损原因：</b>跟踪创业板AI指数，人工智能概念(同花顺)-0.15%，但创业板指仅+0.54%，远弱于科创50(+4.61%)。资金从创业板AI向科创板半导体"搬家"，导致AI概念横盘甚至微跌。此外，创业板中消费电子/通信权重较高（分别-3.12%/-3.03%），拖累整体表现。
+</div>
+</div>
+</div>
+
+<!-- ========== 四、消息面 ========== -->
 <div class="card">
-  <h2>九、历史研判复盘对比</h2>
-  <table>
-    <tr><th>日期</th><th>上次建议</th><th>实际走势</th><th>评价</th></tr>
-    <tr>
-      <td>6/28</td>
-      <td>弱势环境(30分)，全市场恐慌，建议全部持有不割肉</td>
-      <td>6/29低开高走，科创50+4.61%，半导体爆发</td>
-      <td><span class="tag tag-green">正确</span> 没在恐慌中割肉</td>
-    </tr>
-    <tr>
-      <td>6/28</td>
-      <td>半导体可考虑分批止盈5-10%</td>
-      <td>6/29半导体+4.86%，继续创新高</td>
-      <td><span class="tag tag-yellow">偏早</span> 如已止盈会少赚</td>
-    </tr>
-    <tr>
-      <td>6/29盘中</td>
-      <td>震荡分化(50分)，建议半导体止盈10%</td>
-      <td>收盘科创50+4.61%（盘中继续走强）</td>
-      <td><span class="tag tag-yellow">偏早</span> 盘中止盈时机偏早</td>
-    </tr>
-  </table>
-  <p style="font-size:12px;color:#64748b;margin-top:8px">
-    <strong>教训</strong>：半导体趋势行情中，止盈容易过早。下次可改为"高开冲高后分批止盈"而非"提前止盈"，让利润多跑一段。
-  </p>
+<h2>四、消息面利好利空汇总</h2>
+
+<h3>🟢 利好消息</h3>
+<div class="news-item"><span class="tag tag-bull">半导体</span> <b>韩国宣布6490亿美元国家级半导体投资计划</b>，全球半导体军备竞赛升级，利好设备/材料产业链</div>
+<div class="news-item"><span class="tag tag-bull">半导体</span> <b>近20家半导体企业7月1日启动涨价</b>，涉及晶圆代工、封测、存储等多环节，景气度拐点确认</div>
+<div class="news-item"><span class="tag tag-bull">半导体</span> <b>三星HBM4通过英伟达认证</b>，AI算力对高端存储需求持续爆发</div>
+<div class="news-item"><span class="tag tag-bull">半导体</span> <b>电子行业Q1利润同比暴增103.9%</b>，基本面强劲支撑估值</div>
+<div class="news-item"><span class="tag tag-bull">AI</span> <b>智能体互联国标发布</b>，AI产业化落地加速，企业级AI智能体市场预计增至449亿元</div>
+<div class="news-item"><span class="tag tag-bull">AI</span> <b>科创板第五套标准扩容AI大模型企业</b>，融资通道打开利好产业发展</div>
+<div class="news-item"><span class="tag tag-bull">AI</span> <b>2026世界人工智能大会7月举办</b>，产业催化密集窗口期</div>
+<div class="news-item"><span class="tag tag-bull">储能</span> <b>"十五五"储能规划3亿千瓦装机目标</b>，政策红利持续释放</div>
+<div class="news-item"><span class="tag tag-bull">宏观</span> <b>两市成交3.52万亿</b>，量能充沛，增量资金持续入场</div>
+
+<h3>🔴 利空消息</h3>
+<div class="news-item"><span class="tag tag-bear">全球</span> <b>美股科技七巨头6月蒸发3万亿市值</b>，纳指持续承压，可能传导至A股科技板块</div>
+<div class="news-item"><span class="tag tag-bear">全球</span> <b>费城半导体指数上周累跌8%</b>，美股半导体走弱形成对比压力</div>
+<div class="news-item"><span class="tag tag-bear">宏观</span> <b>美联储9月加息概率59%</b>，全球流动性收紧预期升温</div>
+<div class="news-item"><span class="tag tag-bear">宏观</span> <b>中美科技博弈持续</b>，2026下半年为经贸博弈关键时期，不确定性增大</div>
+<div class="news-item"><span class="tag tag-bear">市场</span> <b>二八分化极端</b>，全市场下跌家数 &gt; 上涨家数，多数个股承压</div>
+
+<h3>⚪ 中性/关注</h3>
+<div class="news-item"><span class="tag tag-neutral">半导体</span> 半导体设备连涨10日，短期获利盘积累，需关注高位换手情况</div>
+<div class="news-item"><span class="tag tag-neutral">市场</span> GPT-5.6发布，但市场反应平淡，说明AI应用端催化边际效用递减</div>
+</div>
+
+<!-- ========== 五、技术面 ========== -->
+<div class="card">
+<h2>五、技术面分析</h2>
+
+<h3>各指数技术信号一览</h3>
+<table>
+<tr><th>指数</th><th>MACD</th><th>KDJ</th><th>RSI</th><th>均线</th><th>综合</th></tr>
+<tr>
+<td>上证指数</td>
+<td>红柱缩小</td><td>K&lt;D偏弱</td><td>48~61中性</td><td>粘合震荡</td>
+<td><span class="signal signal-hold">中性偏弱</span></td>
+</tr>
+<tr>
+<td>创业板指</td>
+<td>红柱缩小</td><td class="up">死叉!</td><td>53~65偏强</td><td>多头排列</td>
+<td><span class="signal signal-warn">短期警示</span></td>
+</tr>
+<tr>
+<td>科创50</td>
+<td>强势红柱</td><td class="up">超买(103)</td><td class="up">超买(82)</td><td>完美多头(超涨)</td>
+<td><span class="signal signal-warn">⚠️ 超买警告</span></td>
+</tr>
+<tr>
+<td>半导体</td>
+<td>强势红柱</td><td class="up">超买(96)</td><td class="up">超买(86)</td><td>完美多头(超涨)</td>
+<td><span class="signal signal-warn">⚠️ 超买警告</span></td>
+</tr>
+<tr>
+<td>芯片概念</td>
+<td>红柱适中</td><td>中性(66)</td><td>中性(59)</td><td>多头排列</td>
+<td><span class="signal signal-buy">中性偏强</span></td>
+</tr>
+</table>
+
+<h3>关键支撑/压力位</h3>
+<table>
+<tr><th>指数</th><th>第一支撑</th><th>第二支撑</th><th>第一压力</th><th>第二压力</th></tr>
+<tr><td>上证指数</td><td>MA20=4064</td><td>布林下轨=3960</td><td>MA5=4088</td><td>前高=4163</td></tr>
+<tr><td>创业板指</td><td>MA10=4214</td><td>MA20=4079</td><td>MA5=4245</td><td>前高=4372</td></tr>
+<tr><td>科创50</td><td>MA5=2026</td><td>MA10=1934</td><td>心理关口=2200</td><td>—</td></tr>
+<tr><td>半导体</td><td>MA5=20803</td><td>MA10=19907</td><td>心理关口=22000</td><td>—</td></tr>
+<tr><td>芯片概念</td><td>MA10=5655</td><td>MA20=5432</td><td>MA5=5712</td><td>前高≈5800</td></tr>
+</table>
+
+<div class="risk-box">
+<strong>⚠️ 技术面风险警告：</strong>科创50 KDJ(K)=103、RSI=82，半导体 KDJ(K)=96、RSI=86，双双进入极度超买区域。历史上KDJ(K)&gt;100后短期回调概率很高。均线偏离度过大（MA20偏离17-31%），存在均值回归压力。创业板指已触发KDJ死叉，短期有回调整固需求。
+</div>
+</div>
+
+<!-- ========== 六、明日走势研判 ========== -->
+<div class="card">
+<h2>六、明日走势研判</h2>
+
+<div class="verdict">
+<h3>📊 大盘判断：震荡分化，短期警惕回调</h3>
+<p>上证均线粘合（MA5/10/20/60集中在35点区间）是典型变盘前兆，明日方向选择决定中期趋势。科创50/半导体超买严重，明日高开低走或冲高回落概率较大。但量能充沛（3.52万亿），中期趋势未破。</p>
+</div>
+
+<h3>持仓相关板块明日预判</h3>
+<table>
+<tr><th>板块/方向</th><th>明日预判</th><th>置信度</th><th>操作建议</th></tr>
+<tr>
+<td>半导体/芯片</td>
+<td>惯性冲高后分化，设备端强于设计端</td>
+<td>70%</td>
+<td><span class="signal signal-warn">高位注意止盈</span></td>
+</tr>
+<tr>
+<td>科创50</td>
+<td>超买后技术回调概率高，支撑看MA5=2026</td>
+<td>65%</td>
+<td><span class="signal signal-warn">高位减仓</span></td>
+</tr>
+<tr>
+<td>AI/人工智能</td>
+<td>横盘整理为主，7月大会前可能有催化</td>
+<td>60%</td>
+<td><span class="signal signal-hold">持有等待</span></td>
+</tr>
+<tr>
+<td>储能</td>
+<td>短期继续弱势，资金虹吸效应未消退</td>
+<td>55%</td>
+<td><span class="signal signal-hold">观望为主</span></td>
+</tr>
+<tr>
+<td>中小盘</td>
+<td>延续分化，精选个股有结构性机会</td>
+<td>50%</td>
+<td><span class="signal signal-hold">持有</span></td>
+</tr>
+</table>
+
+<h3>持仓基金明日预判</h3>
+<table>
+<tr><th>基金</th><th>明日预期</th><th>核心逻辑</th></tr>
+<tr><td>南方信息创新C</td><td><span class="signal signal-warn">冲高回落</span></td><td>科技重仓享受惯性但超买压力大</td></tr>
+<tr><td>华夏半导体芯片C</td><td><span class="signal signal-warn">冲高回落</span></td><td>半导体连涨10日获利盘抛压增大</td></tr>
+<tr><td>嘉实科创芯片C</td><td><span class="signal signal-warn">震荡偏弱</span></td><td>科创50超买回调拖累</td></tr>
+<tr><td>易方达储能C</td><td><span class="signal signal-hold">横盘整理</span></td><td>板块弱势但估值底部有支撑</td></tr>
+<tr><td>银华中小盘</td><td><span class="signal signal-hold">小幅波动</span></td><td>分散持仓波动较小</td></tr>
+<tr><td>汇添富科技C</td><td><span class="signal signal-hold">小幅波动</span></td><td>持仓分散，涨跌互抵</td></tr>
+<tr><td>富国创新科技C</td><td><span class="signal signal-hold">弱势震荡</span></td><td>软件端短期缺乏催化</td></tr>
+<tr><td>富国AI联接C</td><td><span class="signal signal-hold">横盘偏弱</span></td><td>资金仍在向硬件端搬家</td></tr>
+<tr><td>广发远见智选C</td><td><span class="signal signal-hold">弱势震荡</span></td><td>中小盘分化延续</td></tr>
+</table>
+</div>
+
+<!-- ========== 七、操作建议 ========== -->
+<div class="card">
+<h2>七、综合操作建议</h2>
+
+<div class="verdict">
+<h3>核心结论</h3>
+<p><b>半导体/芯片是当前最强主线</b>，但连涨10日+技术指标极度超买，短期存在回调风险。建议已获利的半导体基金<b>分批止盈20-30%</b>锁定利润，保留底仓享受中期趋势。</p>
+<p>AI/人工智能方向7月有世界大会催化，当前横盘蓄势，可继续持有。储能板块短期失血但政策面+排产数据中长期向好，不建议割肉。亏损持仓暂不加仓，等待风格切换信号。</p>
+</div>
+
+<h3>具体操作方向</h3>
+<table>
+<tr><th>操作</th><th>标的</th><th>建议</th></tr>
+<tr><td><span class="signal signal-warn">分批止盈</span></td><td>华夏半导体C / 嘉实科创芯片C / 南方信息创新C</td><td>盈利20%+的部分止盈20-30%，锁利避险</td></tr>
+<tr><td><span class="signal signal-hold">继续持有</span></td><td>富国AI联接C / 汇添富科技C / 银华中小盘</td><td>等待7月AI大会催化或风格轮动</td></tr>
+<tr><td><span class="signal signal-hold">观望不动</span></td><td>易方达储能C / 广发远见智选C / 富国创新科技C</td><td>亏损不大，等半导体热度退潮后资金可能轮动</td></tr>
+</table>
+
+<div class="risk-box">
+<strong>核心风险提示：</strong>
+<br>1. 科创50/半导体KDJ+RSI双超买，历史上此信号后1-3日回调概率&gt;70%
+<br>2. 美股科技七巨头6月蒸发3万亿市值+费城半导体上周跌8%，外围压力客观存在
+<br>3. 美联储9月加息概率59%，若流动性预期转向可能冲击成长股估值
+<br>4. 中美科技博弈进入关键期，政策不确定性为最大灰犀牛
+</div>
+</div>
+
 </div>
 
 <div class="footer">
-  <p>本报告由智能研判引擎自动生成 | 数据源：iwencai-mcp / mcp-aktools / WebSearch</p>
-  <p>所有分析仅供参考，不构成投资建议。投资有风险，入市需谨慎。</p>
-  <p>生成时间：2026-06-29 22:40 | v4.0</p>
+行情研判助手 v4.1 | 数据来源：同花顺问财 + AKShare | 生成时间：2026-06-29 23:10<br>
+本报告仅供参考，不构成投资建议。投资有风险，入市需谨慎。
 </div>
 
-</div>
 </body>
 </html>
