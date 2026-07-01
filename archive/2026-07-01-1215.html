@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>基金涨跌原因分析 - 2026-07-01</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #f0f4f8; --bg-card: #fff; --bg-hover: #f8fafd;
+  --border: #dbe4f0; --border-glow: rgba(37,99,235,0.2);
+  --text: #1e293b; --text-sec: #475569; --text-muted: #94a3b8;
+  --red: #dc2626; --red-bright: #ef4444; --red-bg: rgba(220,38,38,0.08);
+  --green: #16a34a; --green-bright: #22c55e; --green-bg: rgba(22,163,74,0.08);
+  --blue: #2563eb; --blue-light: #3b82f6; --blue-dark: #1d4ed8; --blue-bg: rgba(37,99,235,0.06);
+  --gold: #d97706; --gold-bg: rgba(217,119,6,0.08);
+  --r-sm: 6px; --r-md: 12px; --r-lg: 16px;
+  --shadow: 0 1px 3px rgba(30,41,59,0.08), 0 4px 16px rgba(30,41,59,0.04);
+  --shadow-h: 0 4px 12px rgba(37,99,235,0.1), 0 1px 3px rgba(30,41,59,0.06);
+  --trans: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Arial,sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+.container { max-width: 1200px; margin: 0 auto; padding: 24px 20px 60px; }
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow); }
+.report-header { text-align: center; padding: 48px 24px 36px; background: linear-gradient(135deg,#1d4ed8 0%,#2563eb 40%,#3b82f6 100%); margin-bottom: 32px; border-radius: 0 0 var(--r-lg) var(--r-lg); position: relative; overflow: hidden; }
+.report-header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 50%,rgba(255,255,255,0.1) 0%,transparent 60%); pointer-events: none; }
+.report-header h1 { font-size: 2.2em; font-weight: 700; letter-spacing: 4px; margin-bottom: 12px; color: #fff; position: relative; }
+.report-header .subtitle { font-size: 1em; color: rgba(255,255,255,0.8); position: relative; }
+.report-header .market-status { display: inline-block; padding: 4px 16px; border-radius: 20px; font-size: 0.85em; margin-top: 12px; position: relative; font-weight: 500; background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+.cover-summary { padding: 28px 32px; margin-bottom: 32px; }
+.cover-summary .headline { font-size: 1.3em; font-weight: 700; color: var(--blue-dark); margin-bottom: 16px; text-align: center; }
+.cover-stats { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 16px; }
+.cover-stat { text-align: center; padding: 12px; background: var(--blue-bg); border-radius: var(--r-sm); }
+.cover-stat .stat-label { font-size: 0.8em; color: var(--text-muted); display: block; margin-bottom: 4px; }
+.cover-stat .stat-value { font-size: 1.4em; font-weight: 700; font-variant-numeric: tabular-nums; }
+.section { margin-bottom: 36px; animation: fadeInUp 0.5s ease-out both; }
+.section-title { font-size: 1.35em; font-weight: 600; margin-bottom: 20px; padding-left: 14px; border-left: 3px solid var(--blue); color: var(--text); letter-spacing: 1px; }
+.section-title .icon { margin-right: 8px; }
+.up { color: var(--red); } .down { color: var(--green); } .flat { color: var(--text-muted); }
+.index-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 16px; margin-bottom: 24px; }
+.index-card { padding: 20px 24px; transition: var(--trans); position: relative; overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow); }
+.index-card:hover { background: var(--bg-hover); border-color: var(--border-glow); box-shadow: var(--shadow-h); transform: translateY(-2px); }
+.index-card h3 { font-size: 0.9em; color: var(--text-sec); font-weight: 500; margin-bottom: 8px; }
+.index-card .value { font-size: 1.8em; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.5px; color: var(--text); }
+.index-card .change { font-size: 1.1em; font-weight: 600; margin-left: 10px; font-variant-numeric: tabular-nums; }
+.index-card .volume { display: block; font-size: 0.82em; color: var(--text-muted); margin-top: 8px; }
+/* Fund analysis cards - the core of this report */
+.fund-analysis { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow); padding: 28px; margin-bottom: 16px; transition: var(--trans); }
+.fund-analysis:hover { border-color: var(--border-glow); box-shadow: var(--shadow-h); }
+.fund-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+.fund-name-group h3 { font-size: 1.15em; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.fund-name-group .code { font-size: 0.85em; color: var(--text-muted); }
+.fund-pnl { text-align: right; }
+.fund-pnl .pnl-value { font-size: 1.5em; font-weight: 700; font-variant-numeric: tabular-nums; }
+.fund-pnl .pnl-label { font-size: 0.8em; color: var(--text-muted); display: block; }
+.fund-meta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.88em; }
+.meta-tag { padding: 4px 12px; border-radius: 16px; font-weight: 500; }
+.meta-tag.up-tag { background: var(--red-bg); color: var(--red); }
+.meta-tag.down-tag { background: var(--green-bg); color: var(--green); }
+.meta-tag.type-tag { background: var(--blue-bg); color: var(--blue); }
+.reason-box { background: linear-gradient(135deg, rgba(37,99,235,0.03) 0%, rgba(37,99,235,0.06) 100%); border: 1px solid rgba(37,99,235,0.12); border-radius: var(--r-sm); padding: 16px 20px; margin-bottom: 12px; }
+.reason-box h4 { font-size: 0.92em; font-weight: 600; color: var(--blue-dark); margin-bottom: 8px; }
+.reason-box p { font-size: 0.9em; color: var(--text-sec); line-height: 1.8; }
+.reason-box .highlight { color: var(--blue-dark); font-weight: 600; }
+.reason-box .up-hl { color: var(--red); font-weight: 600; }
+.reason-box .down-hl { color: var(--green); font-weight: 600; }
+/* Sector flow table */
+.sector-list { display: flex; flex-direction: column; gap: 8px; }
+.sector-row { display: grid; grid-template-columns: 1fr 90px 160px; align-items: center; padding: 14px 20px; transition: var(--trans); gap: 12px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow); }
+.sector-row:hover { background: var(--bg-hover); border-color: var(--border-glow); box-shadow: var(--shadow-h); }
+.sector-name { font-weight: 500; font-size: 0.95em; color: var(--text); }
+.sector-change { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; font-size: 0.95em; }
+.sector-flow { text-align: right; font-size: 0.85em; font-weight: 500; }
+.flow-in { color: var(--red); } .flow-out { color: var(--green); }
+/* News */
+.news-list { display: flex; flex-direction: column; gap: 6px; }
+.news-item { display: grid; grid-template-columns: 36px 1fr auto; align-items: center; padding: 12px 18px; gap: 12px; transition: var(--trans); background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow); }
+.news-item:hover { background: var(--bg-hover); box-shadow: var(--shadow-h); }
+.news-sentiment { font-size: 1.2em; text-align: center; }
+.news-title { font-size: 0.92em; font-weight: 500; line-height: 1.5; color: var(--text); }
+.news-source { font-size: 0.78em; color: var(--text-muted); white-space: nowrap; }
+/* Key theme panel */
+.theme-panel { background: linear-gradient(135deg, rgba(217,119,6,0.04) 0%, rgba(220,38,38,0.04) 100%); border: 1px solid rgba(217,119,6,0.2); border-radius: var(--r-md); padding: 28px; margin-bottom: 24px; box-shadow: var(--shadow); }
+.theme-panel h2 { font-size: 1.2em; color: var(--gold); margin-bottom: 16px; }
+.theme-item { font-size: 0.92em; color: var(--text-sec); padding: 8px 0 8px 18px; position: relative; line-height: 1.8; }
+.theme-item::before { content: ''; position: absolute; left: 0; top: 16px; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+/* Chart */
+.chart-box { padding: 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow); margin-bottom: 24px; }
+.chart-box h4 { font-size: 0.9em; color: var(--text-sec); margin-bottom: 12px; }
+.chart-box canvas { max-height: 280px; }
+.chart-row { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 16px; margin-bottom: 24px; }
+/* Footer */
+.report-footer { text-align: center; padding: 36px 24px; margin-top: 48px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.82em; line-height: 1.8; }
+.report-footer .disclaimer { max-width: 640px; margin: 0 auto 12px; color: var(--text-sec); font-size: 0.9em; }
+/* Summary table */
+.summary-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; background: var(--bg-card); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); }
+.summary-table th { background: linear-gradient(135deg,#1d4ed8,#3b82f6); color: #fff; padding: 12px 16px; font-size: 0.88em; font-weight: 600; text-align: left; }
+.summary-table td { padding: 12px 16px; font-size: 0.88em; border-bottom: 1px solid var(--border); }
+.summary-table tr:last-child td { border-bottom: none; }
+.summary-table tr:hover { background: var(--bg-hover); }
+.summary-table .num { font-variant-numeric: tabular-nums; font-weight: 600; }
+/* Utility */
+.mb-16 { margin-bottom: 16px; } .mt-8 { margin-top: 8px; } .mt-16 { margin-top: 16px; } .mt-24 { margin-top: 24px; }
+.text-sec { font-size: 0.92em; color: var(--text-sec); line-height: 1.7; }
+/* Responsive */
+@media (max-width: 768px) {
+  .container { padding: 16px 12px 40px; }
+  .report-header { padding: 32px 16px 24px; }
+  .report-header h1 { font-size: 1.6em; letter-spacing: 2px; }
+  .index-grid { grid-template-columns: repeat(2,1fr); gap: 10px; }
+  .index-card { padding: 14px 16px; } .index-card .value { font-size: 1.4em; }
+  .fund-header { flex-direction: column; }
+  .fund-pnl { text-align: left; }
+  .sector-row { grid-template-columns: 1fr 80px; gap: 8px; padding: 10px 14px; }
+  .sector-flow { display: none; }
+  .cover-stats { grid-template-columns: repeat(2,1fr); }
+  .summary-table { font-size: 0.82em; }
+  .summary-table th, .summary-table td { padding: 8px 10px; }
+}
+@media (max-width: 480px) {
+  .index-grid,.cover-stats { grid-template-columns: 1fr; }
+  .report-header h1 { font-size: 1.35em; }
+  .fund-meta { flex-direction: column; gap: 8px; }
+}
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.section:nth-child(2) { animation-delay: 0.05s; } .section:nth-child(3) { animation-delay: 0.10s; }
+.section:nth-child(4) { animation-delay: 0.15s; } .section:nth-child(5) { animation-delay: 0.20s; }
+.section:nth-child(6) { animation-delay: 0.25s; }
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <h1>基金涨跌原因分析</h1>
+  <p class="subtitle">2026年7月1日 · 盘中速报（12:11）</p>
+  <span class="market-status">A股午间休市</span>
+</header>
+
+<div class="container">
+
+<!-- 核心结论 -->
+<div class="card cover-summary">
+  <p class="headline">金融板块爆发 vs 科技高位回调：板块轮动主导今日分化</p>
+  <div class="cover-stats">
+    <div class="cover-stat"><span class="stat-label">组合日收益(估)</span><span class="stat-value down">-0.90元</span></div>
+    <div class="cover-stat"><span class="stat-label">估算收益率</span><span class="stat-value down">-0.13%</span></div>
+    <div class="cover-stat"><span class="stat-label">上涨/下跌</span><span class="stat-value"><span class="up">4</span> / <span class="down">6</span></span></div>
+    <div class="cover-stat"><span class="stat-label">市场涨跌比</span><span class="stat-value up">4.9:1</span></div>
+  </div>
+</div>
+
+<!-- 今日核心主题 -->
+<div class="section">
+  <h2 class="section-title"><span class="icon">🎯</span>今日核心主题</h2>
+  <div class="theme-panel">
+    <h2>📌 板块轮动：资金从科技涌入金融</h2>
+    <p class="theme-item">上半年科创50暴涨64%收官，科技板块估值处历史高位，资金获利了结压力大</p>
+    <p class="theme-item">券商板块+4.72%爆发（"牛市旗手"），保险+5.45%，金融板块吸金超百亿，A股成交量放大至2.42万亿</p>
+    <p class="theme-item">上证指数+1.08%（大盘蓝筹驱动）vs 创业板-0.39%/科创50-0.31%（科技成长回调），明显的风格切换</p>
+    <p class="theme-item">隔夜美股科技股大涨提供情绪支撑，但A股科技已在高位消化利好</p>
+    <p class="theme-item">化工/医药板块异军突起（+4%），资金寻求低位板块补涨</p>
+  </div>
+</div>
+
+<!-- 大盘环境 -->
+<div class="section">
+  <h2 class="section-title"><span class="icon">📊</span>大盘环境</h2>
+  <div class="index-grid">
+    <div class="index-card">
+      <h3>上证指数</h3>
+      <span class="value">4138.65</span>
+      <span class="change up">+1.08%</span>
+      <span class="volume">成交 11,120亿</span>
+    </div>
+    <div class="index-card">
+      <h3>深证成指</h3>
+      <span class="value">16271.32</span>
+      <span class="change up">+0.41%</span>
+      <span class="volume">成交 13,079亿</span>
+    </div>
+    <div class="index-card">
+      <h3>创业板指</h3>
+      <span class="value">4325.67</span>
+      <span class="change down">-0.39%</span>
+      <span class="volume">成交 6,569亿</span>
+    </div>
+    <div class="index-card">
+      <h3>科创50</h3>
+      <span class="value">2201.01</span>
+      <span class="change down">-0.31%</span>
+      <span class="volume">成交 1,455亿</span>
+    </div>
+  </div>
+  <p class="text-sec" style="padding:0 8px;">两市合计成交约2.42万亿元，上涨4550家、下跌930家、涨停196家、跌停7家。整体呈普涨格局，但资金明显偏好大盘价值股，科技成长板块承压。</p>
+</div>
+
+<!-- 板块资金流 -->
+<div class="section">
+  <h2 class="section-title"><span class="icon">💰</span>板块资金流向（与持仓关联）</h2>
+  <div class="chart-row">
+    <div class="chart-box"><h4>今日行业板块涨幅 Top 10 + 资金净流入</h4><canvas id="sectorChart"></canvas></div>
+    <div class="chart-box"><h4>概念板块资金净流入 Top 8</h4><canvas id="conceptChart"></canvas></div>
+  </div>
+  <div class="sector-list">
+    <div class="sector-row">
+      <span class="sector-name">🔥 证券（→广发远见/富国创新科技）</span>
+      <span class="sector-change up">+4.72%</span>
+      <span class="sector-flow flow-in">主力净流入 105.84亿</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-name">🔥 保险</span>
+      <span class="sector-change up">+5.45%</span>
+      <span class="sector-flow flow-in">主力净流入 20.87亿</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-name">半导体设备（→华夏芯片/嘉实芯片）</span>
+      <span class="sector-change up">+2.87%</span>
+      <span class="sector-flow flow-in">主力净流入 40.26亿</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-name">软件开发（→南方信息创新）</span>
+      <span class="sector-change up">+3.73%</span>
+      <span class="sector-flow flow-in">主力净流入 34.14亿</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-name">化学制药</span>
+      <span class="sector-change up">+4.03%</span>
+      <span class="sector-flow flow-in">主力净流入 24.22亿</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-name">半导体材料（→芯片ETF）</span>
+      <span class="sector-change up">+4.67%</span>
+      <span class="sector-flow flow-in">主力净流入 15.99亿</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-name">垂直应用软件（→南方信息创新）</span>
+      <span class="sector-change up">+4.01%</span>
+      <span class="sector-flow flow-in">主力净流入 27.20亿</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-name">汽车零部件</span>
+      <span class="sector-change up">+2.29%</span>
+      <span class="sector-flow flow-in">主力净流入 15.38亿</span>
+    </div>
+  </div>
+</div>
+
+<!-- 基金涨跌一览表 -->
+<div class="section">
+  <h2 class="section-title"><span class="icon">📋</span>持仓基金涨跌一览表</h2>
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>基金名称</th>
+        <th>代码</th>
+        <th>类型</th>
+        <th>昨日净值</th>
+        <th>盘中估值</th>
+        <th>估算涨跌</th>
+        <th>日收益(估)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>汇添富创业板综合指数增强C</strong></td>
+        <td>026878</td>
+        <td>指数基金</td>
+        <td>1.0338</td>
+        <td>1.0652</td>
+        <td class="up num"><strong>+3.04%</strong></td>
+        <td class="up num">+3.14</td>
+      </tr>
+      <tr>
+        <td><strong>南方信息创新混合C</strong></td>
+        <td>007491</td>
+        <td>混合基金</td>
+        <td>6.3761</td>
+        <td>6.5636</td>
+        <td class="up num"><strong>+2.94%</strong></td>
+        <td class="up num">+2.13</td>
+      </tr>
+      <tr>
+        <td><strong>国泰产业智选混合C</strong></td>
+        <td>026991</td>
+        <td>混合基金</td>
+        <td>0.8531</td>
+        <td>0.8753</td>
+        <td class="up num"><strong>+2.61%</strong></td>
+        <td class="up num">+0.44</td>
+      </tr>
+      <tr>
+        <td>华夏国证半导体芯片ETF联接C</td>
+        <td>008888</td>
+        <td>ETF联接</td>
+        <td>2.8185</td>
+        <td>2.8258</td>
+        <td class="up num">+0.26%</td>
+        <td class="up num">+0.29</td>
+      </tr>
+      <tr style="background:rgba(22,163,74,0.03);">
+        <td>嘉实上证科创板芯片ETF联接C</td>
+        <td>017470</td>
+        <td>ETF</td>
+        <td>3.8887</td>
+        <td>3.8836</td>
+        <td class="down num">-0.13%</td>
+        <td class="down num">-0.11</td>
+      </tr>
+      <tr style="background:rgba(22,163,74,0.03);">
+        <td>富国创业板人工智能ETF联接C</td>
+        <td>024663</td>
+        <td>ETF联接</td>
+        <td>2.3976</td>
+        <td>2.3887</td>
+        <td class="down num">-0.37%</td>
+        <td class="down num">-0.10</td>
+      </tr>
+      <tr style="background:rgba(22,163,74,0.05);">
+        <td>广发远见智选混合C</td>
+        <td>016874</td>
+        <td>混合基金</td>
+        <td>2.4751</td>
+        <td>2.4278</td>
+        <td class="down num"><strong>-1.91%</strong></td>
+        <td class="down num">-3.20</td>
+      </tr>
+      <tr style="background:rgba(22,163,74,0.05);">
+        <td>银华中小盘精选混合</td>
+        <td>180031</td>
+        <td>混合基金</td>
+        <td>6.9360</td>
+        <td>6.7813</td>
+        <td class="down num"><strong>-2.23%</strong></td>
+        <td class="down num">-0.92</td>
+      </tr>
+      <tr style="background:rgba(22,163,74,0.08);">
+        <td>富国创新科技混合C</td>
+        <td>011120</td>
+        <td>混合基金</td>
+        <td>5.9790</td>
+        <td>5.7738</td>
+        <td class="down num"><strong>-3.43%</strong></td>
+        <td class="down num">-1.74</td>
+      </tr>
+      <tr style="background:rgba(22,163,74,0.08);">
+        <td>汇添富科技领先混合C</td>
+        <td>025881</td>
+        <td>混合基金</td>
+        <td>1.8438</td>
+        <td>1.7773</td>
+        <td class="down num"><strong>-3.61%</strong></td>
+        <td class="down num">-0.38</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 逐只基金涨跌原因分析 -->
+<div class="section">
+  <h2 class="section-title"><span class="icon">🔍</span>逐只基金涨跌原因深度分析</h2>
+
+  <!-- === 上涨基金 === -->
+
+  <!-- 1. 汇添富创业板综合指数增强C -->
+  <div class="fund-analysis">
+    <div class="fund-header">
+      <div class="fund-name-group">
+        <h3>汇添富创业板综合指数增强C</h3>
+        <span class="code">026878 · 指数基金</span>
+      </div>
+      <div class="fund-pnl">
+        <span class="pnl-value up">+3.04%</span>
+        <span class="pnl-label">盘中估算涨幅</span>
+      </div>
+    </div>
+    <div class="fund-meta">
+      <span class="meta-tag up-tag">今日领涨</span>
+      <span class="meta-tag type-tag">创业板综指增强</span>
+    </div>
+    <div class="reason-box">
+      <h4>为什么涨？</h4>
+      <p><strong>核心原因：创业板综指 ≠ 创业板指，覆盖面更广。</strong></p>
+      <p>创业板<span class="down-hl">指</span>（399006）只包含创业板市值最大的100只股票，今天微跌-0.39%。但创业板<span class="up-hl">综指</span>（399102）覆盖创业板全部股票（800+只），今天中小盘创业板个股普涨。</p>
+      <p>今日市场涨跌比<span class="up-hl">4.9:1</span>，大量中小盘股上涨，这些股票多数在创业板综指中但不在创业板指中。加上"指数增强"策略的超额收益选股加成，实际涨幅远超基准。</p>
+      <p>此外，创业板中的化工、医药等非科技权重股今日大涨（化学制药+4.03%），对综指形成有力支撑。</p>
+    </div>
+  </div>
+
+  <!-- 2. 南方信息创新混合C -->
+  <div class="fund-analysis">
+    <div class="fund-header">
+      <div class="fund-name-group">
+        <h3>南方信息创新混合C</h3>
+        <span class="code">007491 · 混合基金 · 主动管理</span>
+      </div>
+      <div class="fund-pnl">
+        <span class="pnl-value up">+2.94%</span>
+        <span class="pnl-label">盘中估算涨幅</span>
+      </div>
+    </div>
+    <div class="fund-meta">
+      <span class="meta-tag up-tag">强势上涨</span>
+      <span class="meta-tag type-tag">信息技术主题</span>
+    </div>
+    <div class="reason-box">
+      <h4>为什么涨？</h4>
+      <p><strong>核心原因：持仓偏软件/IT服务，与硬件芯片走势不同。</strong></p>
+      <p>虽然芯片ETF微涨，但今日<span class="up-hl">软件开发+3.73%</span>、<span class="up-hl">垂直应用软件+4.01%</span>板块表现更强。"信息创新"主题覆盖信创、云计算、企业IT服务等方向，这些板块资金净流入合计超60亿。</p>
+      <p>AI应用概念（+3.08%）、AIGC概念（+2.85%）资金回流也直接利好该基金持仓。南方信息创新作为主动管理基金，基金经理可能配置了较多软件而非硬件标的，享受到了板块内部分化的红利。</p>
+      <p>另外，八部门发文推动工业互联网高质量发展，对信息化/软件类标的构成政策利好。</p>
+    </div>
+  </div>
+
+  <!-- 3. 国泰产业智选混合C -->
+  <div class="fund-analysis">
+    <div class="fund-header">
+      <div class="fund-name-group">
+        <h3>国泰产业智选混合C</h3>
+        <span class="code">026991 · 混合基金 · 主动管理</span>
+      </div>
+      <div class="fund-pnl">
+        <span class="pnl-value up">+2.61%</span>
+        <span class="pnl-label">盘中估算涨幅</span>
+      </div>
+    </div>
+    <div class="fund-meta">
+      <span class="meta-tag up-tag">跟随大盘</span>
+      <span class="meta-tag type-tag">产业主题</span>
+    </div>
+    <div class="reason-box">
+      <h4>为什么涨？</h4>
+      <p><strong>核心原因：均衡配置受益于普涨行情。</strong></p>
+      <p>该基金作为"产业智选"主题，持仓可能较为分散，覆盖多个行业板块。今日A股普涨格局（4550家上涨/930家下跌），涨跌比4.9:1，均衡配置的基金天然受益。</p>
+      <p>证券板块<span class="up-hl">+4.72%</span>、保险<span class="up-hl">+5.45%</span>的爆发对宽基配置形成加分。化工（+3.42%）、汽车零部件（+2.29%）等板块也贡献了正面收益。整体跑赢科技集中型基金，体现了分散配置在板块轮动中的优势。</p>
+    </div>
+  </div>
+
+  <!-- 4. 华夏国证半导体芯片ETF联接C -->
+  <div class="fund-analysis">
+    <div class="fund-header">
+      <div class="fund-name-group">
+        <h3>华夏国证半导体芯片ETF联接C</h3>
+        <span class="code">008888 · ETF联接基金</span>
+      </div>
+      <div class="fund-pnl">
+        <span class="pnl-value up">+0.26%</span>
+        <span class="pnl-label">盘中估算涨幅</span>
+      </div>
+    </div>
+    <div class="fund-meta">
+      <span class="meta-tag up-tag">微涨</span>
+      <span class="meta-tag type-tag">半导体芯片</span>
+    </div>
+    <div class="reason-box">
+      <h4>为什么只微涨？</h4>
+      <p><strong>核心原因：半导体板块涨+2.87%，但该ETF跟踪的国证半导体指数成分偏设计类。</strong></p>
+      <p>半导体设备+2.87%、半导体材料+4.67%表现不错，但国证半导体芯片指数包含大量芯片设计公司，这些公司今日表现分化。涨停的半导体个股主要集中在设备（先导基电、银河微电）和材料环节，设计环节涨幅较小。</p>
+      <p>此外，资金大规模转向金融板块（证券105亿净流入），对科技ETF形成"虹吸效应"，限制了芯片ETF的涨幅。微涨+0.26%在板块+2.87%的背景下算偏弱，说明ETF成分股今日表现一般。</p>
+    </div>
+  </div>
+
+  <!-- === 下跌基金 === -->
+
+  <!-- 5. 嘉实上证科创板芯片ETF联接C -->
+  <div class="fund-analysis">
+    <div class="fund-header">
+      <div class="fund-name-group">
+        <h3>嘉实上证科创板芯片ETF联接C</h3>
+        <span class="code">017470 · ETF</span>
+      </div>
+      <div class="fund-pnl">
+        <span class="pnl-value down">-0.13%</span>
+        <span class="pnl-label">盘中估算跌幅</span>
+      </div>
+    </div>
+    <div class="fund-meta">
+      <span class="meta-tag down-tag">微跌</span>
+      <span class="meta-tag type-tag">科创板芯片</span>
+    </div>
+    <div class="reason-box">
+      <h4>为什么跌？</h4>
+      <p><strong>核心原因：科创50指数-0.31%，科创板整体承压。</strong></p>
+      <p>科创板芯片ETF跟踪的是科创板上市的芯片公司，而科创50今天下跌-0.31%。科创板上半年大涨64.25%后处于高位震荡消化阶段，获利盘抛压较重。</p>
+      <p>虽然半导体板块整体上涨，但科创板芯片个股表现弱于主板芯片个股（板块内部分化），导致该ETF微跌。跌幅很小（-0.13%），属于正常波动范围。</p>
+    </div>
+  </div>
+
+  <!-- 6. 富国创业板人工智能ETF联接C -->
+  <div class="fund-analysis">
+    <div class="fund-header">
+      <div class="fund-name-group">
+        <h3>富国创业板人工智能ETF联接C</h3>
+        <span class="code">024663 · ETF联接基金</span>
+      </div>
+      <div class="fund-pnl">
+        <span class="pnl-value down">-0.37%</span>
+        <span class="pnl-label">盘中估算跌幅</span>
+      </div>
+    </div>
+    <div class="fund-meta">
+      <span class="meta-tag down-tag">小幅回调</span>
+      <span class="meta-tag type-tag">创业板AI主题</span>
+    </div>
+    <div class="reason-box">
+      <h4>为什么跌？</h4>
+      <p><strong>核心原因：AI概念股高位震荡，创业板科技权重分化。</strong></p>
+      <p>虽然AI应用概念资金净流入89亿，但这是"净流入"而非"全面上涨"。创业板上的AI标的主要是AI硬件（GPU/算力）和AI应用公司，今日这类个股表现分化严重。</p>
+      <p>资金更偏好低位的金融/周期补涨，而非高位AI继续追涨。创业板指-0.39%的背景下，AI主题ETF跟随小幅回调属于正常技术调整。</p>
+    </div>
+  </div>
+
+  <!-- 7. 广发远见智选混合C -->
+  <div class="fund-analysis">
+    <div class="fund-header">
+      <div class="fund-name-group">
+        <h3>广发远见智选混合C</h3>
+        <span class="code">016874 · 混合基金 · 主动管理</span>
+      </div>
+      <div class="fund-pnl">
+        <span class="pnl-value down">-1.91%</span>
+        <span class="pnl-label">盘中估算跌幅</span>
+      </div>
+    </div>
+    <div class="fund-meta">
+      <span class="meta-tag down-tag">明显下跌</span>
+      <span class="meta-tag type-tag">科技成长风格</span>
+    </div>
+    <div class="reason-box">
+      <h4>为什么跌这么多？</h4>
+      <p><strong>核心原因：基金经理持仓偏科技成长，正好撞枪口。</strong></p>
+      <p>广发远见智选作为主动管理基金，基金经理的投资风格偏向科技成长。今天是典型的"科技回调日"——资金大规模从科技板块轮动到金融/周期，科技成长类基金首当其冲。</p>
+      <p>该基金持仓市值最大（167.39元，占组合24.5%），所以-1.91%的跌幅对组合拖累最大（日亏损约-3.20元）。这也暴露了组合科技集中度过高的风险——当板块轮动发生时，集中持仓放大亏损。</p>
+    </div>
+  </div>
+
+  <!-- 8. 银华中小盘精选混合 -->
+  <div class="fund-analysis">
+    <div class="fund-header">
+      <div class="fund-name-group">
+        <h3>银华中小盘精选混合</h3>
+        <span class="code">180031 · 混合基金 · 主动管理</span>
+      </div>
+      <div class="fund-pnl">
+        <span class="pnl-value down">-2.23%</span>
+        <span class="pnl-label">盘中估算跌幅</span>
+      </div>
+    </div>
+    <div class="fund-meta">
+      <span class="meta-tag down-tag">跌幅较大</span>
+      <span class="meta-tag type-tag">中小盘精选</span>
+    </div>
+    <div class="reason-box">
+      <h4>为什么跌这么多？</h4>
+      <p><strong>核心原因：名为"中小盘精选"，实际持仓偏科技中小盘，今日科技中小盘被砸。</strong></p>
+      <p>虽然市场整体涨跌比4.9:1看起来普涨，但"涨的多是大盘蓝筹和周期股，跌的多是高位科技中小盘"。银华中小盘精选的持仓如果集中在科技类中小盘个股，会遭受精准打击。</p>
+      <p>创业板指-0.39%的背景下，该基金-2.23%远超指数跌幅，说明基金经理重仓的个股今天跌幅远超平均水平。可能持有了一些前期涨幅较大但今天获利回吐的科技中小盘个股。</p>
+    </div>
+  </div>
+
+  <!-- 9. 富国创新科技混合C -->
+  <div class="fund-analysis">
+    <div class="fund-header">
+      <div class="fund-name-group">
+        <h3>富国创新科技混合C</h3>
+        <span class="code">011120 · 混合基金 · 主动管理</span>
+      </div>
+      <div class="fund-pnl">
+        <span class="pnl-value down">-3.43%</span>
+        <span class="pnl-label">盘中估算跌幅</span>
+      </div>
+    </div>
+    <div class="fund-meta">
+      <span class="meta-tag down-tag">大幅下跌</span>
+      <span class="meta-tag type-tag">创新科技主题</span>
+    </div>
+    <div class="reason-box">
+      <h4>为什么跌这么多？</h4>
+      <p><strong>核心原因：名字里就有答案——"创新科技"，今天是科技板块的回调日。</strong></p>
+      <p>富国创新科技的持仓集中在TMT、半导体、新能源科技等方向。今天这些板块集体回调，资金转向金融（证券+4.72%）和周期（化工+3.42%）。该基金-3.43%的跌幅是创业板指(-0.39%)的近9倍，说明基金经理持仓集中度非常高。</p>
+      <p>可能的持仓方向：消费电子、AI算力、光模块/CPO等前期涨幅较大的科技个股，在板块轮动中遭到集中抛售。科创50(-0.31%)和创业板指(-0.39%)只是指数层面的温和调整，但个股层面的分化远大于指数表现。</p>
+    </div>
+  </div>
+
+  <!-- 10. 汇添富科技领先混合C -->
+  <div class="fund-analysis">
+    <div class="fund-header">
+      <div class="fund-name-group">
+        <h3>汇添富科技领先混合C</h3>
+        <span class="code">025881 · 混合基金 · 主动管理</span>
+      </div>
+      <div class="fund-pnl">
+        <span class="pnl-value down">-3.61%</span>
+        <span class="pnl-label">盘中估算跌幅（今日最大跌幅）</span>
+      </div>
+    </div>
+    <div class="fund-meta">
+      <span class="meta-tag down-tag">今日跌幅最大</span>
+      <span class="meta-tag type-tag">科技领先主题</span>
+    </div>
+    <div class="reason-box">
+      <h4>为什么跌最多？</h4>
+      <p><strong>核心原因：纯科技主题基金 + 高集中度持仓 + 板块轮动 = 暴击。</strong></p>
+      <p>"科技领先"主题意味着基金几乎all-in科技赛道。今天资金大规模从科技转向金融/周期，纯科技基金承受了最大的回撤压力。-3.61%跌幅在所有持仓中最大。</p>
+      <p>结合该基金持仓规模较小（市值仅10.45元），对组合整体影响有限（日亏损约-0.38元），但反映了科技板块今日的抛压之猛。如果基金经理偏好半导体设备或光模块等高弹性标的，今天的回调可能更为剧烈。</p>
+      <p><strong>对比：南方信息创新+2.94% vs 汇添富科技领先-3.61%</strong>，同是科技主题基金但走势完全相反，说明今天科技板块内部分化极大——软件/信创涨，硬件/半导体设备回调。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 消息面 -->
+<div class="section">
+  <h2 class="section-title"><span class="icon">📰</span>今日关键消息</h2>
+  <div class="news-list">
+    <div class="news-item">
+      <span class="news-sentiment">🟢</span>
+      <span class="news-title">A股上半年收官：科创50半年暴涨64.25%，硬科技是核心主线 → 高位获利盘抛压是今日科技回调的根本原因</span>
+      <span class="news-source">同花顺</span>
+    </div>
+    <div class="news-item">
+      <span class="news-sentiment">🟢</span>
+      <span class="news-title">券商板块集体爆发+4.72%："牛市旗手"启动，华安证券/天风证券/国盛证券涨停 → 直接利好金融配置</span>
+      <span class="news-source">东方财富</span>
+    </div>
+    <div class="news-item">
+      <span class="news-sentiment">🟢</span>
+      <span class="news-title">隔夜美股全线飘红：科技股大涨，机器人/太阳能板块领涨 → 提振A股整体情绪</span>
+      <span class="news-source">头条财经</span>
+    </div>
+    <div class="news-item">
+      <span class="news-sentiment">🟡</span>
+      <span class="news-title">证监会重磅新政：全链条围剿财务造假落地 → 利好市场长期健康发展，短期影响中性</span>
+      <span class="news-source">头条财经</span>
+    </div>
+    <div class="news-item">
+      <span class="news-sentiment">🟢</span>
+      <span class="news-title">八部门发文：推动工业互联网高质量发展 → 利好软件/信息化标的（南方信息创新受益）</span>
+      <span class="news-source">商务部</span>
+    </div>
+    <div class="news-item">
+      <span class="news-sentiment">🔴</span>
+      <span class="news-title">商务部：将20家日本实体列入出口管制管控名单 → 半导体供应链可能受扰动</span>
+      <span class="news-source">商务部</span>
+    </div>
+    <div class="news-item">
+      <span class="news-sentiment">🟢</span>
+      <span class="news-title">新能源车销量亮眼：问界6月交付30199台，岚图+41% → 利好汽车零部件板块</span>
+      <span class="news-source">东方财富</span>
+    </div>
+  </div>
+</div>
+
+<!-- 总结与启示 -->
+<div class="section">
+  <h2 class="section-title"><span class="icon">💡</span>总结与启示</h2>
+  <div class="theme-panel">
+    <h2>📌 今日涨跌的本质</h2>
+    <p class="theme-item"><strong>一句话总结：</strong>今天是典型的"板块轮动日"——资金从上半年涨幅巨大的科技板块（科创50半年+64%）获利了结，涌入低估值金融/周期板块（证券/保险/化工），导致你的科技集中组合出现"市场普涨但我亏钱"的尴尬局面。</p>
+    <p class="theme-item"><strong>涨跌分化核心逻辑：</strong>持仓中偏软件/信创的基金涨（南方信息创新+2.94%），偏硬件/半导体的基金跌（汇添富科技领先-3.61%），同是科技主题但走势完全相反——板块内部也在分化。</p>
+    <p class="theme-item"><strong>组合风险提示：</strong>10只基金中8只是科技主题，科技集中度超过80%。当板块轮动发生时，组合缺乏"对冲"资产（如金融、消费、债券类基金），今日就是典型案例。</p>
+    <p class="theme-item"><strong>盘中数据注意：</strong>以上均为盘中估算估值（gsz），非最终收盘净值。下午盘面可能逆转，需以收盘净值为准。</p>
+  </div>
+</div>
+
+</div>
+
+<footer class="report-footer">
+  <p class="disclaimer">本报告由AI行情研判助手自动生成，基于盘中实时估值数据（非收盘净值），所有内容仅供学习研究参考，不构成任何投资建议。市场有风险，投资需谨慎。</p>
+  <p>生成时间: 2026-07-01 12:15 | 数据来源: yjb-mcp(养基宝盘中估值) + iwencai-mcp(行情/板块) + WebSearch(新闻)</p>
+  <p>Powered by 行情研判助手 v5.2</p>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+  var C={red:'#dc2626',green:'#16a34a',blue:'#2563eb',text:'#475569',grid:'rgba(148,163,184,0.15)',tipBg:'#1e293b'};
+  Chart.defaults.color=C.text;
+  Chart.defaults.borderColor=C.grid;
+  Chart.defaults.font.family='-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif';
+  Chart.defaults.font.size=11;
+
+  // 行业板块涨幅 Top 10
+  var sectorLabels=['保险','证券','半导体材料','化学制药','垂直应用','软件开发','化学制品','半导体设备','汽车零部件','化学制剂'];
+  var sectorValues=[5.45,4.72,4.67,4.03,4.01,3.73,3.42,2.87,2.29,4.12];
+  var sectorColors=sectorValues.map(function(v){return v>=0?C.red:C.green;});
+
+  new Chart(document.getElementById('sectorChart').getContext('2d'),{
+    type:'bar',
+    data:{labels:sectorLabels,datasets:[{data:sectorValues,backgroundColor:sectorColors.map(function(c){return c+'25';}),borderColor:sectorColors,borderWidth:1,borderRadius:4,barPercentage:0.7}]},
+    options:{responsive:true,maintainAspectRatio:true,indexAxis:'y',plugins:{legend:{display:false},tooltip:{backgroundColor:C.tipBg,titleColor:'#fff',bodyColor:'#fff',borderWidth:0,cornerRadius:6,callbacks:{label:function(ctx){return ctx.parsed.x.toFixed(2)+'%';}}}},scales:{x:{grid:{color:C.grid},ticks:{callback:function(v){return v+'%';}}},y:{grid:{display:false}}},animation:{duration:1000,easing:'easeOutQuart'}}
+  });
+
+  // 概念板块资金净流入 Top 8
+  var conceptLabels=['证金持股','国企改革','期货概念','AI应用','沪股通','互联网金融','AIGC','区块链'];
+  var conceptValues=[107.55,97.78,93.75,89.10,83.50,74.69,56.33,52.71];
+
+  new Chart(document.getElementById('conceptChart').getContext('2d'),{
+    type:'bar',
+    data:{labels:conceptLabels,datasets:[{data:conceptValues,backgroundColor:C.blue+'25',borderColor:C.blue,borderWidth:1,borderRadius:4,barPercentage:0.7}]},
+    options:{responsive:true,maintainAspectRatio:true,indexAxis:'y',plugins:{legend:{display:false},tooltip:{backgroundColor:C.tipBg,titleColor:'#fff',bodyColor:'#fff',borderWidth:0,cornerRadius:6,callbacks:{label:function(ctx){return ctx.parsed.x.toFixed(2)+'亿';}}}},scales:{x:{grid:{color:C.grid},ticks:{callback:function(v){return v+'亿';}}},y:{grid:{display:false}}},animation:{duration:1000,easing:'easeOutQuart'}}
+  });
+})();
+</script>
+
+</body>
+</html>
