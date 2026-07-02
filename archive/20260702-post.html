@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行情研判报告 - 2026-07-02 (盘后) / 7.3预判</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #f0f4f8; --bg-card: #fff; --bg-hover: #f8fafd;
+  --border: #dbe4f0; --border-glow: rgba(37,99,235,0.2);
+  --text: #1e293b; --text-sec: #475569; --text-muted: #94a3b8;
+  --red: #dc2626; --red-bright: #ef4444; --red-bg: rgba(220,38,38,0.08);
+  --green: #16a34a; --green-bright: #22c55e; --green-bg: rgba(22,163,74,0.08);
+  --blue: #2563eb; --blue-light: #3b82f6; --blue-dark: #1d4ed8; --blue-bg: rgba(37,99,235,0.06);
+  --gold: #d97706; --gold-bg: rgba(217,119,6,0.08);
+  --r-sm: 6px; --r-md: 12px; --r-lg: 16px;
+  --shadow: 0 1px 3px rgba(30,41,59,0.08), 0 4px 16px rgba(30,41,59,0.04);
+  --shadow-h: 0 4px 12px rgba(37,99,235,0.1), 0 1px 3px rgba(30,41,59,0.06);
+  --trans: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Arial,sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; min-height: 100vh; }
+.container { max-width: 1200px; margin: 0 auto; padding: 24px 20px 60px; }
+.card,.index-card,.holding-card,.signal-group,.rec-card,.sector-row,.news-item,.sentiment-panel,.chart-box,.review-box,.score-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow); }
+.report-header { text-align: center; padding: 48px 24px 36px; background: linear-gradient(135deg,#1d4ed8 0%,#2563eb 40%,#3b82f6 100%); margin-bottom: 32px; border-radius: 0 0 var(--r-lg) var(--r-lg); position: relative; overflow: hidden; }
+.report-header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 50%,rgba(255,255,255,0.1) 0%,transparent 60%); pointer-events: none; }
+.report-header h1 { font-size: 2.2em; font-weight: 700; letter-spacing: 4px; margin-bottom: 12px; color: #fff; position: relative; }
+.report-header .subtitle { font-size: 1em; color: rgba(255,255,255,0.8); position: relative; }
+.report-header .market-status { display: inline-block; padding: 4px 16px; border-radius: 20px; font-size: 0.85em; margin-top: 12px; position: relative; font-weight: 500; background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.25); }
+.cover-summary { padding: 28px 32px; margin-bottom: 32px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow); }
+.cover-summary .headline { font-size: 1.3em; font-weight: 700; color: var(--blue-dark); margin-bottom: 16px; text-align: center; }
+.cover-stats { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 16px; }
+.cover-stat { text-align: center; padding: 12px; background: var(--blue-bg); border-radius: var(--r-sm); }
+.cover-stat .stat-label { font-size: 0.8em; color: var(--text-muted); display: block; margin-bottom: 4px; }
+.cover-stat .stat-value { font-size: 1.4em; font-weight: 700; font-variant-numeric: tabular-nums; }
+.section { margin-bottom: 36px; }
+.section-title { font-size: 1.35em; font-weight: 600; margin-bottom: 20px; padding-left: 14px; border-left: 3px solid var(--blue); color: var(--text); letter-spacing: 1px; }
+.section-title .icon { margin-right: 8px; }
+.index-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 16px; margin-bottom: 24px; }
+.index-card { padding: 20px 24px; transition: var(--trans); }
+.index-card:hover { background: var(--bg-hover); border-color: var(--border-glow); box-shadow: var(--shadow-h); transform: translateY(-2px); }
+.index-card h3 { font-size: 0.9em; color: var(--text-sec); font-weight: 500; margin-bottom: 8px; }
+.index-card .value { font-size: 1.8em; font-weight: 700; font-variant-numeric: tabular-nums; }
+.index-card .change { font-size: 1.1em; font-weight: 600; margin-left: 10px; }
+.index-card .volume { display: block; font-size: 0.82em; color: var(--text-muted); margin-top: 8px; }
+.up { color: var(--red); } .down { color: var(--green); } .flat { color: var(--text-muted); }
+.change.up { color: var(--red); } .change.down { color: var(--green); }
+.sentiment-panel { padding: 24px 28px; margin-bottom: 24px; }
+.sentiment-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.sentiment-label { font-size: 1.05em; font-weight: 600; }
+.sentiment-value { font-size: 0.95em; padding: 4px 14px; border-radius: 20px; font-weight: 500; }
+.sentiment-value.fear { background: var(--green-bg); color: var(--green); }
+.sentiment-value.neutral { background: var(--blue-bg); color: var(--blue); }
+.sentiment-value.greed { background: var(--red-bg); color: var(--red); }
+.gauge-track { width: 100%; height: 10px; background: linear-gradient(90deg,var(--green) 0%,var(--blue) 50%,var(--red) 100%); border-radius: 5px; position: relative; }
+.gauge-needle { position: absolute; top: -4px; width: 4px; height: 18px; background: var(--text); border-radius: 2px; box-shadow: 0 0 4px rgba(30,41,59,0.3); }
+.sector-list { display: flex; flex-direction: column; gap: 8px; }
+.sector-row { display: grid; grid-template-columns: 1fr 90px 160px; align-items: center; padding: 14px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); gap: 12px; }
+.sector-name { font-weight: 500; font-size: 0.95em; }
+.sector-change { text-align: right; font-weight: 600; font-size: 0.95em; }
+.sector-flow { text-align: right; font-size: 0.85em; font-weight: 500; }
+.flow-in { color: var(--red); } .flow-out { color: var(--green); }
+.signal-group { padding: 20px 24px; margin-bottom: 12px; }
+.signal-group h4 { font-size: 1em; font-weight: 600; margin-bottom: 14px; }
+.indicator-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.indicator { background: var(--blue-bg); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 8px 16px; font-size: 0.88em; color: var(--text-sec); min-width: 120px; text-align: center; }
+.indicator .label { color: var(--text-muted); margin-right: 6px; }
+.val-up { color: var(--red); font-weight: 600; } .val-down { color: var(--green); font-weight: 600; } .val-neutral { color: var(--text-sec); font-weight: 500; }
+.holdings-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(340px,1fr)); gap: 16px; }
+.holding-card { padding: 24px; }
+.holding-card h3 { font-size: 1.1em; font-weight: 600; margin-bottom: 4px; }
+.holding-card .fund-code { font-size: 0.85em; color: var(--text-muted); margin-bottom: 14px; }
+.holding-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; font-size: 0.9em; }
+.holding-meta .label { color: var(--text-sec); }
+.pnl-up { color: var(--red); font-weight: 600; } .pnl-down { color: var(--green); font-weight: 600; }
+.signals { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+.signal-badge { padding: 5px 14px; border-radius: 20px; font-size: 0.82em; font-weight: 600; }
+.signal-badge.buy { background: var(--red-bg); color: var(--red); border: 1px solid rgba(220,38,38,0.2); }
+.signal-badge.hold { background: var(--blue-bg); color: var(--blue); border: 1px solid rgba(37,99,235,0.2); }
+.signal-badge.reduce { background: var(--gold-bg); color: var(--gold); border: 1px solid rgba(217,119,6,0.2); }
+.signal-badge.sell { background: var(--green-bg); color: var(--green); border: 1px solid rgba(22,163,74,0.2); }
+.confidence-bar { display: flex; align-items: center; gap: 8px; font-size: 0.82em; color: var(--text-sec); }
+.confidence-track { width: 60px; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.confidence-fill { height: 100%; border-radius: 2px; background: var(--blue); }
+.holding-reasons, .holding-risks { font-size: 0.88em; line-height: 1.6; margin-top: 10px; }
+.holding-reasons { color: var(--text-sec); } .holding-risks { color: var(--gold); }
+.news-list { display: flex; flex-direction: column; gap: 6px; }
+.news-item { display: grid; grid-template-columns: 36px 1fr auto; align-items: center; padding: 12px 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); gap: 12px; }
+.news-sentiment { font-size: 1.2em; text-align: center; }
+.news-title { font-size: 0.92em; font-weight: 500; line-height: 1.5; }
+.news-source { font-size: 0.78em; color: var(--text-muted); white-space: nowrap; }
+.score-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 12px; margin-bottom: 24px; }
+.score-card { padding: 16px 20px; text-align: center; }
+.score-card .dim-name { font-size: 0.85em; color: var(--text-muted); margin-bottom: 6px; }
+.score-card .dim-score { font-size: 1.6em; font-weight: 700; }
+.score-card .dim-weight { font-size: 0.75em; color: var(--text-muted); }
+.risk-panel { background: linear-gradient(135deg,rgba(217,119,6,0.04) 0%,rgba(220,38,38,0.04) 100%); border: 1px solid rgba(217,119,6,0.2); border-radius: var(--r-md); padding: 28px; margin-top: 8px; }
+.risk-panel h2 { font-size: 1.2em; color: var(--gold); margin-bottom: 16px; }
+.risk-item { font-size: 0.92em; color: var(--text-sec); padding: 8px 0 8px 18px; position: relative; line-height: 1.6; }
+.risk-item::before { content: ''; position: absolute; left: 0; top: 16px; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.review-box { padding: 20px 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); }
+.review-box h4 { font-size: 0.95em; font-weight: 600; margin-bottom: 12px; }
+.review-box .review-date { font-size: 0.8em; color: var(--text-muted); margin-bottom: 8px; }
+.review-box .review-content { font-size: 0.88em; color: var(--text-sec); line-height: 1.7; }
+.accuracy-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.78em; font-weight: 600; margin-top: 8px; background: var(--blue-bg); color: var(--blue); }
+.appendix { padding: 24px 28px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); }
+.appendix h4 { font-size: 0.95em; font-weight: 600; margin-bottom: 12px; color: var(--text-sec); }
+.appendix .data-sources { font-size: 0.82em; color: var(--text-muted); line-height: 1.8; }
+.report-footer { text-align: center; padding: 36px 24px; margin-top: 48px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.82em; }
+.report-footer .disclaimer { max-width: 640px; margin: 0 auto 12px; color: var(--text-sec); font-size: 0.9em; }
+.chart-row { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 16px; margin-bottom: 24px; }
+.chart-box { padding: 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); }
+.chart-box h4 { font-size: 0.9em; color: var(--text-sec); margin-bottom: 12px; }
+.chart-box canvas { max-height: 200px; }
+.text-sec { font-size: 0.92em; color: var(--text-sec); line-height: 1.7; }
+.mt-8 { margin-top: 8px; } .mt-16 { margin-top: 16px; } .mt-24 { margin-top: 24px; }
+.prediction-box { background: linear-gradient(135deg, rgba(37,99,235,0.06), rgba(37,99,235,0.02)); border: 2px solid rgba(37,99,235,0.2); border-radius: var(--r-md); padding: 28px; margin-bottom: 24px; }
+.prediction-box h3 { font-size: 1.15em; font-weight: 700; color: var(--blue-dark); margin-bottom: 16px; }
+.prediction-sector { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 16px; margin-top: 16px; }
+.prediction-card { padding: 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); }
+.prediction-card h4 { font-size: 1em; font-weight: 600; margin-bottom: 8px; }
+.prediction-card .pred-signal { font-size: 1.1em; font-weight: 700; margin: 8px 0; }
+.prediction-card .pred-range { font-size: 0.9em; color: var(--text-sec); }
+.prediction-card .pred-logic { font-size: 0.85em; color: var(--text-sec); margin-top: 8px; line-height: 1.6; }
+@media (max-width: 768px) {
+  .container { padding: 16px 12px 40px; }
+  .report-header { padding: 32px 16px 24px; }
+  .report-header h1 { font-size: 1.6em; }
+  .index-grid { grid-template-columns: repeat(2,1fr); }
+  .holdings-grid { grid-template-columns: 1fr; }
+  .sector-row { grid-template-columns: 1fr 80px; }
+  .sector-flow { display: none; }
+  .cover-stats, .score-grid { grid-template-columns: repeat(2,1fr); }
+  .prediction-sector { grid-template-columns: 1fr; }
+}
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.section { animation: fadeInUp 0.5s ease-out both; }
+.section:nth-child(2) { animation-delay: 0.05s; } .section:nth-child(3) { animation-delay: 0.10s; }
+.section:nth-child(4) { animation-delay: 0.15s; } .section:nth-child(5) { animation-delay: 0.20s; }
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <h1>行情研判报告</h1>
+  <p class="subtitle">2026-07-02 盘后 / 7月3日走势预判</p>
+  <span class="market-status">弱势调整 / 超卖反弹窗口</span>
+</header>
+
+<div class="container">
+
+<!-- 封面 -->
+<div class="cover-summary">
+  <p class="headline">7.2科技股系统性暴跌，7.3预判：超卖技术性反弹概率大，但反弹力度受限于费半暴跌余震</p>
+  <div class="cover-stats">
+    <div class="cover-stat"><span class="stat-label">组合总市值</span><span class="stat-value">670.43</span></div>
+    <div class="cover-stat"><span class="stat-label">总盈亏</span><span class="stat-value up">+173.17 (+34.82%)</span></div>
+    <div class="cover-stat"><span class="stat-label">大盘评级</span><span class="stat-value down">弱势 (25/100)</span></div>
+    <div class="cover-stat"><span class="stat-label">综合评分</span><span class="stat-value" style="color:var(--gold);">32/100</span></div>
+  </div>
+</div>
+
+<!-- 第1章: 大盘环境 -->
+<div class="section" id="sec-market">
+  <h2 class="section-title"><span class="icon">📊</span>大盘环境</h2>
+  <div class="index-grid">
+    <div class="index-card">
+      <h3>上证指数</h3>
+      <span class="value">4028.90</span>
+      <span class="change down">-2.03%</span>
+      <span class="volume">成交 15,772亿</span>
+    </div>
+    <div class="index-card">
+      <h3>深证成指</h3>
+      <span class="value">15498.81</span>
+      <span class="change down">-3.85%</span>
+      <span class="volume">成交 18,734亿</span>
+    </div>
+    <div class="index-card">
+      <h3>创业板指</h3>
+      <span class="value">4017.27</span>
+      <span class="change down">-5.71%</span>
+      <span class="volume">成交 8,968亿</span>
+    </div>
+    <div class="index-card">
+      <h3>科创50</h3>
+      <span class="value">--</span>
+      <span class="change down">-7.70%</span>
+      <span class="volume">科技重灾区</span>
+    </div>
+  </div>
+  <div class="sentiment-panel">
+    <div class="sentiment-header">
+      <span class="sentiment-label">市场情绪指标</span>
+      <span class="sentiment-value fear">极度恐慌</span>
+    </div>
+    <div class="gauge-track">
+      <div class="gauge-needle" style="left: 18%;"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:0.75em;color:var(--text-muted);">
+      <span>极度恐慌</span><span>中性</span><span>极度乐观</span>
+    </div>
+  </div>
+  <div class="text-sec" style="margin-top:12px;">
+    <p>三大指数全线暴跌，创业板指-5.71%领跌，科创50-7.7%创年内最大单日跌幅。两市成交34,503亿(略低于5日均量34,906亿)，属于放量调整格局。涨停155只 vs 跌停41只，涨跌比0.70(2215涨/3162跌)，说明虽然指数暴跌但结构性行情仍在——资金集中在化工/纺织/贵金属/养殖等防御方向。</p>
+  </div>
+</div>
+
+<!-- 第2章: 美股及全球市场 -->
+<div class="section" id="sec-global">
+  <h2 class="section-title"><span class="icon">🌐</span>美股及全球市场 (7.3开盘参考)</h2>
+  <div class="indicator-grid" style="margin-bottom:16px;">
+    <span class="indicator"><span class="label">中概金龙</span><span class="val-up">+2.93%</span></span>
+    <span class="indicator"><span class="label">费城半导体</span><span class="val-down">-6.40%</span></span>
+    <span class="indicator"><span class="label">美10Y国债</span><span class="val-neutral">~4.3%</span></span>
+    <span class="indicator"><span class="label">美元指数</span><span class="val-neutral">偏弱</span></span>
+    <span class="indicator"><span class="label">COMEX黄金</span><span class="val-up">高位</span></span>
+    <span class="indicator"><span class="label">WTI原油</span><span class="val-neutral">震荡</span></span>
+    <span class="indicator"><span class="label">VIX</span><span class="val-up">飙升</span></span>
+    <span class="indicator"><span class="label">美联储</span><span class="val-down">9月加息预期</span></span>
+  </div>
+  <div class="signal-group">
+    <h4>对7.3 A股传导判断: 中性偏利好</h4>
+    <p class="text-sec">中概股暴涨(+2.93%)为A股开盘提供正面支撑，但费城半导体暴跌6.4%对科技板块构成重大压力。预计7.3呈现"结构分化"格局：互联网/贵金属/防御板块偏强，半导体/存储/科技硬件偏弱。VIX飙升反映全球风险偏好骤降，需警惕尾盘再度杀跌。</p>
+  </div>
+</div>
+
+<!-- 第3章: 板块追踪 -->
+<div class="section" id="sec-sector">
+  <h2 class="section-title"><span class="icon">🔥</span>板块追踪 (7.2涨跌排行)</h2>
+  <div class="chart-row">
+    <div class="chart-box"><h4>行业板块涨幅TOP10</h4><canvas id="sectorChart"></canvas></div>
+    <div class="chart-box"><h4>持仓关联板块跌幅</h4><canvas id="holdingSectorChart"></canvas></div>
+  </div>
+  <h3 style="font-size:1em;font-weight:600;margin:16px 0 12px;color:var(--text-sec);">行业板块涨幅TOP10</h3>
+  <div class="sector-list">
+    <div class="sector-row"><span class="sector-name">印染</span><span class="sector-change up">+6.04%</span><span class="sector-flow flow-in">化工纺织链</span></div>
+    <div class="sector-row"><span class="sector-name">水产饲料</span><span class="sector-change up">+5.47%</span><span class="sector-flow flow-in">养殖链</span></div>
+    <div class="sector-row"><span class="sector-name">辅料</span><span class="sector-change up">+4.92%</span><span class="sector-flow flow-in">化工纺织链</span></div>
+    <div class="sector-row"><span class="sector-name">氟化工</span><span class="sector-change up">+4.09%</span><span class="sector-flow flow-in">化工链</span></div>
+    <div class="sector-row"><span class="sector-name">贵金属</span><span class="sector-change up">+3.91%</span><span class="sector-flow flow-in">避险资金</span></div>
+    <div class="sector-row"><span class="sector-name">钨</span><span class="sector-change up">+3.90%</span><span class="sector-flow flow-in">资源品</span></div>
+    <div class="sector-row"><span class="sector-name">机床工具</span><span class="sector-change up">+3.15%</span><span class="sector-flow flow-in">高端制造</span></div>
+    <div class="sector-row"><span class="sector-name">涤纶</span><span class="sector-change up">+3.14%</span><span class="sector-flow flow-in">化工纺织链</span></div>
+  </div>
+  <h3 style="font-size:1em;font-weight:600;margin:24px 0 12px;color:var(--text-sec);">持仓关联板块跌幅</h3>
+  <div class="sector-list">
+    <div class="sector-row"><span class="sector-name">科创芯片指数</span><span class="sector-change down">-8.54%</span><span class="sector-flow flow-out">重灾区</span></div>
+    <div class="sector-row"><span class="sector-name">半导体ETF(512480)</span><span class="sector-change down">-8.26%</span><span class="sector-flow flow-out">前期超买回调</span></div>
+    <div class="sector-row"><span class="sector-name">CSI人工智能</span><span class="sector-change down">-7.19%</span><span class="sector-flow flow-out">算力恐慌</span></div>
+    <div class="sector-row"><span class="sector-name">半导体指数(881121)</span><span class="sector-change down">-5.51%</span><span class="sector-flow flow-out">费半传导</span></div>
+    <div class="sector-row"><span class="sector-name">科技领先(931593)</span><span class="sector-change down">-5.20%</span><span class="sector-flow flow-out">科技全线溃败</span></div>
+    <div class="sector-row"><span class="sector-name">创业板综指</span><span class="sector-change down">-4.10%</span><span class="sector-flow flow-out">成长杀跌</span></div>
+    <div class="sector-row"><span class="sector-name">信创指数</span><span class="sector-change down">-2.24%</span><span class="sector-flow flow-out">相对抗跌</span></div>
+    <div class="sector-row"><span class="sector-name">软件开发</span><span class="sector-change down">-1.78%</span><span class="sector-flow flow-out">相对抗跌</span></div>
+  </div>
+</div>
+
+<!-- 第4章: 技术面信号 -->
+<div class="section" id="sec-technical">
+  <h2 class="section-title"><span class="icon">📈</span>技术面信号汇总</h2>
+  <div class="signal-group">
+    <h4>上证指数</h4>
+    <div class="indicator-grid">
+      <span class="indicator"><span class="label">MA</span><span class="val-down">空头排列</span></span>
+      <span class="indicator"><span class="label">MACD</span><span class="val-down">死叉</span></span>
+      <span class="indicator"><span class="label">KDJ-K</span><span class="val-neutral">26.02 偏弱</span></span>
+      <span class="indicator"><span class="label">RSI(6)</span><span class="val-down">38.15</span></span>
+      <span class="indicator"><span class="label">布林</span><span class="val-neutral">中下轨间</span></span>
+      <span class="indicator"><span class="label">CCI</span><span class="val-down">-100 弱势</span></span>
+      <span class="indicator"><span class="label">WR</span><span class="val-down">-80 接近超卖</span></span>
+    </div>
+  </div>
+  <div class="signal-group">
+    <h4>创业板指</h4>
+    <div class="indicator-grid">
+      <span class="indicator"><span class="label">MA</span><span class="val-down">空头排列</span></span>
+      <span class="indicator"><span class="label">MACD</span><span class="val-down">死叉</span></span>
+      <span class="indicator"><span class="label">KDJ-K</span><span class="val-down">13.31 深度超卖!</span></span>
+      <span class="indicator"><span class="label">RSI</span><span class="val-down">36.42 接近超卖</span></span>
+      <span class="indicator"><span class="label">布林</span><span class="val-down">跌穿中轨逼近下轨</span></span>
+      <span class="indicator"><span class="label">MA60</span><span class="val-neutral">3876 支撑</span></span>
+    </div>
+  </div>
+  <div class="signal-group">
+    <h4>半导体ETF(512480)</h4>
+    <div class="indicator-grid">
+      <span class="indicator"><span class="label">MACD</span><span class="val-neutral">正值快速收窄</span></span>
+      <span class="indicator"><span class="label">RSI</span><span class="val-neutral">60.81 (从79.8骤降)</span></span>
+      <span class="indicator"><span class="label">STOCH</span><span class="val-neutral">80.93 (高位回落)</span></span>
+      <span class="indicator"><span class="label">布林</span><span class="val-neutral">上轨→中轨急速回落</span></span>
+      <span class="indicator"><span class="label">CCI</span><span class="val-neutral">51 (从136回落)</span></span>
+      <span class="indicator"><span class="label">ADX</span><span class="val-up">47.70 趋势仍强</span></span>
+    </div>
+  </div>
+  <div class="text-sec mt-8">
+    <p><strong>技术面综合判定：</strong>三大指数MACD全部死叉+均线空头排列，中期空头信号明确。但创业板KDJ=13.31深度超卖、深证KDJ=17.71、科技100 KDJ=18.25均进入超卖区域，存在技术性反弹需求。关键支撑：上证MA60≈4082，科创芯片MA20=4500，创业板布林下轨3732。</p>
+  </div>
+</div>
+
+<!-- 第5章: 消息面聚合 -->
+<div class="section" id="sec-news">
+  <h2 class="section-title"><span class="icon">📰</span>消息面聚合</h2>
+  <div class="sentiment-panel mt-8">
+    <div class="sentiment-header">
+      <span class="sentiment-label">消息面综合情绪</span>
+      <span class="sentiment-value fear">短期偏空 / 中期偏多</span>
+    </div>
+  </div>
+  <h3 style="font-size:1em;font-weight:600;margin:16px 0 12px;color:var(--red);">利好消息</h3>
+  <div class="news-list">
+    <div class="news-item"><span class="news-sentiment">🟢</span><span class="news-title">国常会部署AI，中国提出2万亿元数据中心建设计划和国内采购目标</span><span class="news-source">瑞银CIO</span></div>
+    <div class="news-item"><span class="news-sentiment">🟢</span><span class="news-title">近20家半导体企业集体涨价：功率半导体+模拟芯片同步涨价，成熟制程涨价延至2027</span><span class="news-source">行业报告</span></div>
+    <div class="news-item"><span class="news-sentiment">🟢</span><span class="news-title">TechInsights：2026年半导体设备支出比2025年增长超50%，Q4达创纪录605亿美元</span><span class="news-source">21世纪经济</span></div>
+    <div class="news-item"><span class="news-sentiment">🟢</span><span class="news-title">三星、SK海力士火速公布建厂计划，投资规模超1.3万亿元</span><span class="news-source">光大证券</span></div>
+    <div class="news-item"><span class="news-sentiment">🟢</span><span class="news-title">先进封装订单排至2027年，半导体下一个爆发点明确</span><span class="news-source">财闻</span></div>
+    <div class="news-item"><span class="news-sentiment">🟢</span><span class="news-title">招商银行研究：短期调整不改科技主线，2026H2业绩增速维持较高水平</span><span class="news-source">招行研究所</span></div>
+    <div class="news-item"><span class="news-sentiment">🟢</span><span class="news-title">康宁上海扩产CPO光连接，投资2亿元，年产10亿美元</span><span class="news-source">行业报道</span></div>
+  </div>
+  <h3 style="font-size:1em;font-weight:600;margin:16px 0 12px;color:var(--green);">利空消息</h3>
+  <div class="news-list">
+    <div class="news-item"><span class="news-sentiment">🔴</span><span class="news-title">Meta拟出售富余AI算力，打破算力稀缺共识，引发全球科技股暴跌(直接导火索)</span><span class="news-source">央广网</span></div>
+    <div class="news-item"><span class="news-sentiment">🔴</span><span class="news-title">美联储加息预期升温：新任主席沃什鹰派信号，市场预期9月加息25bp</span><span class="news-source">Bloomberg</span></div>
+    <div class="news-item"><span class="news-sentiment">🔴</span><span class="news-title">费城半导体指数-6.27%，韩国SK海力士-14.57%，全球科技股"黑色星期三"</span><span class="news-source">全球市场</span></div>
+    <div class="news-item"><span class="news-sentiment">🔴</span><span class="news-title">台湾地区调查走私英伟达AI芯片案，芯片出口管制执法趋严</span><span class="news-source">金十数据</span></div>
+    <div class="news-item"><span class="news-sentiment">🔴</span><span class="news-title">AI算力供给过剩担忧加剧：SpaceX出租算力+Meta业务变局</span><span class="news-source">光大证券</span></div>
+    <div class="news-item"><span class="news-sentiment">🔴</span><span class="news-title">闪迪-12%，美光-10%+，存储芯片价格见顶传闻发酵</span><span class="news-source">全球财经</span></div>
+  </div>
+</div>
+
+<!-- 第6章: 情绪面 -->
+<div class="section" id="sec-sentiment">
+  <h2 class="section-title"><span class="icon">🌡️</span>情绪面分析</h2>
+  <div class="indicator-grid">
+    <span class="indicator"><span class="label">涨停数</span><span class="val-up">155</span></span>
+    <span class="indicator"><span class="label">跌停数</span><span class="val-down">41</span></span>
+    <span class="indicator"><span class="label">涨跌比</span><span class="val-down">0.70</span></span>
+    <span class="indicator"><span class="label">成交额</span><span class="val-neutral">34,503亿(持平)</span></span>
+    <span class="indicator"><span class="label">创业板KDJ</span><span class="val-down">13.31 极度恐慌</span></span>
+  </div>
+  <div class="text-sec mt-16">
+    <p>市场情绪处于极度恐慌状态。创业板KDJ=13.31为年内最低水平，多个板块KDJ深度超卖。但涨停155只远超跌停41只，成交额未明显萎缩，说明恐慌中仍有抄底资金活跃。化工/纺织/贵金属等防御板块承接科技流出资金，板块轮动特征明显。</p>
+  </div>
+</div>
+
+<!-- 第7章: 综合评分 -->
+<div class="section" id="sec-score">
+  <h2 class="section-title"><span class="icon">🎯</span>六维度综合评分</h2>
+  <div class="score-grid">
+    <div class="score-card">
+      <div class="dim-name">市场环境</div>
+      <div class="dim-score down">25</div>
+      <div class="dim-weight">权重 20%</div>
+    </div>
+    <div class="score-card">
+      <div class="dim-name">板块轮动</div>
+      <div class="dim-score down">20</div>
+      <div class="dim-weight">权重 15%</div>
+    </div>
+    <div class="score-card">
+      <div class="dim-name">技术信号</div>
+      <div class="dim-score" style="color:var(--gold);">30</div>
+      <div class="dim-weight">权重 20% (超卖反弹权重)</div>
+    </div>
+    <div class="score-card">
+      <div class="dim-name">消息面</div>
+      <div class="dim-score" style="color:var(--gold);">35</div>
+      <div class="dim-weight">权重 15%</div>
+    </div>
+    <div class="score-card">
+      <div class="dim-name">宏观面</div>
+      <div class="dim-score" style="color:var(--gold);">45</div>
+      <div class="dim-weight">权重 10%</div>
+    </div>
+    <div class="score-card">
+      <div class="dim-name">情绪面</div>
+      <div class="dim-score down">30</div>
+      <div class="dim-weight">权重 10%</div>
+    </div>
+  </div>
+  <div class="signal-group">
+    <h4>综合评分: 32/100 — 弱势，超卖反弹窗口</h4>
+    <p class="text-sec">总分处于弱势区间(<20为系统性风险)，但多个KDJ深度超卖信号提示技术性反弹概率较大。操作策略以"持有不动、逢高减弱势品种"为主，不建议恐慌性割肉。</p>
+  </div>
+</div>
+
+<!-- 第8章: 7.3板块走势预判 (核心) -->
+<div class="section" id="sec-prediction">
+  <h2 class="section-title"><span class="icon">🔮</span>7月3日板块走势预判</h2>
+
+  <div class="prediction-box">
+    <h3>核心判断：低开高走概率较大，结构分化加剧</h3>
+    <p class="text-sec">7.2全球科技股"黑色星期三"后，7.3 A股大概率低开。但中概股隔夜暴涨+2.93%提供正面参考，加上多个板块KDJ深度超卖(创业板13.31/深证17.71/科技100 18.25)，技术性反弹动力充足。预计呈现"半导体/存储偏弱、互联网/贵金属/化工偏强"的结构分化格局。</p>
+
+    <div class="prediction-sector">
+      <div class="prediction-card">
+        <h4>半导体/芯片</h4>
+        <div class="pred-signal" style="color:var(--green);">偏空 / 超卖反弹观望</div>
+        <div class="pred-range">预估区间: -3% ~ +1%</div>
+        <div class="pred-logic">费半暴跌6.4%直接传导+前期超买回调(21%涨幅后)。但KDJ/RSI急速进入超卖区域，存在技术性反弹。涨价逻辑(功率半导体+模拟芯片)提供中期支撑。关注MA20支撑位。</div>
+      </div>
+      <div class="prediction-card">
+        <h4>人工智能/软件</h4>
+        <div class="pred-signal" style="color:var(--gold);">中性 / 分化</div>
+        <div class="pred-range">预估区间: -2% ~ +1%</div>
+        <div class="pred-logic">软件/信创7.2跌幅相对可控(-1.78%~-2.24%)，受费半直接冲击较小。国常会2万亿数据中心计划构成政策利好。但AI算力供给过剩担忧(Meta出售算力)压制情绪。</div>
+      </div>
+      <div class="prediction-card">
+        <h4>CPO/光通信</h4>
+        <div class="pred-signal" style="color:var(--green);">偏空 / 观望</div>
+        <div class="pred-range">预估区间: -3% ~ +0%</div>
+        <div class="pred-logic">7.2领跌方向之一，新易盛跌近10%。但康宁上海扩产CPO(年产10亿美元)释放积极信号，1.6T光模块需求仍在。短期承压但中期产业逻辑未破。</div>
+      </div>
+      <div class="prediction-card">
+        <h4>贵金属/化工/防御</h4>
+        <div class="pred-signal" style="color:var(--red);">偏强 / 资金承接</div>
+        <div class="pred-range">预估区间: +0% ~ +3%</div>
+        <div class="pred-logic">7.2已经领涨(印染+6%/贵金属+3.9%)。VIX飙升+全球避险情绪升温+黄金高位，资金从科技向防御板块轮动趋势可能延续。</div>
+      </div>
+      <div class="prediction-card">
+        <h4>创业板综指</h4>
+        <div class="pred-signal" style="color:var(--gold);">超卖反弹</div>
+        <div class="pred-range">预估区间: -1% ~ +2%</div>
+        <div class="pred-logic">KDJ=21.89超卖区域+RSI=38.86接近超卖。7.2暴跌4.1%后存在技术性反弹需求。MA20=4754为上方压力位。</div>
+      </div>
+      <div class="prediction-card">
+        <h4>大盘(上证)</h4>
+        <div class="pred-signal" style="color:var(--gold);">低开后震荡企稳</div>
+        <div class="pred-range">预估区间: -1% ~ +0.5%</div>
+        <div class="pred-logic">上证跌幅相对温和(-2.03%)，MA60≈4082为关键支撑。权重股(银行/石油)可能护盘。中概股隔夜强势提供正面参考。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 第9章: 持仓分析与操作建议 -->
+<div class="section" id="sec-holdings">
+  <h2 class="section-title"><span class="icon">💼</span>持仓分析与操作建议</h2>
+  <div class="holdings-grid">
+    <div class="holding-card">
+      <h3>华夏国证半导体芯片ETF联接C</h3>
+      <p class="fund-code">008888 | 市值 110.63 | <span class="pnl-up">+34.46%</span></p>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
+        <div class="confidence-bar"><span>信心</span><div class="confidence-track"><div class="confidence-fill" style="width:55%;"></div></div><span>55%</span></div>
+      </div>
+      <p class="holding-reasons">理由: 前期+34%利润垫厚，半导体涨价周期+设备支出增50%中期逻辑未破。KDJ急速超卖存在反弹。若7.3反弹至-3%以内可继续持有。</p>
+      <p class="holding-risks">风险: 费半暴跌6.4%传导+前期超买回调。若跌破MA20需减仓。</p>
+    </div>
+    <div class="holding-card">
+      <h3>嘉实科创板芯片ETF联接C</h3>
+      <p class="fund-code">017470 | 市值 79.30 | <span class="pnl-up">+13.28%</span></p>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
+        <div class="confidence-bar"><span>信心</span><div class="confidence-track"><div class="confidence-fill" style="width:50%;"></div></div><span>50%</span></div>
+      </div>
+      <p class="holding-reasons">理由: 科创芯片MA20=4500为关键支撑，+13%利润垫尚可。国产替代+先进封装订单排至2027。</p>
+      <p class="holding-risks">风险: 科创芯片7.2暴跌8.54%，若继续跌破MA20=4500需止损。</p>
+    </div>
+    <div class="holding-card">
+      <h3>南方信息创新混合C</h3>
+      <p class="fund-code">007491 | 市值 71.52 | <span class="pnl-up">+43.03%</span></p>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
+        <div class="confidence-bar"><span>信心</span><div class="confidence-track"><div class="confidence-fill" style="width:60%;"></div></div><span>60%</span></div>
+      </div>
+      <p class="holding-reasons">理由: +43%利润垫最厚，信创/软件7.2跌幅相对可控(-2.24%)。国常会2万亿数据中心计划利好。</p>
+      <p class="holding-risks">风险: 科技全线杀跌环境下难以独善其身，但跌幅可能较小。</p>
+    </div>
+    <div class="holding-card">
+      <h3>富国创业板人工智能ETF联接C</h3>
+      <p class="fund-code">024663 | 市值 25.22 | <span class="pnl-down">-0.08%</span></p>
+      <div class="signals">
+        <span class="signal-badge reduce">观望/轻仓</span>
+        <div class="confidence-bar"><span>信心</span><div class="confidence-track"><div class="confidence-fill" style="width:35%;"></div></div><span>35%</span></div>
+      </div>
+      <p class="holding-reasons">理由: 基本持平无利润垫，AI板块受Meta算力出售事件冲击。创业板KDJ超卖有反弹但力度存疑。</p>
+      <p class="holding-risks">风险: 若无利润垫且AI情绪继续恶化，建议反弹时减仓。</p>
+    </div>
+    <div class="holding-card">
+      <h3>广发远见智选混合C</h3>
+      <p class="fund-code">016874 | 市值 161.76 | <span class="pnl-down">-4.72%</span></p>
+      <div class="signals">
+        <span class="signal-badge reduce">减仓</span>
+        <div class="confidence-bar"><span>信心</span><div class="confidence-track"><div class="confidence-fill" style="width:40%;"></div></div><span>40%</span></div>
+      </div>
+      <p class="holding-reasons">理由: 亏损-4.72%且市值最大(161.76)，组合风险集中。前期研判已提示关注止损线2.35。</p>
+      <p class="holding-risks">风险: 若继续下跌接近止损线，建议7.3反弹时减仓1/3。</p>
+    </div>
+    <div class="holding-card">
+      <h3>汇添富创业板综合指数增强C</h3>
+      <p class="fund-code">026878 | 市值 106.52 | <span class="pnl-up">+106.52(新增)</span></p>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
+        <div class="confidence-bar"><span>信心</span><div class="confidence-track"><div class="confidence-fill" style="width:50%;"></div></div><span>50%</span></div>
+      </div>
+      <p class="holding-reasons">理由: 新买入品种，创业板KDJ超卖(21.89)有反弹预期。指数增强型基金长期持有。</p>
+      <p class="holding-risks">风险: 创业板暴跌后可能还有惯性下杀，关注MA20=4754压力。</p>
+    </div>
+  </div>
+
+  <div class="risk-panel mt-24">
+    <h2>⚠️ 风险提示</h2>
+    <p class="risk-item">费城半导体指数暴跌6.4%的余震可能在7.3继续发酵，半导体/存储板块可能继续承压</p>
+    <p class="risk-item">美联储加息预期升温(9月+25bp)，全球科技股估值面临系统性压制</p>
+    <p class="risk-item">Meta出售AI算力事件的后续发酵——若更多科技巨头跟进，算力稀缺叙事将被打破</p>
+    <p class="risk-item">中报季来临，业绩不达预期的个股可能面临进一步杀估值</p>
+    <p class="risk-item">芯片出口管制执法趋严(台湾走私案)，可能影响英伟达对华供应链</p>
+    <p class="risk-item">关注后续事件：美联储官员发言、非农数据、中报业绩预告窗口</p>
+  </div>
+</div>
+
+<!-- 第10章: 历史复盘 -->
+<div class="section" id="sec-review">
+  <h2 class="section-title"><span class="icon">🔄</span>历史复盘对比</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">
+    <div class="review-box">
+      <p class="review-date">2026-07-02 盘后 (本次)</p>
+      <h4>本次研判: 弱势(25分) → 7.3超卖反弹概率大</h4>
+      <div class="review-content">
+        <p><strong>建议:</strong> 全部持有不动。半导体/芯片若反弹至-3%以内继续持有，跌破MA20止损。广发远见智选反弹时减仓1/3。南方信息创新利润垫厚可安心持有。</p>
+        <span class="accuracy-badge">待复盘验证</span>
+      </div>
+    </div>
+    <div class="review-box">
+      <p class="review-date">2026-07-01 (上次)</p>
+      <h4>上次研判: 震荡分化(48分) → 板块轮动科技普跌</h4>
+      <div class="review-content">
+        <p><strong>上次建议:</strong> 全部持有。华夏半导体/嘉实芯片高开>+2%止盈5%。广发远见关注止损线2.30。</p>
+        <p><strong>实际走势:</strong> 7.2科技股暴跌远超预期，创业板-5.71%/科创50-7.7%/半导体-8%。上次48分偏高估，未预料到全球科技股系统性暴跌。</p>
+        <span class="accuracy-badge">待复盘验证</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 附录 -->
+<div class="section" id="sec-appendix">
+  <h2 class="section-title"><span class="icon">📎</span>附录</h2>
+  <div class="appendix">
+    <h4>数据来源</h4>
+    <div class="data-sources">
+      <p>1. 同花顺问财(iwencai-mcp) — 指数行情、板块排名、新闻搜索</p>
+      <p>2. AKShare(mcp-aktools) — 技术指标、涨停池、强势股池、龙虎榜</p>
+      <p>3. akshare-one-mcp — 历史K线+30+技术指标(半导体ETF详细指标)</p>
+      <p>4. WebSearch — 美股/全球市场、美联储、大宗商品、VIX、财经新闻</p>
+      <p>5. memory-kb — 持仓数据、历史研判记录</p>
+    </div>
+    <h4 style="margin-top:16px;">数据采集状态</h4>
+    <div class="data-sources">
+      <p>板块资金流向(stock_sector_fund_flow_rank): 接口失败，已标注</p>
+      <p>北向资金详细数据: iwencai返回空值，仅有龙虎榜替代数据</p>
+      <p>OKX加密数据: 网络限制未能获取</p>
+      <p>其余数据全部成功获取</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer class="report-footer">
+  <p class="disclaimer">本报告由AI行情研判助手自动生成，基于公开市场数据与技术分析。仅供学习研究参考，不构成任何投资建议。市场有风险，投资需谨慎。</p>
+  <p>生成时间: 2026-07-02 23:30 | 行情研判助手 v5.4.0</p>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+  var C={red:'#dc2626',green:'#16a34a',blue:'#2563eb',text:'#475569',grid:'rgba(148,163,184,0.15)'};
+  Chart.defaults.color=C.text;Chart.defaults.borderColor=C.grid;
+  Chart.defaults.font.family='-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif';
+  Chart.defaults.font.size=11;
+
+  // 行业板块涨幅TOP10
+  var el1=document.getElementById('sectorChart');
+  if(el1){
+    new Chart(el1.getContext('2d'),{
+      type:'bar',
+      data:{
+        labels:['印染','水产饲料','辅料','氟化工','贵金属','钨','机床工具','涤纶','养殖','粘胶'],
+        datasets:[{data:[6.04,5.47,4.92,4.09,3.91,3.90,3.15,3.14,2.91,2.90],backgroundColor:'rgba(220,38,38,0.15)',borderColor:C.red,borderWidth:1,borderRadius:4}]
+      },
+      options:{responsive:true,maintainAspectRatio:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{ticks:{callback:function(v){return v+'%';}}},y:{grid:{display:false}}}}
+    });
+  }
+
+  // 持仓关联板块跌幅
+  var el2=document.getElementById('holdingSectorChart');
+  if(el2){
+    new Chart(el2.getContext('2d'),{
+      type:'bar',
+      data:{
+        labels:['科创芯片','半导体ETF','CSI AI','半导体指数','科技领先','创业板综','信创','软件'],
+        datasets:[{data:[-8.54,-8.26,-7.19,-5.51,-5.20,-4.10,-2.24,-1.78],backgroundColor:'rgba(22,163,74,0.15)',borderColor:C.green,borderWidth:1,borderRadius:4}]
+      },
+      options:{responsive:true,maintainAspectRatio:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{ticks:{callback:function(v){return v+'%';}}},y:{grid:{display:false}}}}
+    });
+  }
+})();
+</script>
+
+<!-- 历史报告清单 -->
+<script id="report-manifest" type="application/json">
+{"reports":[],"base_url":""}
+</script>
+
+</body>
+</html>
