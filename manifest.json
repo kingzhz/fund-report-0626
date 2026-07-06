@@ -1,1 +1,25 @@
-{"reports": [{"date": "20260703-evening", "title": "7\u67083\u65e5\u76d8\u540e\u5168\u9762\u5206\u6790", "file": "index.html"}, {"date": "20260703-midday", "title": "7\u67083\u65e5\u76d8\u4e2d\u7814\u5224", "file": "archive/20260703-midday.html"}, {"date": "20260702-evening", "title": "7\u67082\u65e5\u76d8\u540e\u590d\u76d8", "file": "archive/20260702-evening.html"}], "base_url": ""}
+{
+  "reports": [
+    {
+      "date": "20260706-midday",
+      "title": "7月6日盘中研判",
+      "file": "archive/20260706-midday.html"
+    },
+    {
+      "date": "20260703-evening",
+      "title": "7月3日盘后全面分析",
+      "file": "index.html"
+    },
+    {
+      "date": "20260703-midday",
+      "title": "7月3日盘中研判",
+      "file": "archive/20260703-midday.html"
+    },
+    {
+      "date": "20260702-evening",
+      "title": "7月2日盘后复盘",
+      "file": "archive/20260702-evening.html"
+    }
+  ],
+  "base_url": "https://kingzhz.github.io/fund-report-0626/"
+}
