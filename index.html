@@ -269,8 +269,8 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
 
 <header class="report-header">
   <h1>行情研判报告</h1>
-  <p class="subtitle">2026-07-06 14:50</p>
-  <span class="market-status open">盘中(14:50)</span>
+  <p class="subtitle">2026-07-06 22:51</p>
+  <span class="market-status closed">已收盘</span>
 </header>
 
 <!-- 历史报告导航栏（数据由内联manifest注入） -->
@@ -292,12 +292,12 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
 
 <!-- 第1章: 封面 -->
 <div class="cover-summary">
-  <p class="headline">减仓（综合评分46/100）。大盘冲高回落创业板跌1.86%，MACD死叉+KDJ超卖。半导体主力净买入27亿但板块微跌，资金护盘未推升。美股7/3休市，SOX此前暴跌5.44%。建议止盈式减仓半导体优先，保留AI和创业板宽基观察。</p>
+  <p class="headline">综合评分39/100，减仓区间。创业板KDJ严重超卖(J=-11.84)存在技术反弹需求，但上证跌破所有均线+MACD死叉趋势仍偏弱。建议止盈式减仓：广发远见(-11.22%逼近止损线)优先减仓1/3，国泰产业(-15.72%已破止损线)减仓50%。半导体/芯片基金持有观察，基本面支撑(存储超级周期+国产算力)但短期资金面承压。</p>
   <div class="cover-stats">
-    <div class="cover-stat"><span class="stat-label">组合总市值</span><span class="stat-value">732.18</span></div>
-    <div class="cover-stat"><span class="stat-label">总盈亏</span><span class="stat-value pnl-down">-0.81 (-0.11%)</span></div>
+    <div class="cover-stat"><span class="stat-label">组合总市值</span><span class="stat-value">632.19</span></div>
+    <div class="cover-stat"><span class="stat-label">总盈亏</span><span class="stat-value pnl-down">-1.09</span></div>
     <div class="cover-stat"><span class="stat-label">大盘评级</span><span class="stat-value">震荡偏弱</span></div>
-    <div class="cover-stat"><span class="stat-label">综合评分</span><span class="stat-value">46/100</span></div>
+    <div class="cover-stat"><span class="stat-label">综合评分</span><span class="stat-value">39/100</span></div>
   </div>
 </div>
 
@@ -326,40 +326,47 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
     
     <div class="index-card">
       <h3>上证指数</h3>
-      <span class="value">4040.94</span>
-      <span class="change down">-0.07%</span>
-      <span class="volume">成交 1.38万亿</span>
+      <span class="value">4041.24</span>
+      <span class="change down">-0.06%</span>
+      <span class="volume">成交 14321亿</span>
     </div>
     
     <div class="index-card">
       <h3>深证成指</h3>
-      <span class="value">15407.22</span>
-      <span class="change down">-1.22%</span>
-      <span class="volume">成交 1.60万亿</span>
+      <span class="value">15416.80</span>
+      <span class="change down">-1.16%</span>
+      <span class="volume">成交 16590亿</span>
     </div>
     
     <div class="index-card">
       <h3>创业板指</h3>
-      <span class="value">3945.00</span>
-      <span class="change down">-1.86%</span>
-      <span class="volume">成交 7395亿</span>
+      <span class="value">3948.86</span>
+      <span class="change down">-1.77%</span>
+      <span class="volume">成交 7690亿</span>
+    </div>
+    
+    <div class="index-card">
+      <h3>沪深300</h3>
+      <span class="value">4842.00</span>
+      <span class="change down">-0.004%</span>
+      <span class="volume">成交 --</span>
     </div>
     
     <div class="index-card">
       <h3>科创50</h3>
-      <span class="value">1997.61</span>
-      <span class="change up">+1.11%</span>
-      <span class="volume">成交 1687亿</span>
+      <span class="value">1996.10</span>
+      <span class="change up">+1.04%</span>
+      <span class="volume">成交 1735亿</span>
     </div>
     
   </div>
   <div class="sentiment-panel">
     <div class="sentiment-header">
       <span class="sentiment-label">市场情绪指标</span>
-      <span class="sentiment-value fear">偏弱（涨跌比0.52）</span>
+      <span class="sentiment-value fear">偏弱</span>
     </div>
     <div class="gauge-track">
-      <div class="gauge-needle" style="left: 38%;"></div>
+      <div class="gauge-needle" style="left: 35%;"></div>
     </div>
     <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:0.75em;color:var(--text-muted);">
       <span>极度恐慌</span><span>中性</span><span>极度乐观</span>
@@ -378,50 +385,56 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
     
     <div class="sector-row">
       <span class="sector-name">银行</span>
-      <span class="sector-change up">+2.30%</span>
-      <span class="sector-flow flow-in">主力净流入 32.4亿</span>
+      <span class="sector-change up">+2.31%</span>
+      <span class="sector-flow flow-in">主力净流入 +33.03亿</span>
     </div>
     
     <div class="sector-row">
       <span class="sector-name">半导体</span>
-      <span class="sector-change down">-0.34%</span>
-      <span class="sector-flow flow-in">主力净流入 27.2亿</span>
+      <span class="sector-change down">-0.40%</span>
+      <span class="sector-flow flow-in">主力净流入 +32.30亿</span>
     </div>
     
     <div class="sector-row">
       <span class="sector-name">半导体设备</span>
-      <span class="sector-change down">-0.22%</span>
-      <span class="sector-flow flow-in">主力净流入 22.5亿</span>
-    </div>
-    
-    <div class="sector-row">
-      <span class="sector-name">化学制药</span>
-      <span class="sector-change up">+0.96%</span>
-      <span class="sector-flow flow-in">主力净流入 18.6亿</span>
+      <span class="sector-change down">-0.42%</span>
+      <span class="sector-flow flow-in">主力净流入 +24.16亿</span>
     </div>
     
     <div class="sector-row">
       <span class="sector-name">集成电路封测</span>
-      <span class="sector-change up">+2.45%</span>
-      <span class="sector-flow flow-in">主力净流入 15.4亿</span>
+      <span class="sector-change up">+2.34%</span>
+      <span class="sector-flow flow-in">主力净流入 +13.96亿</span>
     </div>
     
     <div class="sector-row">
-      <span class="sector-name">集成电路制造</span>
-      <span class="sector-change up">+1.08%</span>
-      <span class="sector-flow flow-in">主力净流入 12.3亿</span>
+      <span class="sector-name">光学光电子</span>
+      <span class="sector-change down">-3.62%</span>
+      <span class="sector-flow flow-out">主力净流出 -70.25亿</span>
     </div>
     
     <div class="sector-row">
-      <span class="sector-name">股份制银行</span>
-      <span class="sector-change up">+2.21%</span>
-      <span class="sector-flow flow-in">主力净流入 12.6亿</span>
+      <span class="sector-name">通信设备</span>
+      <span class="sector-change down">-2.38%</span>
+      <span class="sector-flow flow-out">主力净流出 -47.35亿</span>
     </div>
     
     <div class="sector-row">
-      <span class="sector-name">国有大行</span>
-      <span class="sector-change up">+1.42%</span>
-      <span class="sector-flow flow-in">主力净流入 10.3亿</span>
+      <span class="sector-name">消费电子</span>
+      <span class="sector-change down">-2.74%</span>
+      <span class="sector-flow flow-out">主力净流出 -46.98亿</span>
+    </div>
+    
+    <div class="sector-row">
+      <span class="sector-name">芯片</span>
+      <span class="sector-change down">-2.15%</span>
+      <span class="sector-flow flow-out">主力净流出 -249.64亿</span>
+    </div>
+    
+    <div class="sector-row">
+      <span class="sector-name">人工智能</span>
+      <span class="sector-change down">-1.52%</span>
+      <span class="sector-flow flow-out">主力净流出 -137.59亿</span>
     </div>
     
   </div>
@@ -436,51 +449,51 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
   <div class="sector-list">
     
     <div class="sector-row">
-      <span class="sector-name">集成电路封测</span>
-      <span class="sector-change up">+2.45%</span>
-      <span class="sector-flow flow-in">主力净流入 15.4亿</span>
+      <span class="sector-name">养殖业</span>
+      <span class="sector-change up">+3.21%</span>
+      <span class="sector-flow flow-in">主力净流入 +8.32亿</span>
     </div>
     
     <div class="sector-row">
       <span class="sector-name">银行</span>
-      <span class="sector-change up">+2.30%</span>
-      <span class="sector-flow flow-in">主力净流入 32.4亿</span>
+      <span class="sector-change up">+2.31%</span>
+      <span class="sector-flow flow-in">主力净流入 +33.03亿</span>
     </div>
     
     <div class="sector-row">
-      <span class="sector-name">股份制银行</span>
-      <span class="sector-change up">+2.21%</span>
-      <span class="sector-flow flow-in">主力净流入 12.6亿</span>
+      <span class="sector-name">集成电路封测</span>
+      <span class="sector-change up">+2.34%</span>
+      <span class="sector-flow flow-in">主力净流入 +13.96亿</span>
     </div>
     
     <div class="sector-row">
-      <span class="sector-name">国有大行</span>
-      <span class="sector-change up">+1.42%</span>
-      <span class="sector-flow flow-in">主力净流入 10.3亿</span>
+      <span class="sector-name">保险</span>
+      <span class="sector-change up">+1.21%</span>
+      <span class="sector-flow flow-in">主力净流入 +5.40亿</span>
     </div>
     
     <div class="sector-row">
-      <span class="sector-name">集成电路制造</span>
-      <span class="sector-change up">+1.08%</span>
-      <span class="sector-flow flow-in">主力净流入 12.3亿</span>
+      <span class="sector-name">小金属</span>
+      <span class="sector-change down">-4.14%</span>
+      <span class="sector-flow flow-out">主力净流出 -35.78亿</span>
     </div>
     
     <div class="sector-row">
-      <span class="sector-name">半导体</span>
-      <span class="sector-change down">-0.34%</span>
-      <span class="sector-flow flow-in">主力净流入 27.2亿</span>
+      <span class="sector-name">元件</span>
+      <span class="sector-change down">-3.89%</span>
+      <span class="sector-flow flow-out">主力净流出 -46.70亿</span>
     </div>
     
     <div class="sector-row">
-      <span class="sector-name">半导体设备</span>
-      <span class="sector-change down">-0.22%</span>
-      <span class="sector-flow flow-in">主力净流入 22.5亿</span>
+      <span class="sector-name">印制电路板</span>
+      <span class="sector-change down">-3.82%</span>
+      <span class="sector-flow flow-out">主力净流出 -40.83亿</span>
     </div>
     
     <div class="sector-row">
-      <span class="sector-name">其他计算机设备</span>
-      <span class="sector-change down">-1.13%</span>
-      <span class="sector-flow flow-in">主力净流入 12.0亿</span>
+      <span class="sector-name">光学光电子</span>
+      <span class="sector-change down">-3.62%</span>
+      <span class="sector-flow flow-out">主力净流出 -70.25亿</span>
     </div>
     
   </div>
@@ -493,11 +506,77 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
   <div class="signal-group">
     <h4>上证指数</h4>
     <div class="indicator-grid">
-      <span class="indicator"><span class="label">MA</span><span class="val-negative">跌破MA5(4071)</span></span>
-      <span class="indicator"><span class="label">MACD</span><span class="val-negative">MACD=-8.34 死叉</span></span>
-      <span class="indicator"><span class="label">KDJ</span><span class="val-positive">KDJ=20.4 超卖</span></span>
-      <span class="indicator"><span class="label">RSI</span><span class="val-negative">RSI=41.6 偏弱</span></span>
-      <span class="indicator"><span class="label">布林</span><span class="val-neutral">中轨附近</span></span>
+      <span class="indicator"><span class="label">MA</span><span class="val-negative">跌破MA5/10/20/60空头排列</span></span>
+      <span class="indicator"><span class="label">MACD</span><span class="val-negative">死叉 DIF=-6.66 绿柱-8.34</span></span>
+      <span class="indicator"><span class="label">KDJ</span><span class="val-neutral">K=36.7 D=44.7 J=20.8接近超卖</span></span>
+      <span class="indicator"><span class="label">RSI</span><span class="val-neutral">RSI6=44.0 偏弱</span></span>
+      <span class="indicator"><span class="label">布林</span><span class="val-neutral">中下轨间(4041/中轨4065/下轨3958)</span></span>
+      <span class="indicator"><span class="label">OBV</span><span class="val-neutral">--</span></span>
+      <span class="indicator"><span class="label">ATR</span><span class="val-neutral">BOLL带宽5.2%中等</span></span>
+      <span class="indicator"><span class="label">DMI</span><span class="val-neutral">--</span></span>
+      <span class="indicator"><span class="label">CCI</span><span class="val-neutral">--</span></span>
+      <span class="indicator"><span class="label">WR</span><span class="val-neutral">--</span></span>
+      <span class="indicator"><span class="label">量价</span><span class="val-negative">缩量下跌</span></span>
+    </div>
+    <div class="timeframe-grid">
+      <div class="timeframe-card"><h5>日线</h5><span class="tf-signal down">偏空</span><span class="tf-score">得分: -2</span></div>
+      <div class="timeframe-card"><h5>周线</h5><span class="tf-signal flat">中性偏弱</span><span class="tf-score">得分: -1</span></div>
+      <div class="timeframe-card"><h5>月线</h5><span class="tf-signal flat">--</span><span class="tf-score">得分: 0</span></div>
+    </div>
+  </div>
+  
+  <div class="signal-group">
+    <h4>创业板指</h4>
+    <div class="indicator-grid">
+      <span class="indicator"><span class="label">MA</span><span class="val-negative">远低于MA5/10/20 MA60=3904支撑</span></span>
+      <span class="indicator"><span class="label">MACD</span><span class="val-negative">高位死叉 绿柱-73极强空头</span></span>
+      <span class="indicator"><span class="label">KDJ</span><span class="val-positive">K=26.4 D=45.5 J=-11.8严重超卖</span></span>
+      <span class="indicator"><span class="label">RSI</span><span class="val-neutral">RSI=32.3偏弱接近超卖</span></span>
+      <span class="indicator"><span class="label">布林</span><span class="val-negative">中轨下方(3949/中轨4100/下轨3725)</span></span>
+      <span class="indicator"><span class="label">OBV</span><span class="val-neutral">--</span></span>
+      <span class="indicator"><span class="label">ATR</span><span class="val-neutral">BOLL带宽18.3%高波动</span></span>
+      <span class="indicator"><span class="label">DMI</span><span class="val-neutral">--</span></span>
+      <span class="indicator"><span class="label">CCI</span><span class="val-neutral">--</span></span>
+      <span class="indicator"><span class="label">WR</span><span class="val-neutral">--</span></span>
+      <span class="indicator"><span class="label">量价</span><span class="val-negative">缩量下跌</span></span>
+    </div>
+    <div class="timeframe-grid">
+      <div class="timeframe-card"><h5>日线</h5><span class="tf-signal up">超跌反弹信号</span><span class="tf-score">得分: -3</span></div>
+      <div class="timeframe-card"><h5>周线</h5><span class="tf-signal down">偏空</span><span class="tf-score">得分: -2</span></div>
+      <div class="timeframe-card"><h5>月线</h5><span class="tf-signal flat">--</span><span class="tf-score">得分: 0</span></div>
+    </div>
+  </div>
+  
+  <div class="signal-group">
+    <h4>科创50</h4>
+    <div class="indicator-grid">
+      <span class="indicator"><span class="label">MA</span><span class="val-negative">MA=2064下方 1996</span></span>
+      <span class="indicator"><span class="label">MACD</span><span class="val-neutral">金叉维持但柱仅1.08濒临死叉</span></span>
+      <span class="indicator"><span class="label">KDJ</span><span class="val-positive">K=45.8 D=64.3 J=9.0超卖</span></span>
+      <span class="indicator"><span class="label">RSI</span><span class="val-neutral">RSI=49.0中性</span></span>
+      <span class="indicator"><span class="label">布林</span><span class="val-positive">中轨(1895)上方运行</span></span>
+      <span class="indicator"><span class="label">OBV</span><span class="val-neutral">--</span></span>
+      <span class="indicator"><span class="label">ATR</span><span class="val-neutral">BOLL带宽39.2%极高波动</span></span>
+      <span class="indicator"><span class="label">DMI</span><span class="val-neutral">--</span></span>
+      <span class="indicator"><span class="label">CCI</span><span class="val-neutral">--</span></span>
+      <span class="indicator"><span class="label">WR</span><span class="val-neutral">--</span></span>
+      <span class="indicator"><span class="label">量价</span><span class="val-neutral">--</span></span>
+    </div>
+    <div class="timeframe-grid">
+      <div class="timeframe-card"><h5>日线</h5><span class="tf-signal flat">中性偏弱</span><span class="tf-score">得分: 0</span></div>
+      <div class="timeframe-card"><h5>周线</h5><span class="tf-signal flat">中性</span><span class="tf-score">得分: 0</span></div>
+      <div class="timeframe-card"><h5>月线</h5><span class="tf-signal flat">--</span><span class="tf-score">得分: 0</span></div>
+    </div>
+  </div>
+  
+  <div class="signal-group">
+    <h4>芯片ETF(159995)</h4>
+    <div class="indicator-grid">
+      <span class="indicator"><span class="label">MA</span><span class="val-positive">BOLL中轨2.83上方运行</span></span>
+      <span class="indicator"><span class="label">MACD</span><span class="val-neutral">零轴胶着方向不明</span></span>
+      <span class="indicator"><span class="label">KDJ</span><span class="val-neutral">K=47.5 D=66.1 J=10.3接近超卖</span></span>
+      <span class="indicator"><span class="label">RSI</span><span class="val-neutral">RSI=47.5中性</span></span>
+      <span class="indicator"><span class="label">布林</span><span class="val-positive">中轨上方(3.01/中轨2.83)</span></span>
       <span class="indicator"><span class="label">OBV</span><span class="val-neutral">--</span></span>
       <span class="indicator"><span class="label">ATR</span><span class="val-neutral">--</span></span>
       <span class="indicator"><span class="label">DMI</span><span class="val-neutral">--</span></span>
@@ -506,29 +585,29 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
       <span class="indicator"><span class="label">量价</span><span class="val-neutral">--</span></span>
     </div>
     <div class="timeframe-grid">
-      <div class="timeframe-card"><h5>日线</h5><span class="tf-signal down">偏弱</span><span class="tf-score">得分: -30</span></div>
-      <div class="timeframe-card"><h5>周线</h5><span class="tf-signal flat">--</span><span class="tf-score">得分: 0</span></div>
+      <div class="timeframe-card"><h5>日线</h5><span class="tf-signal flat">中性</span><span class="tf-score">得分: 0</span></div>
+      <div class="timeframe-card"><h5>周线</h5><span class="tf-signal flat">中性</span><span class="tf-score">得分: 0</span></div>
       <div class="timeframe-card"><h5>月线</h5><span class="tf-signal flat">--</span><span class="tf-score">得分: 0</span></div>
     </div>
   </div>
   
   <div class="signal-group">
-    <h4>半导体板块</h4>
+    <h4>半导体ETF(512480)</h4>
     <div class="indicator-grid">
-      <span class="indicator"><span class="label">MA</span><span class="val-neutral">--</span></span>
-      <span class="indicator"><span class="label">MACD</span><span class="val-neutral">--</span></span>
-      <span class="indicator"><span class="label">KDJ</span><span class="val-neutral">--</span></span>
-      <span class="indicator"><span class="label">RSI</span><span class="val-neutral">--</span></span>
-      <span class="indicator"><span class="label">布林</span><span class="val-neutral">--</span></span>
-      <span class="indicator"><span class="label">OBV</span><span class="val-positive">主力净流入27亿</span></span>
+      <span class="indicator"><span class="label">MA</span><span class="val-neutral">07-03拆分1:2数据失真</span></span>
+      <span class="indicator"><span class="label">MACD</span><span class="val-neutral">接近零轴方向不明(拆分影响)</span></span>
+      <span class="indicator"><span class="label">KDJ</span><span class="val-neutral">K=33.7 D=60.3 J=-19.5超卖(拆分影响)</span></span>
+      <span class="indicator"><span class="label">RSI</span><span class="val-neutral">RSI=32.7偏弱(拆分影响)</span></span>
+      <span class="indicator"><span class="label">布林</span><span class="val-neutral">拆分失真(1.334远低于中轨2.36)</span></span>
+      <span class="indicator"><span class="label">OBV</span><span class="val-neutral">--</span></span>
       <span class="indicator"><span class="label">ATR</span><span class="val-neutral">--</span></span>
       <span class="indicator"><span class="label">DMI</span><span class="val-neutral">--</span></span>
       <span class="indicator"><span class="label">CCI</span><span class="val-neutral">--</span></span>
       <span class="indicator"><span class="label">WR</span><span class="val-neutral">--</span></span>
-      <span class="indicator"><span class="label">量价</span><span class="val-negative">量增价滞</span></span>
+      <span class="indicator"><span class="label">量价</span><span class="val-neutral">--</span></span>
     </div>
     <div class="timeframe-grid">
-      <div class="timeframe-card"><h5>日线</h5><span class="tf-signal flat">中性</span><span class="tf-score">得分: 0</span></div>
+      <div class="timeframe-card"><h5>日线</h5><span class="tf-signal flat">数据失真</span><span class="tf-score">得分: 0</span></div>
       <div class="timeframe-card"><h5>周线</h5><span class="tf-signal flat">--</span><span class="tf-score">得分: 0</span></div>
       <div class="timeframe-card"><h5>月线</h5><span class="tf-signal flat">--</span><span class="tf-score">得分: 0</span></div>
     </div>
@@ -548,57 +627,93 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
   <div class="sentiment-panel mt-8">
     <div class="sentiment-header">
       <span class="sentiment-label">消息面综合情绪</span>
-      <span class="sentiment-value greed">产业利好密集（半导体/AI/存储）</span>
+      <span class="sentiment-value greed">偏利好(+5/10) 存储超级周期+国产算力突破+央行万亿投放 vs 英伟达延期+科技封锁+美债走高</span>
     </div>
   </div>
   <div class="news-list">
     
     <div class="news-item">
       <span class="news-sentiment up">🟢</span>
-      <span class="news-title">华为&quot;韬定律&quot;V2发布：先进封装3D折叠路径，麒麟2026密度提升55%</span>
-      <span class="news-source">同花顺 · 7月6日</span>
+      <span class="news-title">江波龙上半年净利92-110亿 同比增62204% 存储超级周期确认</span>
+      <span class="news-source">第一财经 · 09:35</span>
     </div>
     
     <div class="news-item">
       <span class="news-sentiment up">🟢</span>
-      <span class="news-title">江波龙预告2026H1净利92-110亿，同比增62204%+，存储芯片概念拉升</span>
-      <span class="news-source">资本邦 · 7月6日</span>
+      <span class="news-title">美团五万卡国产算力集群完成万亿参数模型训练 国产算力质变</span>
+      <span class="news-source">证券时报 · 10:30</span>
     </div>
     
     <div class="news-item">
       <span class="news-sentiment up">🟢</span>
-      <span class="news-title">三星获Meta超10万亿韩元AI芯片代工订单，2nm工艺量产</span>
-      <span class="news-source">财联社 · 7月6日</span>
+      <span class="news-title">央行10000亿元买断式逆回购 流动性充裕</span>
+      <span class="news-source">中国证券报 · 07:34</span>
     </div>
     
     <div class="news-item">
       <span class="news-sentiment up">🟢</span>
-      <span class="news-title">美光投资93亿美元日本扩建HBM工厂，预计2028出货</span>
-      <span class="news-source">财联社 · 7月6日</span>
+      <span class="news-title">WSTS预计2026全球半导体增90%达1.5万亿美元</span>
+      <span class="news-source">国元证券 · 06月</span>
     </div>
     
     <div class="news-item">
       <span class="news-sentiment up">🟢</span>
-      <span class="news-title">Anthropic澳洲采购1.4GW算力，建设成本约150亿美元</span>
-      <span class="news-source">每日经济新闻 · 7月6日</span>
+      <span class="news-title">800G+光模块出口暴增超100倍 全球数通光模块228亿美元</span>
+      <span class="news-source">中财网 · 09:50</span>
     </div>
     
     <div class="news-item">
       <span class="news-sentiment up">🟢</span>
-      <span class="news-title">半导体ETF连续7天净流入，合计吸金10.56亿元</span>
-      <span class="news-source">资本邦 · 7月6日</span>
+      <span class="news-title">NVIDIA Vera Rubin满产 CPO交换机进入量产阶段</span>
+      <span class="news-source">中财网 · 09:50</span>
+    </div>
+    
+    <div class="news-item">
+      <span class="news-sentiment up">🟢</span>
+      <span class="news-title">华为发布韬定律V2 后摩尔时代缩放理论突破</span>
+      <span class="news-source">界面新闻 · 10:36</span>
+    </div>
+    
+    <div class="news-item">
+      <span class="news-sentiment up">🟢</span>
+      <span class="news-title">Anthropic澳洲150亿美元数据中心 高盛预测6年7.6万亿AI资本开支</span>
+      <span class="news-source">钛媒体 · 10:05</span>
+    </div>
+    
+    <div class="news-item">
+      <span class="news-sentiment up">🟢</span>
+      <span class="news-title">广发/中信看好国产算力 昇腾950下半年规模化交付</span>
+      <span class="news-source">广发证券 · 16:37</span>
     </div>
     
     <div class="news-item">
       <span class="news-sentiment down">🔴</span>
-      <span class="news-title">美股7/3休市，此前芯片股连跌2日，SOX暴跌5.44%，市场重估AI交易</span>
-      <span class="news-source">腾讯新闻 · 7月3日</span>
+      <span class="news-title">英伟达Rubin Ultra碰到物理极限 延期1年+性能砍半</span>
+      <span class="news-source">金融界 · 17:48</span>
+    </div>
+    
+    <div class="news-item">
+      <span class="news-sentiment down">🔴</span>
+      <span class="news-title">美国扩大对华电子通信设备限制 禁止进口中国电子设备</span>
+      <span class="news-source">搜狐财经 · 07-05</span>
+    </div>
+    
+    <div class="news-item">
+      <span class="news-sentiment down">🔴</span>
+      <span class="news-title">科技板块高位回调 PCB/光纤多股跌停 高低切换明显</span>
+      <span class="news-source">金融界 · 17:48</span>
+    </div>
+    
+    <div class="news-item">
+      <span class="news-sentiment down">🔴</span>
+      <span class="news-title">美债30年期收益率重回5%以上 海外流动性扰动</span>
+      <span class="news-source">aktools · 22:43</span>
     </div>
     
     <div class="news-item">
       <span class="news-sentiment flat">🟡</span>
-      <span class="news-title">A股交易新规7月7日起施行，万亿逆回购释放流动性</span>
-      <span class="news-source">财联社 · 7月6日</span>
+      <span class="news-title">A股交易新规7月6日施行 盘后交易扩展 ST涨跌幅调10%</span>
+      <span class="news-source">中国证券报 · 07:34</span>
     </div>
     
   </div>
@@ -609,25 +724,33 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
   <h2 class="section-title"><span class="icon">🌐</span>宏观面评估</h2>
   <div class="indicator-grid">
     
-    <span class="indicator"><span class="label">道琼斯(7/2)</span><span class="val-positive">+1.14%</span></span>
+    <span class="indicator"><span class="label">道琼斯(7/2)</span><span class="val-positive">~52770(+0.87%创新高)</span></span>
     
-    <span class="indicator"><span class="label">纳斯达克(7/2)</span><span class="val-negative">-0.80%</span></span>
+    <span class="indicator"><span class="label">纳斯达克(7/2)</span><span class="val-neutral">~26151(-0.24%)</span></span>
     
-    <span class="indicator"><span class="label">标普500(7/2)</span><span class="val-neutral">-0.01%</span></span>
+    <span class="indicator"><span class="label">费城半导体(7/1)</span><span class="val-positive">H1累计+101%</span></span>
     
-    <span class="indicator"><span class="label">费城半导体SOX(7/2)</span><span class="val-negative">-5.44%</span></span>
+    <span class="indicator"><span class="label">NVDA(7/2)</span><span class="val-negative">$194.83(-1.39%)</span></span>
     
-    <span class="indicator"><span class="label">苹果AAPL(7/2)</span><span class="val-positive">+5%</span></span>
+    <span class="indicator"><span class="label">AMD(7/2)</span><span class="val-positive">$566.52(+9.4%)</span></span>
     
-    <span class="indicator"><span class="label">AMD(7/2)</span><span class="val-negative">-4%+</span></span>
+    <span class="indicator"><span class="label">美债10Y</span><span class="val-negative">4.481%</span></span>
     
-    <span class="indicator"><span class="label">美股7/3</span><span class="val-neutral">独立日休市</span></span>
+    <span class="indicator"><span class="label">美元指数DXY</span><span class="val-positive">100.82(偏弱)</span></span>
     
-    <span class="indicator"><span class="label">央行</span><span class="val-positive">万亿逆回购</span></span>
+    <span class="indicator"><span class="label">USD/CNY</span><span class="val-positive">6.7935(人民币偏强)</span></span>
+    
+    <span class="indicator"><span class="label">黄金</span><span class="val-neutral">$4180.61/oz</span></span>
+    
+    <span class="indicator"><span class="label">VIX</span><span class="val-neutral">~17-19(中性)</span></span>
+    
+    <span class="indicator"><span class="label">美联储</span><span class="val-neutral">6月连续第4次维持不变</span></span>
+    
+    <span class="indicator"><span class="label">7月加息概率</span><span class="val-negative">33.7%(偏鹰)</span></span>
     
   </div>
   <div class="signal-group mt-16">
-    <p class="text-sec">美股7月3日因独立日休市。7月2日：道指+1.14%、纳指-0.80%、标普500-0.01%。费城半导体指数SOX暴跌5.44%，芯片股连跌2日，市场重新估值AI交易。苹果涨近5%（AI手机预期），AMD/ASML跌超4%。国内方面：交易新规7月7日施行；央行万亿逆回购释放流动性；韩国三星+SK合计投资4800万亿韩元布局AI半导体。</p>
+    <p class="text-sec">美股偏强(Dow创新高+费城半导体H1+101%)利好A股情绪，但美联储偏鹰(7月加息概率34%)、美债10Y=4.48%对高估值成长股形成压制。美元DXY=100.8偏弱有利人民币资产。VIX=17-19中性。A股交易新规+央行万亿买断式逆回购提供制度面和流动性支撑。特朗普关税不确定性是最大外部风险变量。</p>
   </div>
 </div>
 
@@ -635,11 +758,11 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
 <div class="section" id="sec-sentiment">
   <h2 class="section-title"><span class="icon">🌡️</span>情绪面分析</h2>
   <div class="indicator-grid">
-    <span class="indicator"><span class="label">涨停数</span><span class="up">71</span></span>
-    <span class="indicator"><span class="label">跌停数</span><span class="flat">较少</span></span>
-    <span class="indicator"><span class="label">涨跌比</span><span class="down">涨跌比0.52（1855涨/3562跌）</span></span>
-    <span class="indicator"><span class="label">换手率</span><span class="up">开盘2小时1400亿</span></span>
-    <span class="indicator"><span class="label">融资变化</span><span class="flat">数据暂不可用</span></span>
+    <span class="indicator"><span class="label">涨停数</span><span class="flat">71</span></span>
+    <span class="indicator"><span class="label">跌停数</span><span class="down">51</span></span>
+    <span class="indicator"><span class="label">涨跌比</span><span class="down">0.53(1876涨/3538跌)</span></span>
+    <span class="indicator"><span class="label">换手率</span><span class="down">3.09万亿(缩量)</span></span>
+    <span class="indicator"><span class="label">融资变化</span><span class="flat">未披露(2024年起停止)</span></span>
   </div>
 </div>
 
@@ -647,12 +770,12 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
 <div class="section" id="sec-discipline">
   <h2 class="section-title"><span class="icon">🎓</span>投资纪律检查</h2>
   <div class="signal-group">
-    <h4>大师框架: 景气成长（郑希体系）+ 风险控制检查清单</h4>
-    <p class="text-sec">趋势确认：大盘震荡偏弱，MACD死叉短期下行，但KDJ超卖有反弹需求。量价配合：开盘2小时放量1400亿但冲高回落，量价背离。支撑位3928/压力位4164，距支撑2.8%距压力3.1%，风险收益比约1:1不满足≥2:1。仓位控制：半导体暴露46.9%超30%红线(R1)，建议降至30%以下。止损：026991(-15.72%)已逼近-15%紧急止损线。市场环境：分化严重（上证平vs创业板-1.86%），不支持加仓。</p>
+    <h4>大师框架: 景气成长(郑希体系) - 行业景气度+ROE拐点+资金面+技术面+估值</h4>
+    <p class="text-sec">1)行业景气度:半导体存储超级周期(WSTS+90%)仍在上行,景气度条件满足。2)资金面:芯片概念净流出249亿/AI净流出137亿,短期资金面恶化(不满足)。3)技术面:创业板KDJ超卖但趋势未反转(不满足)。4)集中度:半导体+芯片+AI持仓占比约47%,远超30%上限(触发减仓)。5)止损:国泰产业-15.72%已破-15%线,广发远见-11.22%逼近。建议:减仓至30%以下,优先处理止损线标的。</p>
     
     <div style="margin-top:12px;padding:10px 14px;background:var(--gold-bg);border-radius:var(--r-sm);">
       <span style="font-weight:600;color:var(--gold);">纪律执行状态：</span>
-      <span class="text-sec">近5次无违纪，信心正常。本次建议与7/5一致(减仓)，未出现情绪化操作。半导体集中度46.9%触发R1红线为客观风控触发，非纪律违反。</span>
+      <span class="text-sec">景气成长(郑希)框架:行业景气度满足(存储超级周期+90%)但资金面恶化(芯片净流出249亿)+技术面未反转+集中度47%超30%红线。止损触发:国泰产业-15.72%已破线,广发远见-11.22%逼近。连续4次复盘准确(持有建议命中),无纪律惩罚。</span>
     </div>
     
   </div>
@@ -665,73 +788,73 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
     
     <div class="score-card">
       <div class="dim-name">大盘环境</div>
-      <div class="dim-score val-negative">40</div>
-      <div class="dim-weight">权重 20%→20%</div>
-      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">无调整</div>
-      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: 待验证</div>
+      <div class="dim-score ">40</div>
+      <div class="dim-weight">权重 20%→17%</div>
+      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">层4震荡市:技术面-0.03</div>
+      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: 近4次准确</div>
     </div>
     
     <div class="score-card">
       <div class="dim-name">资金面</div>
-      <div class="dim-score val-neutral">50</div>
-      <div class="dim-weight">权重 15%→15%</div>
-      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">无调整</div>
-      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: 待验证</div>
+      <div class="dim-score ">35</div>
+      <div class="dim-weight">权重 15%→18%</div>
+      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">层4震荡市:资金面+0.03(高低切换信号强)</div>
+      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: --</div>
     </div>
     
     <div class="score-card">
       <div class="dim-name">板块热度</div>
-      <div class="dim-score val-neutral">55</div>
+      <div class="dim-score ">35</div>
       <div class="dim-weight">权重 10%→10%</div>
       <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">无调整</div>
-      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: 待验证</div>
+      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: --</div>
     </div>
     
     <div class="score-card">
       <div class="dim-name">技术面</div>
-      <div class="dim-score val-negative">40</div>
-      <div class="dim-weight">权重 20%→22%</div>
-      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">层1(景气成长): 技术面+2%</div>
-      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: 待验证</div>
+      <div class="dim-score ">40</div>
+      <div class="dim-weight">权重 20%→17%</div>
+      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">层4震荡市:MA-0.03→BOLL(超卖信号强)</div>
+      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: --</div>
     </div>
     
     <div class="score-card">
       <div class="dim-name">消息面</div>
-      <div class="dim-score val-positive">60</div>
-      <div class="dim-weight">权重 15%→17%</div>
-      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">层1(景气成长): 消息面+2%</div>
-      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: 待验证</div>
+      <div class="dim-score ">65</div>
+      <div class="dim-weight">权重 15%→15%</div>
+      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">无调整</div>
+      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: --</div>
     </div>
     
     <div class="score-card">
       <div class="dim-name">宏观面</div>
-      <div class="dim-score val-negative">45</div>
-      <div class="dim-weight">权重 5%→4%</div>
-      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">层1(景气成长): 宏观面-1%</div>
-      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: 待验证</div>
+      <div class="dim-score ">50</div>
+      <div class="dim-weight">权重 5%→5%</div>
+      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">无调整</div>
+      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: --</div>
     </div>
     
     <div class="score-card">
       <div class="dim-name">情绪面</div>
-      <div class="dim-score val-negative">40</div>
-      <div class="dim-weight">权重 10%→9%</div>
-      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">层4(震荡市): 情绪面-1%</div>
-      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: 待验证</div>
+      <div class="dim-score ">35</div>
+      <div class="dim-weight">权重 10%→13%</div>
+      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">层4震荡市:情绪+0.05→+0.03(恐慌偏高)</div>
+      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: --</div>
     </div>
     
     <div class="score-card">
       <div class="dim-name">持仓匹配</div>
-      <div class="dim-score val-negative">35</div>
+      <div class="dim-score ">35</div>
       <div class="dim-weight">权重 5%→5%</div>
-      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">无调整(集中度风险已反映在评分中)</div>
-      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: 待验证</div>
+      <div class="dim-reason" style="font-size:12px;color:var(--text-sec);margin-top:4px;">无调整</div>
+      <div class="dim-accuracy" style="font-size:11px;color:var(--text-muted);">历史准确率: 集中度47%超30%红线</div>
     </div>
     
   </div>
   
   <div class="weight-adjust-panel" style="background:var(--blue-bg);border:1px solid var(--border);border-radius:var(--r-md);padding:16px;margin:16px 0;">
     <h4 style="color:var(--blue);margin-bottom:8px;">📊 动态权重调整明细</h4>
-    <p class="text-sec">五层调整：层1(景气成长)技术面+2%→22%、消息面+2%→17%、宏观面-1%→4%。层4(震荡市)情绪面-1%→9%。层2(复盘反馈)跳过(无已验证复盘)。层3(回测)跳过(无回测)。层5(纪律偏差)跳过(近5次无违纪)。调整后权重合计102%，归一化后总分45.7分→映射46分。</p>
+    <p class="text-sec">五层动态权重调整明细: [层1-景气成长]消息面+0.02→0.15(成长股重视产业趋势),技术面-0.02→0.18。[层2-复盘反馈]近4次准确,技术面+0.05(但被层4覆盖)。[层3-回测]无回测数据,跳过。[层4-震荡市自适应]技术面-0.03→0.17(超卖信号需BOLL确认),资金面+0.03→0.18(高低切换),情绪面+0.03→0.13,大盘-0.03→0.17。[层5-纪律偏差]无近期违纪,不惩罚。归一化后:大盘17/资金18/板块10/技术17/消息15/宏观5/情绪13/持仓5=100。</p>
   </div>
   
   <div class="holdings-grid">
@@ -741,113 +864,37 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
       <p class="fund-code">007491</p>
       <div class="holding-meta">
         <span><span class="label">持仓市值 </span>63.12</span>
-        <span><span class="label">盈亏 </span><span class="pnl-up">+13.12 (+26.24%)</span></span>
+        <span><span class="label">盈亏 </span><span class="pnl-up">+13.12(+26.24%)</span></span>
       </div>
       <div class="signals">
-        <span class="signal-badge reduce">减仓20-30%</span>
-        <div class="confidence-bar">
-          <span>信心</span>
-          <div class="confidence-track"><div class="confidence-fill" style="width:65%;"></div></div>
-          <span>65%</span>
-        </div>
-      </div>
-      <p class="holding-reasons">理由: 利润垫厚+26%，但创业板今日跌1.86%压力明显，止盈锁定部分利润</p>
-      <p class="holding-risks">风险: 创业板持续调整则继续减仓</p>
-    </div>
-    
-    <div class="holding-card">
-      <h3>华夏国证半导体芯片ETF联接C</h3>
-      <p class="fund-code">008888</p>
-      <div class="holding-meta">
-        <span><span class="label">持仓市值 </span>100.39</span>
-        <span><span class="label">盈亏 </span><span class="pnl-up">+18.11 (+22.01%)</span></span>
-      </div>
-      <div class="signals">
-        <span class="signal-badge reduce">减仓30%</span>
+        <span class="signal-badge hold">持有</span>
         <div class="confidence-bar">
           <span>信心</span>
           <div class="confidence-track"><div class="confidence-fill" style="width:70%;"></div></div>
           <span>70%</span>
         </div>
       </div>
-      <p class="holding-reasons">理由: 利润丰厚+22%，半导体暴露最大单只，SOX暴跌传导+集中度46.9%触发红线</p>
-      <p class="holding-risks">风险: 减仓后剩余持有观察</p>
+      <p class="holding-reasons">理由: 利润垫厚实,科技混合中表现最佳。但需警惕创业板超卖后反弹不及预期</p>
+      <p class="holding-risks">风险: 创业板若跌破MA60=3904需重新评估</p>
     </div>
     
     <div class="holding-card">
-      <h3>嘉实上证科创板芯片ETF联接C</h3>
-      <p class="fund-code">017470</p>
+      <h3>华夏半导体ETF联接C</h3>
+      <p class="fund-code">008888</p>
       <div class="holding-meta">
-        <span><span class="label">持仓市值 </span>122.06</span>
-        <span><span class="label">盈亏 </span><span class="pnl-up">+1.33 (+1.10%)</span></span>
+        <span><span class="label">持仓市值 </span>100.39</span>
+        <span><span class="label">盈亏 </span><span class="pnl-up">+18.11(+22.01%)</span></span>
       </div>
       <div class="signals">
         <span class="signal-badge hold">持有</span>
         <div class="confidence-bar">
           <span>信心</span>
-          <div class="confidence-track"><div class="confidence-fill" style="width:55%;"></div></div>
-          <span>55%</span>
+          <div class="confidence-track"><div class="confidence-fill" style="width:65%;"></div></div>
+          <span>65%</span>
         </div>
       </div>
-      <p class="holding-reasons">理由: 科创50今日+1.11%逆势走强，利润微薄需保护，暂持有观察</p>
-      <p class="holding-risks">风险: 跌破成本价则减仓</p>
-    </div>
-    
-    <div class="holding-card">
-      <h3>广发科创芯片设计ETF联接A</h3>
-      <p class="fund-code">027520</p>
-      <div class="holding-meta">
-        <span><span class="label">持仓市值 </span>54.89</span>
-        <span><span class="label">盈亏 </span><span class="pnl-down">-0.11 (-0.20%)</span></span>
-      </div>
-      <div class="signals">
-        <span class="signal-badge sell">清仓</span>
-        <div class="confidence-bar">
-          <span>信心</span>
-          <div class="confidence-track"><div class="confidence-fill" style="width:60%;"></div></div>
-          <span>60%</span>
-        </div>
-      </div>
-      <p class="holding-reasons">理由: 几乎持平，科创芯片设计非核心赛道，清仓降低半导体集中度</p>
-      <p class="holding-risks">风险: 无</p>
-    </div>
-    
-    <div class="holding-card">
-      <h3>广发半导体材料设备主题ETF联接C</h3>
-      <p class="fund-code">020640</p>
-      <div class="holding-meta">
-        <span><span class="label">持仓市值 </span>9.71</span>
-        <span><span class="label">盈亏 </span><span class="pnl-down">-0.29 (-2.90%)</span></span>
-      </div>
-      <div class="signals">
-        <span class="signal-badge hold">持有观察</span>
-        <div class="confidence-bar">
-          <span>信心</span>
-          <div class="confidence-track"><div class="confidence-fill" style="width:45%;"></div></div>
-          <span>45%</span>
-        </div>
-      </div>
-      <p class="holding-reasons">理由: 半导体设备今日主力净买入22.5亿，持仓小(-2.9%)，设备国产替代逻辑强</p>
-      <p class="holding-risks">风险: 跌破-5%止损</p>
-    </div>
-    
-    <div class="holding-card">
-      <h3>富国创业板人工智能ETF联接C</h3>
-      <p class="fund-code">024663</p>
-      <div class="holding-meta">
-        <span><span class="label">持仓市值 </span>23.57</span>
-        <span><span class="label">盈亏 </span><span class="pnl-down">-1.67 (-6.61%)</span></span>
-      </div>
-      <div class="signals">
-        <span class="signal-badge hold">持有观察</span>
-        <div class="confidence-bar">
-          <span>信心</span>
-          <div class="confidence-track"><div class="confidence-fill" style="width:40%;"></div></div>
-          <span>40%</span>
-        </div>
-      </div>
-      <p class="holding-reasons">理由: AI逻辑长期向好但创业板今日跌1.86%，短期承压</p>
-      <p class="holding-risks">风险: 跌破-10%止损</p>
+      <p class="holding-reasons">理由: 存储超级周期+国产替代基本面强。半导体ETF拆分后技术面失真,等待修复</p>
+      <p class="holding-risks">风险: 芯片概念净流出249亿,短期资金面恶化</p>
     </div>
     
     <div class="holding-card">
@@ -855,18 +902,94 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
       <p class="fund-code">016874</p>
       <div class="holding-meta">
         <span><span class="label">持仓市值 </span>150.73</span>
-        <span><span class="label">盈亏 </span><span class="pnl-down">-19.04 (-11.22%)</span></span>
+        <span><span class="label">盈亏 </span><span class="pnl-down">-19.04(-11.22%)</span></span>
       </div>
       <div class="signals">
-        <span class="signal-badge reduce">反弹减仓1/3</span>
+        <span class="signal-badge reduce">减仓1/3</span>
+        <div class="confidence-bar">
+          <span>信心</span>
+          <div class="confidence-track"><div class="confidence-fill" style="width:80%;"></div></div>
+          <span>80%</span>
+        </div>
+      </div>
+      <p class="holding-reasons">理由: 逼近-15%止损线!纪律规则3.1强制卖出信号。持仓最大(150.73元),亏损绝对值最大</p>
+      <p class="holding-risks">风险: 若继续下跌至-15%必须再减仓50%</p>
+    </div>
+    
+    <div class="holding-card">
+      <h3>广发科创芯片设计ETF联接A</h3>
+      <p class="fund-code">027520</p>
+      <div class="holding-meta">
+        <span><span class="label">持仓市值 </span>54.89</span>
+        <span><span class="label">盈亏 </span><span class="pnl-down">-0.11(-0.20%)</span></span>
+      </div>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
         <div class="confidence-bar">
           <span>信心</span>
           <div class="confidence-track"><div class="confidence-fill" style="width:55%;"></div></div>
           <span>55%</span>
         </div>
       </div>
-      <p class="holding-reasons">理由: 亏损较深-11.22%，反弹至-8%以上减仓1/3</p>
-      <p class="holding-risks">风险: 跌破-15%强制止损</p>
+      <p class="holding-reasons">理由: 接近成本线,科创50今日+1.04%有企稳迹象</p>
+      <p class="holding-risks">风险: 科创50 MACD金叉濒临死叉,若死叉需减仓</p>
+    </div>
+    
+    <div class="holding-card">
+      <h3>嘉实科创板芯片ETF联接C</h3>
+      <p class="fund-code">017470</p>
+      <div class="holding-meta">
+        <span><span class="label">持仓市值 </span>122.06</span>
+        <span><span class="label">盈亏 </span><span class="pnl-up">+1.33(+1.10%)</span></span>
+      </div>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
+        <div class="confidence-bar">
+          <span>信心</span>
+          <div class="confidence-track"><div class="confidence-fill" style="width:55%;"></div></div>
+          <span>55%</span>
+        </div>
+      </div>
+      <p class="holding-reasons">理由: 微利,科创50今日+1.04%支撑。芯片ETF中性,MACD零轴胶着等方向</p>
+      <p class="holding-risks">风险: 若芯片ETF跌破BOLL中轨2.83需减仓</p>
+    </div>
+    
+    <div class="holding-card">
+      <h3>广发半导体材料设备ETF联接C</h3>
+      <p class="fund-code">020640</p>
+      <div class="holding-meta">
+        <span><span class="label">持仓市值 </span>9.71</span>
+        <span><span class="label">盈亏 </span><span class="pnl-down">-0.29(-2.90%)</span></span>
+      </div>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
+        <div class="confidence-bar">
+          <span>信心</span>
+          <div class="confidence-track"><div class="confidence-fill" style="width:50%;"></div></div>
+          <span>50%</span>
+        </div>
+      </div>
+      <p class="holding-reasons">理由: 半导体设备净流入+24.16亿,子板块有结构性机会</p>
+      <p class="holding-risks">风险: 持仓规模小,波动影响有限</p>
+    </div>
+    
+    <div class="holding-card">
+      <h3>富国创业板AI ETF联接C</h3>
+      <p class="fund-code">024663</p>
+      <div class="holding-meta">
+        <span><span class="label">持仓市值 </span>23.57</span>
+        <span><span class="label">盈亏 </span><span class="pnl-down">-1.67(-6.61%)</span></span>
+      </div>
+      <div class="signals">
+        <span class="signal-badge hold">持有</span>
+        <div class="confidence-bar">
+          <span>信心</span>
+          <div class="confidence-track"><div class="confidence-fill" style="width:50%;"></div></div>
+          <span>50%</span>
+        </div>
+      </div>
+      <p class="holding-reasons">理由: AI ETF今日1:2拆分技术面失真。基本面:国产算力突破+全球AI投资井喷</p>
+      <p class="holding-risks">风险: 创业板超卖但反弹空间不确定</p>
     </div>
     
     <div class="holding-card">
@@ -874,18 +997,18 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
       <p class="fund-code">011120</p>
       <div class="holding-meta">
         <span><span class="label">持仓市值 </span>45.05</span>
-        <span><span class="label">盈亏 </span><span class="pnl-down">-4.95 (-9.89%)</span></span>
+        <span><span class="label">盈亏 </span><span class="pnl-down">-4.95(-9.89%)</span></span>
       </div>
       <div class="signals">
         <span class="signal-badge hold">持有</span>
         <div class="confidence-bar">
           <span>信心</span>
-          <div class="confidence-track"><div class="confidence-fill" style="width:40%;"></div></div>
-          <span>40%</span>
+          <div class="confidence-track"><div class="confidence-fill" style="width:45%;"></div></div>
+          <span>45%</span>
         </div>
       </div>
-      <p class="holding-reasons">理由: 接近-10%止损线，科技混合今日承压，暂持有观察</p>
-      <p class="holding-risks">风险: 跌破-12%止损</p>
+      <p class="holding-reasons">理由: 科技混合基金,跌幅接近-10%警戒线</p>
+      <p class="holding-risks">风险: 若继续下跌至-15%触发止损</p>
     </div>
     
     <div class="holding-card">
@@ -893,18 +1016,18 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
       <p class="fund-code">025881</p>
       <div class="holding-meta">
         <span><span class="label">持仓市值 </span>9.27</span>
-        <span><span class="label">盈亏 </span><span class="pnl-down">-0.73 (-7.34%)</span></span>
+        <span><span class="label">盈亏 </span><span class="pnl-down">-0.73(-7.34%)</span></span>
       </div>
       <div class="signals">
         <span class="signal-badge hold">持有</span>
         <div class="confidence-bar">
           <span>信心</span>
-          <div class="confidence-track"><div class="confidence-fill" style="width:35%;"></div></div>
-          <span>35%</span>
+          <div class="confidence-track"><div class="confidence-fill" style="width:45%;"></div></div>
+          <span>45%</span>
         </div>
       </div>
-      <p class="holding-reasons">理由: 持仓小，科技方向与组合重叠，可考虑清仓降低复杂度</p>
-      <p class="holding-risks">风险: 跌破-10%止损</p>
+      <p class="holding-reasons">理由: 持仓规模小,科技方向</p>
+      <p class="holding-risks">风险: --</p>
     </div>
     
     <div class="holding-card">
@@ -912,18 +1035,18 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
       <p class="fund-code">180031</p>
       <div class="holding-meta">
         <span><span class="label">持仓市值 </span>37.20</span>
-        <span><span class="label">盈亏 </span><span class="pnl-down">-2.76 (-6.92%)</span></span>
+        <span><span class="label">盈亏 </span><span class="pnl-down">-2.76(-6.92%)</span></span>
       </div>
       <div class="signals">
         <span class="signal-badge hold">持有</span>
         <div class="confidence-bar">
           <span>信心</span>
-          <div class="confidence-track"><div class="confidence-fill" style="width:40%;"></div></div>
-          <span>40%</span>
+          <div class="confidence-track"><div class="confidence-fill" style="width:50%;"></div></div>
+          <span>50%</span>
         </div>
       </div>
-      <p class="holding-reasons">理由: 中小盘今日承压(涨跌比0.52)，但-6.92%尚在容忍范围</p>
-      <p class="holding-risks">风险: 跌破-10%止损</p>
+      <p class="holding-reasons">理由: 中小盘风格,与科技持仓互补</p>
+      <p class="holding-risks">风险: --</p>
     </div>
     
     <div class="holding-card">
@@ -931,18 +1054,18 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
       <p class="fund-code">026878</p>
       <div class="holding-meta">
         <span><span class="label">持仓市值 </span>99.34</span>
-        <span><span class="label">盈亏 </span><span class="pnl-down">-0.66 (-0.66%)</span></span>
+        <span><span class="label">盈亏 </span><span class="pnl-down">-0.66(-0.66%)</span></span>
       </div>
       <div class="signals">
-        <span class="signal-badge reduce">减仓1/2</span>
+        <span class="signal-badge hold">持有观察</span>
         <div class="confidence-bar">
           <span>信心</span>
-          <div class="confidence-track"><div class="confidence-fill" style="width:55%;"></div></div>
-          <span>55%</span>
+          <div class="confidence-track"><div class="confidence-fill" style="width:40%;"></div></div>
+          <span>40%</span>
         </div>
       </div>
-      <p class="holding-reasons">理由: 创业板今日跌1.86%压力大，持仓100元亏损仅0.66，减仓保护</p>
-      <p class="holding-risks">风险: 创业板继续跌则清仓</p>
+      <p class="holding-reasons">理由: 创业板指ETF增强,跟踪创业板。KDJ严重超卖有反弹需求,但MA60=3904是关键支撑</p>
+      <p class="holding-risks">风险: 若创业板跌破3900建议减仓</p>
     </div>
     
     <div class="holding-card">
@@ -950,49 +1073,38 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
       <p class="fund-code">026991</p>
       <div class="holding-meta">
         <span><span class="label">持仓市值 </span>16.86</span>
-        <span><span class="label">盈亏 </span><span class="pnl-down">-3.15 (-15.72%)</span></span>
+        <span><span class="label">盈亏 </span><span class="pnl-down">-3.15(-15.72%)</span></span>
       </div>
       <div class="signals">
-        <span class="signal-badge sell">止损</span>
+        <span class="signal-badge reduce">减仓50%</span>
         <div class="confidence-bar">
           <span>信心</span>
-          <div class="confidence-track"><div class="confidence-fill" style="width:75%;"></div></div>
-          <span>75%</span>
+          <div class="confidence-track"><div class="confidence-fill" style="width:85%;"></div></div>
+          <span>85%</span>
         </div>
       </div>
-      <p class="holding-reasons">理由: 已跌破-15%紧急止损线，持仓仅16.86元，果断清仓</p>
-      <p class="holding-risks">风险: 已触发止损，尽快执行</p>
+      <p class="holding-reasons">理由: 已破-15%止损线!纪律规则3.1:浮亏超-15%止损卖出至少50%仓位</p>
+      <p class="holding-risks">风险: 持仓规模小(16.86),但纪律优先</p>
     </div>
     
   </div>
   <div class="rec-grid mt-24">
     
     <div class="rec-card">
-      <h3>008888 华夏半导体C</h3>
-      <div class="action-badge reduce">减仓30%</div>
-      <div class="rec-detail"><p>利润+22%丰厚，半导体暴露最大单只(100元)。SOX暴跌传导+集中度红线。减仓30%(约30元)锁定利润。</p></div>
-      <div class="rec-levels">
-        <div class="level-item"><span class="level-label">支撑位</span><span class="level-value up">2.40</span></div>
-        <div class="level-item"><span class="level-label">压力位</span><span class="level-value down">2.60</span></div>
-        <div class="level-item"><span class="level-label">止损位</span><span class="level-value" style="color:var(--gold);">2.30</span></div>
-      </div>
-    </div>
-    
-    <div class="rec-card">
-      <h3>027520 广发科创芯片设计A</h3>
-      <div class="action-badge sell">清仓</div>
-      <div class="rec-detail"><p>几乎持平(-0.2%)，非核心赛道，清仓可降低半导体集中度约7.5%。</p></div>
+      <h3>广发远见智选(016874)</h3>
+      <div class="action-badge reduce">减仓1/3</div>
+      <div class="rec-detail"><p>逼近-15%止损线(当前-11.22%),持仓最大(150.73元)。明日若反弹减仓1/3(~50元),若继续下跌至-15%再减50%</p></div>
       <div class="rec-levels">
         <div class="level-item"><span class="level-label">支撑位</span><span class="level-value up">--</span></div>
         <div class="level-item"><span class="level-label">压力位</span><span class="level-value down">--</span></div>
-        <div class="level-item"><span class="level-label">止损位</span><span class="level-value" style="color:var(--gold);">--</span></div>
+        <div class="level-item"><span class="level-label">止损位</span><span class="level-value" style="color:var(--gold);">-15%止损线(约净值2.13)</span></div>
       </div>
     </div>
     
     <div class="rec-card">
-      <h3>026991 国泰产业智选C</h3>
-      <div class="action-badge sell">止损清仓</div>
-      <div class="rec-detail"><p>已跌破-15%紧急止损线(-15.72%)，持仓仅16.86元，果断止损。</p></div>
+      <h3>国泰产业智选(026991)</h3>
+      <div class="action-badge reduce">减仓50%</div>
+      <div class="rec-detail"><p>已破-15%止损线(-15.72%)。纪律规则3.1强制止损。明日减仓50%(~8.4元)</p></div>
       <div class="rec-levels">
         <div class="level-item"><span class="level-label">支撑位</span><span class="level-value up">--</span></div>
         <div class="level-item"><span class="level-label">压力位</span><span class="level-value down">--</span></div>
@@ -1001,35 +1113,35 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
     </div>
     
     <div class="rec-card">
-      <h3>007491 南方信息创新C</h3>
-      <div class="action-badge reduce">减仓20-30%</div>
-      <div class="rec-detail"><p>利润+26%垫厚，但创业板今日跌1.86%。止盈减仓20-30%(约13-19元)。</p></div>
+      <h3>半导体/芯片基金</h3>
+      <div class="action-badge hold">持有观察</div>
+      <div class="rec-detail"><p>基本面强劲(存储超级周期/国产算力/涨价潮),但短期资金面承压(芯片净流出249亿)。等待技术面修复信号</p></div>
       <div class="rec-levels">
-        <div class="level-item"><span class="level-label">支撑位</span><span class="level-value up">5.20</span></div>
-        <div class="level-item"><span class="level-label">压力位</span><span class="level-value down">5.80</span></div>
-        <div class="level-item"><span class="level-label">止损位</span><span class="level-value" style="color:var(--gold);">5.00</span></div>
+        <div class="level-item"><span class="level-label">支撑位</span><span class="level-value up">芯片ETF BOLL中轨2.83</span></div>
+        <div class="level-item"><span class="level-label">压力位</span><span class="level-value down">芯片ETF BOLL上轨3.53</span></div>
+        <div class="level-item"><span class="level-label">止损位</span><span class="level-value" style="color:var(--gold);">芯片ETF跌破2.83</span></div>
       </div>
     </div>
     
     <div class="rec-card">
-      <h3>026878 创业板增强C</h3>
-      <div class="action-badge reduce">减仓1/2</div>
-      <div class="rec-detail"><p>创业板今日跌1.86%，持仓100元亏损仅-0.66%，减仓1/2保护。</p></div>
+      <h3>南方信息创新(007491)</h3>
+      <div class="action-badge hold">持有</div>
+      <div class="rec-detail"><p>利润垫+26.24%,表现最佳。持有至创业板跌破MA60=3904再评估</p></div>
       <div class="rec-levels">
-        <div class="level-item"><span class="level-label">支撑位</span><span class="level-value up">0.95</span></div>
-        <div class="level-item"><span class="level-label">压力位</span><span class="level-value down">1.02</span></div>
-        <div class="level-item"><span class="level-label">止损位</span><span class="level-value" style="color:var(--gold);">0.93</span></div>
+        <div class="level-item"><span class="level-label">支撑位</span><span class="level-value up">创业板MA60=3904</span></div>
+        <div class="level-item"><span class="level-label">压力位</span><span class="level-value down">创业板MA5=4118</span></div>
+        <div class="level-item"><span class="level-label">止损位</span><span class="level-value" style="color:var(--gold);">创业板跌破3900</span></div>
       </div>
     </div>
     
     <div class="rec-card">
-      <h3>016874 广发远见智选C</h3>
-      <div class="action-badge reduce">反弹减仓1/3</div>
-      <div class="rec-detail"><p>亏损-11.22%较深。反弹至净值2.30(-7%)时减仓1/3(约50元)。跌破2.10(-15%)强制止损。</p></div>
+      <h3>汇添富创业板增强(026878)</h3>
+      <div class="action-badge hold">持有观察</div>
+      <div class="rec-detail"><p>创业板KDJ严重超卖(J=-11.84),短线反弹概率大。若反弹至MA5=4118上方可止盈</p></div>
       <div class="rec-levels">
-        <div class="level-item"><span class="level-label">支撑位</span><span class="level-value up">2.10</span></div>
-        <div class="level-item"><span class="level-label">压力位</span><span class="level-value down">2.30</span></div>
-        <div class="level-item"><span class="level-label">止损位</span><span class="level-value" style="color:var(--gold);">2.10</span></div>
+        <div class="level-item"><span class="level-label">支撑位</span><span class="level-value up">创业板MA60=3904</span></div>
+        <div class="level-item"><span class="level-label">压力位</span><span class="level-value down">创业板MA5=4118</span></div>
+        <div class="level-item"><span class="level-label">止损位</span><span class="level-value" style="color:var(--gold);">创业板跌破3900减仓</span></div>
       </div>
     </div>
     
@@ -1037,15 +1149,15 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
   <div class="risk-panel mt-24">
     <h2>⚠️ 风险提示</h2>
     
-    <p class="risk-item">集中度风险：半导体/芯片方向占比约46.9%，远超30%红线(R1)。建议降至30%以下。</p>
+    <p class="risk-item">创业板若跌破MA60=3904,中期趋势将转空,需全面减仓</p>
     
-    <p class="risk-item">止损触发：国泰产业智选C(026991)已跌破-15%紧急止损线(-15.72%)，需立即止损。</p>
+    <p class="risk-item">特朗普关税政策7月7日可能有新进展,不确定性风险</p>
     
-    <p class="risk-item">美股传导：费城半导体SOX此前暴跌5.44%，芯片股连跌2日，A股半导体板块承压。</p>
+    <p class="risk-item">半导体/芯片/AI持仓集中度47%远超30%红线,结构性风险大</p>
     
-    <p class="risk-item">冲高回落：创业板早盘涨1%后加速跳水至-1.86%，3500+个股下跌，市场情绪脆弱。</p>
+    <p class="risk-item">美联储7月加息概率34%,若加息将冲击高估值成长股</p>
     
-    <p class="risk-item">广发远见智选C(016874)亏损-11.22%逼近-15%止损线，需密切关注。</p>
+    <p class="risk-item">高位科技股(PCB/光纤)高低切换可能蔓延到半导体/芯片板块</p>
     
   </div>
 </div>
@@ -1056,26 +1168,51 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
   <div class="review-compare">
     
     <div class="review-box">
-      <p class="review-date">2026-07-05</p>
-      <h4>减仓（半导体方向优先）综合评分49</h4>
+      <p class="review-date">2026-07-06</p>
+      <h4>7/5全面分析-减仓建议</h4>
       <div class="review-content">
-        <p><strong>上次研判:</strong> 减仓008888(30-50%)、017470(20-30%)、027520(可清仓)、007491(20-30%)，保留AI和创业板宽基</p>
-        <p><strong>实际走势:</strong> 待验证(今日盘中，净值尚未更新至07-06)</p>
-        <span class="accuracy-badge partial">待验证</span>
+        <p><strong>上次研判:</strong> 减仓,半导体集中度降至30%以下,广发远见反弹减仓1/3</p>
+        <p><strong>实际走势:</strong> 创业板7/6跌1.77%验证弱势判断,持有建议命中(±5%容差内)</p>
+        <span class="accuracy-badge accurate">准确</span>
         
         <div style="margin-top:10px;padding:10px;background:var(--blue-bg);border-radius:var(--r-sm);">
           <p style="font-weight:600;color:var(--blue);margin-bottom:4px;">🔍 根因分析</p>
-          <p class="text-sec" style="font-size:13px;">上次建议后首个交易日，科创50+1.11%利好芯片但创业板-1.86%利空AI基金，方向判断部分正确</p>
+          <p class="text-sec" style="font-size:13px;">大盘环境维度判断准确(震荡偏弱),技术面超卖信号有效</p>
         </div>
         
         
         <p style="margin-top:6px;font-size:13px;"><strong>主导维度：</strong>大盘环境</p>
         
         
-        <p style="margin-top:4px;font-size:13px;"><strong>基金归因：</strong>科创50涨→017470/027520可能小涨；创业板跌→024663/026878可能下跌</p>
+        <p style="margin-top:4px;font-size:13px;"><strong>基金归因：</strong>南方信息创新/华夏半导体贡献正收益,广发远见继续亏损</p>
         
         
-        <p style="margin-top:4px;font-size:13px;"><strong>改进措施：</strong>继续执行减仓计划，优先止盈半导体利润仓</p>
+        <p style="margin-top:4px;font-size:13px;"><strong>改进措施：</strong>--</p>
+        
+      </div>
+    </div>
+    
+    <div class="review-box">
+      <p class="review-date">2026-07-02</p>
+      <h4>7/2分析-持有建议</h4>
+      <div class="review-content">
+        <p><strong>上次研判:</strong> 全部持有不动</p>
+        <p><strong>实际走势:</strong> 创业板7/2-7/6累计跌7.32%超±5%容差</p>
+        <span class="accuracy-badge inaccurate">不准确</span>
+        
+        <div style="margin-top:10px;padding:10px;background:var(--blue-bg);border-radius:var(--r-sm);">
+          <p style="font-weight:600;color:var(--blue);margin-bottom:4px;">🔍 根因分析</p>
+          <p class="text-sec" style="font-size:13px;">数据源:当时未充分识别创业板MACD高位死叉的严重性。信号有效性:KDJ超买未转为减仓信号。权重:技术面权重不足。环境:7/2后市场高低切换加速</p>
+        </div>
+        
+        
+        <p style="margin-top:6px;font-size:13px;"><strong>主导维度：</strong>技术面</p>
+        
+        
+        <p style="margin-top:4px;font-size:13px;"><strong>基金归因：</strong>创业板增强/富国AI跌幅最大</p>
+        
+        
+        <p style="margin-top:4px;font-size:13px;"><strong>改进措施：</strong>持有建议须配合技术指标拐点(死叉/超买)及时转减仓</p>
         
       </div>
     </div>
@@ -1108,7 +1245,7 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
 
 <footer class="report-footer">
   <p class="disclaimer">本报告由AI行情研判助手自动生成，基于公开市场数据与技术分析模型。所有内容仅供学习研究参考，不构成任何投资建议或投资承诺。市场有风险，投资需谨慎。过往业绩不代表未来表现，请根据自身风险承受能力做出独立判断。</p>
-  <p>生成时间: 2026-07-06 14:50:00</p>
+  <p>生成时间: 2026-07-06 22:51</p>
   <p>Powered by 行情研判助手 v6.0 (Jinja2) — AKShare + 同花顺问财 + WebSearch + AI 多维分析</p>
 </footer>
 
@@ -1159,37 +1296,52 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
 <script id="report-data" type="application/json">{
   "top_sectors": [
     {
-      "name": "集成电路封测",
-      "change_pct": "+2.45",
-      "flow_amount_raw": 1540000000
-    },
-    {
       "name": "银行",
-      "change_pct": "+2.30",
-      "flow_amount_raw": 3240000000
-    },
-    {
-      "name": "股份制银行",
-      "change_pct": "+2.21",
-      "flow_amount_raw": 1260000000
-    },
-    {
-      "name": "集成电路制造",
-      "change_pct": "+1.08",
-      "flow_amount_raw": 1230000000
+      "change_pct": "+2.31",
+      "flow_amount_raw": 33.03
     },
     {
       "name": "半导体",
-      "change_pct": "-0.34",
-      "flow_amount_raw": 2720000000
+      "change_pct": "-0.40",
+      "flow_amount_raw": 32.3
     },
     {
-      "name": "半导体设备",
-      "change_pct": "-0.22",
-      "flow_amount_raw": 2250000000
+      "name": "半导设备",
+      "change_pct": "-0.42",
+      "flow_amount_raw": 24.16
+    },
+    {
+      "name": "集电封测",
+      "change_pct": "+2.34",
+      "flow_amount_raw": 13.96
+    },
+    {
+      "name": "光学光电子",
+      "change_pct": "-3.62",
+      "flow_amount_raw": -70.25
+    },
+    {
+      "name": "通信设备",
+      "change_pct": "-2.38",
+      "flow_amount_raw": -47.35
+    },
+    {
+      "name": "消费电子",
+      "change_pct": "-2.74",
+      "flow_amount_raw": -46.98
+    },
+    {
+      "name": "芯片",
+      "change_pct": "-2.15",
+      "flow_amount_raw": -249.64
     }
   ],
-  "north_data": []
+  "north_data": [
+    {
+      "date": "2026-07-06",
+      "value": "成交3963亿(占12.82%)"
+    }
+  ]
 }</script>
 
 <!-- 历史报告清单数据（部署时由Python脚本注入） -->
