@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>导航测试页</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #f0f4f8; --bg-card: #fff; --bg-hover: #f8fafd;
+  --border: #dbe4f0; --text: #1e293b; --text-sec: #475569; --text-muted: #94a3b8;
+  --red: #dc2626; --red-bg: rgba(220,38,38,0.08);
+  --blue: #2563eb; --blue-bg: rgba(37,99,235,0.06);
+  --r-sm: 6px; --r-md: 12px; --r-lg: 16px;
+  --shadow: 0 1px 3px rgba(30,41,59,0.08), 0 4px 16px rgba(30,41,59,0.04);
+  --trans: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Arial,sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+
+/* Header */
+.report-header { text-align: center; padding: 48px 24px 36px; background: linear-gradient(135deg,#1d4ed8 0%,#2563eb 40%,#3b82f6 100%); margin-bottom: 32px; border-radius: 0 0 var(--r-lg) var(--r-lg); position: relative; overflow: hidden; }
+.report-header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 50%,rgba(255,255,255,0.1) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(255,255,255,0.05) 0%,transparent 50%); pointer-events: none; }
+.report-header h1 { font-size: 2.2em; font-weight: 700; letter-spacing: 4px; margin-bottom: 12px; color: #fff; position: relative; }
+.report-header .subtitle { font-size: 1em; color: rgba(255,255,255,0.8); position: relative; }
+.report-header .market-status { display: inline-block; padding: 4px 16px; border-radius: 20px; font-size: 0.85em; margin-top: 12px; position: relative; font-weight: 500; }
+.market-status.open { background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+
+/* History Navigation Bar */
+.report-nav-wrapper { position: relative; max-width: 1200px; margin: 0 auto 24px; padding: 0 20px; }
+.report-nav { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow); overflow: hidden; }
+.report-nav-toggle { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; cursor: pointer; user-select: none; transition: var(--trans); }
+.report-nav-toggle:hover { background: var(--bg-hover); }
+.report-nav-toggle .nav-label { font-size: 0.92em; font-weight: 600; color: var(--text); }
+.report-nav-toggle .nav-arrow { font-size: 0.75em; color: var(--text-muted); transition: transform 0.3s ease; }
+.report-nav-toggle .nav-arrow.open { transform: rotate(180deg); }
+.report-nav-list { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
+.report-nav-list.open { max-height: 600px; overflow-y: auto; }
+.report-nav-list ul { list-style: none; padding: 0 20px 14px; margin: 0; }
+.report-nav-list li { padding: 8px 12px; border-bottom: 1px solid var(--border); font-size: 0.88em; display: flex; justify-content: space-between; align-items: center; transition: var(--trans); }
+.report-nav-list li:last-child { border-bottom: none; }
+.report-nav-list li:hover { background: var(--blue-bg); border-radius: var(--r-sm); }
+.report-nav-list li.current { background: var(--blue-bg); border-radius: var(--r-sm); }
+.report-nav-list li.current .nav-link { font-weight: 600; }
+.report-nav-list .nav-link { color: var(--blue); text-decoration: none; flex: 1; }
+.report-nav-list .nav-link:hover { text-decoration: underline; }
+.report-nav-list .nav-date { color: var(--text-muted); font-size: 0.85em; white-space: nowrap; margin-left: 12px; }
+.report-nav-list .nav-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.75em; font-weight: 500; margin-left: 8px; }
+.report-nav-list .nav-badge.latest { background: var(--red-bg); color: var(--red); }
+
+/* Demo content */
+.container { max-width: 1200px; margin: 0 auto; padding: 24px 20px 60px; }
+.demo-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow); padding: 32px; text-align: center; }
+.demo-card h2 { color: var(--blue); margin-bottom: 16px; }
+.demo-card p { color: var(--text-sec); font-size: 0.95em; line-height: 1.8; }
+.demo-tip { margin-top: 16px; padding: 12px 20px; background: var(--blue-bg); border-radius: var(--r-sm); font-size: 0.88em; color: var(--blue); }
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <h1>行情研判报告</h1>
+  <p class="subtitle">2026-07-09 导航测试页</p>
+  <span class="market-status open">测试页面</span>
+</header>
+
+<!-- 历史报告导航栏 -->
+<div class="report-nav-wrapper">
+  <div class="report-nav">
+    <div class="report-nav-toggle" onclick="toggleReportNav()">
+      <span class="nav-label">📂 历史报告</span>
+      <span class="nav-arrow" id="navArrow">▼</span>
+    </div>
+    <div class="report-nav-list" id="navList">
+      <ul id="navItems">
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="demo-card">
+    <h2>这是导航测试页</h2>
+    <p>点击上方「📂 历史报告」折叠栏，可以展开查看所有历史报告列表。<br>
+    点击任意一条可跳转到对应的历史报告页面。<br>
+    每份历史报告里也有同样的导航栏，可以继续往前翻。</p>
+    <div class="demo-tip">测试完成后此页面将被删除</div>
+  </div>
+</div>
+
+<!-- manifest 数据（与线上报告共享） -->
+<script id="report-manifest" type="application/json">
+{"reports":[
+  {"date":"20260709-test","title":"导航测试页（当前）","file":"archive/test-nav.html"},
+  {"date":"20260706-midday","title":"7月6日盘前研判","file":"archive/20260706-midday.html"},
+  {"date":"20260703-evening","title":"7月3日盘后全面复盘","file":"index.html"},
+  {"date":"20260703-midday","title":"7月3日盘前研判","file":"archive/20260703-midday.html"},
+  {"date":"20260702-evening","title":"7月2日盘后复盘","file":"archive/20260702-evening.html"}
+],"base_url":"https://kingzhz.github.io/fund-report-0626/"}
+</script>
+
+<script>
+(function() {
+  function toggleReportNav() {
+    var navList = document.getElementById('navList');
+    var navArrow = document.getElementById('navArrow');
+    if (navList && navArrow) {
+      navList.classList.toggle('open');
+      navArrow.classList.toggle('open');
+    }
+  }
+  window.toggleReportNav = toggleReportNav;
+
+  function renderNav() {
+    var manifestEl = document.getElementById('report-manifest');
+    if (!manifestEl) return;
+    try {
+      var manifest = JSON.parse(manifestEl.textContent);
+    } catch(e) { return; }
+    var reports = manifest.reports || [];
+    var baseUrl = manifest.base_url || '';
+    var currentFile = location.pathname.split('/').pop() || 'index.html';
+    var ul = document.getElementById('navItems');
+    if (!ul) return;
+    if (reports.length === 0) {
+      ul.innerHTML = '<li style="padding:14px 20px;color:#94a3b8;text-align:center;">暂无历史报告</li>';
+      return;
+    }
+    reports.sort(function(a, b) { return b.date.localeCompare(a.date); });
+    var html = '';
+    for (var i = 0; i < reports.length; i++) {
+      var r = reports[i];
+      var href = baseUrl + r.file;
+      var isCurrent = (r.file === currentFile);
+      var cls = isCurrent ? ' class="current"' : '';
+      var badge = (i === 0 && r.file === 'index.html') ? '<span class="nav-badge latest">最新</span>' : '';
+      html += '<li' + cls + '>' +
+        '<a class="nav-link" href="' + href + '">' + r.title + badge + '</a>' +
+        '<span class="nav-date">' + r.date + '</span></li>';
+    }
+    ul.innerHTML = html;
+    var label = document.querySelector('.nav-label');
+    if (label) label.textContent = '\uD83D\uDCC2 历史报告 (' + reports.length + '份)';
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderNav);
+  } else {
+    renderNav();
+  }
+})();
+</script>
+
+</body>
+</html>
